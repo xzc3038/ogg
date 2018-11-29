@@ -1,0 +1,36 @@
+{template 'header'}
+<link href="./resource/css/app.css" rel="stylesheet">
+<ul class="nav nav-tabs">
+    <li><a href="{php echo $this->createWebUrl("member");}">用户列表</a></li>
+    <li class="active"><a href="javascript:;">导入机器人数据</a></li>
+</ul>
+
+<div class="main">
+    <form class="form-horizontal" action="" role="form" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="token" value="{$_W['token']}" />
+        <input type="hidden" name="cid" value="{$row['id']}" />
+        
+
+      <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">上传模板</label>
+            <div class="col-sm-6">
+            <a href="{MODULE_URL}template/upFile/cj_member.xls"  class="form-control" >【点我下载机器人数据】</a> 请保证目录 {$savePath} 有777权限
+            </div>
+      </div>      
+      <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">上传文件</label>
+            <div class="col-sm-4">
+            <input type="file" name="file_import"  class="form-control" />
+            
+            </div>
+      </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-primary" name="save_info" value="保存">
+                <span class="help-block">数据较多，点一次 保存 提交即可，保存后请耐心等待一会</span>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="0.6">
+	<application setting="false">
+		<name><![CDATA[最新抽奖助手]]></name>
+		<identifie><![CDATA[hu_couda]]></identifie>
+		<version><![CDATA[5.2.5]]></version>
+		<type><![CDATA[other]]></type>
+		<ability><![CDATA[抽奖助手卡券]]></ability>
+		<description><![CDATA[抽奖助手]]></description>
+		<author><![CDATA[趣味淘QQ：3086811716]]></author>
+		<url><![CDATA[https://wx.hzweb.top]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports><item type="wxapp" /></supports>
+		<plugin-main name="0" />
+	</platform>
+	<bindings>
+		<menu>
+			<entry title="首页推荐" do="recommend" state="" direct="false" />
+			<entry title="卡券管理" do="goods" state="" direct="false" />
+			<entry title="店铺管理" do="shop" state="" direct="false" />
+			<entry title="群发消息" do="tpl" state="" direct="false" />
+			<entry title="用户列表" do="member" state="" direct="false" />
+			<entry title="更多小程序" do="xcx" state="" direct="false" />
+			<entry title="常见问题" do="question" state="" direct="false" />
+			<entry title="添加奖品" do="add" state="" direct="false" />
+			<entry title="奖品管理" do="index" state="" direct="false" />
+			<entry title="基本设置" do="config" state="" direct="false" />
+			<entry title="开通多开" do="openMore" state="" direct="false" />
+			<entry title="抽奖管理" do="statistics1" state="" direct="false" />
+			<entry title="提现记录" do="mlog" state="" direct="false" />
+			<entry title="广告管理" do="ad_mng" state="" direct="false" />
+		</menu>
+		<page>
+			<entry title="首页" do="/pages/index/index" state="" direct="false" />
+		</page>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[CREATE TABLE IF NOT EXISTS `ims_cj_ad` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `ad_type` int(1) NOT NULL,
+  `a_unit_id` varchar(100) NOT NULL,
+  `d_pic` varchar(128) NOT NULL,
+  `d_appid` varchar(32) NOT NULL,
+  `d_page` varchar(32) NOT NULL,
+  `d_para` varchar(32) NOT NULL,
+  `show_place` varchar(32) NOT NULL,
+  `begin_time` int(11) NOT NULL,
+  `end_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_address`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_address` (
+  `address_id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `phone` varchar(30) NOT NULL,
+  `address` text NOT NULL,
+  `addtime` int(11) NOT NULL,
+  PRIMARY KEY (`address_id`),
+  KEY `member_id` (`member_id`,`addtime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收货地址' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_appoint`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_appoint` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `prize_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `ranking` char(3) NOT NULL,
+  `created` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='指定中奖人' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_common_problem`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_common_problem` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL COMMENT '问题标题',
+  `describe` varchar(1000) NOT NULL COMMENT '问题描述',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:显示 2:不显示',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='常见问题' AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_config`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(50) NOT NULL,
+  `value` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `key` (`key`) USING BTREE
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_form_id`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_form_id` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL COMMENT '用户id',
+  `form_id` varchar(50) NOT NULL,
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `member_id` (`member_id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_goods`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `goods_name` varchar(255) NOT NULL,
+  `goods_img` varchar(255) NOT NULL,
+  `shop_id` int(11) NOT NULL,
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `shop_id` (`shop_id`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_group_join`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_group_join` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prize_id` int(11) NOT NULL COMMENT '抽奖id',
+  `member_id` int(11) NOT NULL COMMENT '组队创建者id',
+  `number` int(11) NOT NULL DEFAULT '3' COMMENT '允许组队人数',
+  `apply_num` int(11) NOT NULL DEFAULT '0' COMMENT '已加入该团人数',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `member_id` (`member_id`) USING BTREE,
+  KEY `prize_id` (`prize_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_home_recommend`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_home_recommend` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `contact` varchar(500) NOT NULL,
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_jump_program`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_jump_program` (
+  `jump_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `prize_id` int(10) unsigned NOT NULL,
+  `app_name` varchar(30) NOT NULL,
+  `appid` varchar(30) NOT NULL,
+  `path` varchar(150) NOT NULL,
+  `extraData` text COMMENT 'json格式字符串',
+  PRIMARY KEY (`jump_id`),
+  KEY `prize_id` (`prize_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='抽奖跳转到小程序 信息' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_member`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_member` (
+  `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
+  `openid` varchar(50) NOT NULL COMMENT '用户唯一标识',
+  `form_id` varchar(50) NOT NULL,
+  `effective_time` int(11) NOT NULL COMMENT 'form_id有效时间',
+  `nickname` varchar(50) NOT NULL COMMENT '用户昵称',
+  `user_img` varchar(200) NOT NULL COMMENT '用户头像路径',
+  `gender` tinyint(1) NOT NULL COMMENT '用户性别 0：未知  1：男  2：女',
+  `province` varchar(50) NOT NULL COMMENT '省份',
+  `city` varchar(50) NOT NULL COMMENT '城市',
+  `country` varchar(50) NOT NULL COMMENT '国家',
+  `money` decimal(10,2) NOT NULL COMMENT '账户余额',
+  `frozen_money` decimal(10,2) NOT NULL COMMENT '冻结资金',
+  `add_time` int(11) NOT NULL COMMENT '用户注册时间',
+  `set_time` int(12) NOT NULL COMMENT '用户登录时间',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `is_robot` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0用户1机器人',
+  `is_release` tinyint(4) NOT NULL DEFAULT '1',
+  `shop_id` int(11) NOT NULL DEFAULT '0',
+  `blacklist` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='用户信息' AUTO_INCREMENT=5 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_member_voucher`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_member_voucher` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `voucher` char(18) NOT NULL,
+  `write_off_id` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0未核销1已核销',
+  `shop_id` int(11) NOT NULL,
+  `goods_id` int(11) NOT NULL,
+  `order_id` char(20) NOT NULL,
+  `write_off_time` int(11) NOT NULL COMMENT '核销时间',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `member_id` (`member_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_money_log`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_money_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL COMMENT '用户id',
+  `money` decimal(10,2) NOT NULL COMMENT '变动金额',
+  `type` tinyint(4) NOT NULL COMMENT '1:充值 2:提现 3:冻结 4:解冻 5:发红包 6:领取红包 7:红包退回 8:手续费',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `member_id` (`member_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_order`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_order` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_sn` varchar(20) NOT NULL COMMENT '订单编号',
+  `prize_id` int(11) NOT NULL,
+  `group_join_id` int(11) NOT NULL DEFAULT '0',
+  `member_id` int(11) NOT NULL,
+  `is_prize` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否中奖0:未中奖1:中奖',
+  `code_num` int(11) NOT NULL DEFAULT '0',
+  `addtime` int(11) NOT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `redpackage_id` (`prize_id`),
+  KEY `member_id` (`member_id`),
+  KEY `addtime` (`addtime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_pay_order`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_pay_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `trade_no` char(50) NOT NULL,
+  `transaction_id` char(32) NOT NULL,
+  `pay_time` int(11) NOT NULL COMMENT '支付成功时间',
+  `money` decimal(10,2) NOT NULL COMMENT '充值金额',
+  `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:发红包',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:未支付 2:已支付',
+  `crested` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_pre_prize`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_pre_prize` (
+  `prize_id` int(11) NOT NULL AUTO_INCREMENT,
+  `in_task` int(1) NOT NULL,
+  `uname` varchar(200) NOT NULL DEFAULT '',
+  `type` tinyint(4) NOT NULL DEFAULT '1',
+  `desc_type` tinyint(4) NOT NULL DEFAULT '1',
+  `title` varchar(50) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `opentime` int(11) NOT NULL DEFAULT '0',
+  `fir_cname` varchar(255) NOT NULL,
+  `in_task_time` int(11) NOT NULL DEFAULT '0',
+  `fir_val` varchar(200) NOT NULL DEFAULT '' COMMENT '根据fir_ptype、ptype 一等奖值 实物 表示奖品名称 奖金代表金额 虚拟商品代表分比例',
+  `fir_ptype` tinyint(1) NOT NULL DEFAULT '0' COMMENT '一等奖类型 0实物 1现金',
+  `fir_num` int(11) NOT NULL DEFAULT '0' COMMENT '一等奖人数',
+  `sec_cname` varchar(255) NOT NULL,
+  `sec_val` varchar(200) NOT NULL DEFAULT '',
+  `sec_ptype` tinyint(1) NOT NULL DEFAULT '0',
+  `sec_num` int(11) NOT NULL DEFAULT '0',
+  `trd_cname` varchar(255) NOT NULL,
+  `trd_val` varchar(200) NOT NULL DEFAULT '',
+  `trd_ptype` tinyint(1) NOT NULL DEFAULT '0',
+  `trd_num` int(11) NOT NULL DEFAULT '0',
+  `max_group_num` int(11) NOT NULL,
+  `attach_id` int(25) NOT NULL DEFAULT '0',
+  `path` varchar(150) DEFAULT '',
+  `appid` varchar(30) NOT NULL DEFAULT '',
+  `app_name` varchar(30) NOT NULL DEFAULT '',
+  `wechat_no` varchar(30) NOT NULL DEFAULT '',
+  `wechat_title` varchar(255) NOT NULL,
+  `extraData` text NOT NULL,
+  `appoint_id` varchar(1000) DEFAULT '' COMMENT '指定人id,json格式',
+  `is_image` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0不用上传图片1需要上传图片',
+  `addtime` int(11) NOT NULL,
+  `brief_description` varchar(255) DEFAULT NULL,
+  `copy_type` tinyint(4) NOT NULL DEFAULT '1',
+  `is_command` tinyint(4) DEFAULT '0' COMMENT '0不是口令抽奖1是口令抽奖',
+  `command` varchar(255) DEFAULT NULL,
+  `is_robot` int(1) NOT NULL,
+  `is_robot_max` int(4) NOT NULL DEFAULT '0' COMMENT '机器人最多数量',
+  `page_order` int(10) NOT NULL,
+  `default_shop_id` int(10) NOT NULL,
+  PRIMARY KEY (`prize_id`),
+  KEY `fir_ptype` (`fir_ptype`),
+  KEY `sec_ptype` (`sec_ptype`),
+  KEY `trd_ptype` (`trd_ptype`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_prize`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_prize` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL COMMENT '标题',
+  `member_id` int(11) DEFAULT '0',
+  `uname` varchar(255) DEFAULT NULL COMMENT '赞助商',
+  `wechat_no` varchar(100) DEFAULT NULL COMMENT '付款复制的公众号',
+  `wechat_title` varchar(255) DEFAULT NULL,
+  `typevalue` int(11) DEFAULT '0' COMMENT '开奖方式 people 人数开奖 time时间开奖 manual 手动开奖',
+  `max_group_num` tinyint(4) DEFAULT '0' COMMENT '0不组团',
+  `desc_type` tinyint(4) DEFAULT '0' COMMENT '详细说明类型0:文字1:图片',
+  `desc_text` text COMMENT '详细描述',
+  `type` tinyint(1) DEFAULT '1' COMMENT '1:时间,2人数,3手动',
+  `attach_id` int(11) DEFAULT NULL,
+  `fir_cname` varchar(255) DEFAULT NULL COMMENT '虚拟商品名称',
+  `fir_ptype` tinyint(1) DEFAULT '1' COMMENT '0:实物2:虚拟',
+  `fir_num` int(11) DEFAULT NULL,
+  `fir_val` varchar(2000) DEFAULT NULL COMMENT '根据fir_ptype、ptype 一等奖值 实物 表示奖品名称 奖金代表金额 虚拟商品存入json格式',
+  `fir_cardid` int(11) DEFAULT '0',
+  `sec_cname` varchar(255) DEFAULT NULL,
+  `sec_ptype` tinyint(1) DEFAULT '1' COMMENT '1实物2现金',
+  `sec_num` int(11) DEFAULT NULL,
+  `sec_val` varchar(2000) DEFAULT NULL,
+  `sec_cardid` int(11) DEFAULT '0',
+  `trd_cname` varchar(255) DEFAULT NULL,
+  `trd_ptype` tinyint(1) DEFAULT NULL,
+  `trd_num` int(11) DEFAULT NULL,
+  `trd_val` varchar(2000) DEFAULT NULL,
+  `trd_cardid` int(11) DEFAULT '0',
+  `status` tinyint(4) DEFAULT '0' COMMENT '0进行中,1已结束',
+  `is_cancel` tinyint(4) DEFAULT '0' COMMENT '0未取消,1已取消',
+  `is_global` tinyint(4) DEFAULT '1' COMMENT '0公共抽奖1用户发布',
+  `apply_num` int(11) DEFAULT '0' COMMENT '参与人数',
+  `description` text,
+  `created` int(11) DEFAULT NULL,
+  `open_time` int(11) DEFAULT '0' COMMENT '开奖时间',
+  `brief_description` varchar(255) DEFAULT NULL,
+  `is_share` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0允许分享,1不允许分享',
+  `is_command` tinyint(4) DEFAULT '0' COMMENT '0不是口令抽奖1是口令抽奖',
+  `command` varchar(255) DEFAULT NULL,
+  `is_robot` int(1) NOT NULL,
+  `is_robot_max` int(4) NOT NULL DEFAULT '0' COMMENT '机器人最多数量',
+  `page_order` int(10) NOT NULL,
+  `default_shop_id` int(10) NOT NULL,
+  `recommend_id` int(10) NOT NULL,
+  `to_allfans_flag` int(1) NOT NULL,
+  `chk_flag` int(1) NOT NULL,
+  `tpl_flag_begin` varchar(8) NOT NULL,
+  `tpl_flag_open` varchar(8) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_prize_code`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_prize_code` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `prize_id` int(11) NOT NULL,
+  `be_invited_id` int(11) NOT NULL,
+  `code` char(20) NOT NULL,
+  `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:抽奖或者2:召集好友获得',
+  `is_prize` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0:未中奖1:已中奖',
+  `source` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:普通用户2:机器人',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prize_id` (`prize_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_prize_result`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_prize_result` (
+  `result_id` int(11) NOT NULL AUTO_INCREMENT,
+  `prize_id` int(11) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `type` char(3) NOT NULL COMMENT '中奖类型 fir sec trd',
+  `ptype` int(255) NOT NULL COMMENT '0:实物1:红包2:虚拟',
+  `cardnum` varchar(100) NOT NULL COMMENT '虚拟中奖卡号',
+  `cardpass` varchar(100) NOT NULL COMMENT '虚拟中奖密码',
+  `pvalue` varchar(255) NOT NULL COMMENT '实物中奖名称',
+  `code` varchar(20) NOT NULL,
+  `is_write_off` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0未核销.1:已核销',
+  `addtime` int(11) NOT NULL,
+  PRIMARY KEY (`result_id`),
+  KEY `prize_id` (`prize_id`,`member_id`,`addtime`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='开奖结果' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_program`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_program` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `appid` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_red_bag`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_red_bag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `prize_id` int(11) NOT NULL COMMENT '奖品id',
+  `red_bag_money` decimal(10,2) NOT NULL COMMENT '红包金额',
+  `receive_member_id` int(11) NOT NULL COMMENT '领取用户id',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:未领取 2:已领取 3:已退回',
+  `receive_time` int(11) NOT NULL COMMENT '领取时间',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `prize_id` (`prize_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_resource`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_resource` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL DEFAULT '0' COMMENT '上传者',
+  `route` varchar(255) NOT NULL COMMENT '路径',
+  `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:图片',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_shop`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_shop` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `shop_name` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `is_del` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0未删除1已经删除',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_template_message`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_template_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:开奖通知',
+  `relation_id` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0:未发送,1:已发送',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_token`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_token` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `token` char(32) NOT NULL,
+  `member_id` int(11) NOT NULL,
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_voucher`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_voucher` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `voucher` char(18) NOT NULL,
+  `goods_id` int(11) NOT NULL,
+  `shop_id` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0未使用1已使用3已核销',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ims_cj_withdrawals`
+--
+
+CREATE TABLE IF NOT EXISTS `ims_cj_withdrawals` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `member_id` int(11) NOT NULL,
+  `money` decimal(10,2) NOT NULL COMMENT '提现金额',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1:申请成功 2:提现才成功 3:提现失败',
+  `success_time` int(11) NOT NULL COMMENT '提现成功时间',
+  `created` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT AUTO_INCREMENT=1 ;
+
+
+]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>
