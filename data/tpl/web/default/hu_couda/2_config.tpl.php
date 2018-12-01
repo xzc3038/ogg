@@ -3,7 +3,7 @@
 <link href="../addons/<?php  echo $_GPC['m'];?>/template/css/webuploader.css" rel="stylesheet">
 <script type="application/javascript" src="../addons/<?php  echo $_GPC['m'];?>/template/js/webuploader.min.js"></script>
 
-<script type="text/javascript" src="./resource/js/require.js?v=20170426"></script>  
+<script type="text/javascript" src="./resource/js/require.js?v=20170426"></script>
 <script>
 require(['bootstrap.switch', 'util'], function($, u){
 	$(function(){
@@ -27,14 +27,14 @@ require(['bootstrap.switch', 'util'], function($, u){
     </div>
 
     <div class="tab-content">
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
-                    <div class="" >
-                        <input type="hidden" name="op" value="add">
-                        <input type="hidden" id="attach_id" name="attach_id" value="">
-                        <input type="submit" name="submit" id="submit" value="保存" class="btn btn-primary">
-                    </div>
-                </div>
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+            <div class="" >
+                <input type="hidden" name="op" value="add">
+                <input type="hidden" id="attach_id" name="attach_id" value="">
+                <input type="submit" name="submit" id="submit" value="保存" class="btn btn-primary">
+            </div>
+        </div>
     </div>    
 
   </form>
@@ -64,9 +64,9 @@ $(function () {
                 $('#span_robot_m_percent').show();
                 $('#span_robot_m_percent2').show();
             }
-        });        
-        
-        
+        });
+
+
         var adv = "<?php  echo $advertisement_type['value'];?>";
         if (adv == 1) {
             var uploader = new WebUploader.Uploader({
@@ -100,7 +100,7 @@ $(function () {
             console.log(data);
             $('#adv-img1').attr('src', '<?php  echo $image;?>&id=' + data.info);
         });
-        
+
         var uploader2 = new WebUploader.Uploader({
             auto : true,
             server : '<?php  echo $upload;?>',
@@ -112,7 +112,7 @@ $(function () {
             $('#single-image2').val(data.info);
             $('#adv-img2').attr('src', '<?php  echo $image;?>&id=' + data.info);
         });
-        
+
         $('#advertisement_type').change(function () {
             if (adv == 0) {
                 var uploader = new WebUploader.Uploader({

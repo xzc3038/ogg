@@ -1,0 +1,68 @@
+{template 'header'}
+<link href="./resource/css/app.css" rel="stylesheet">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="javascript:;">兑换商品管理</a></li>
+    <li class=""><a href="{php echo $this->createWeburl('good', array('op' => 'add'));}">添加兑换商品</a></li>
+</ul>
+<div class="panel panel-default">
+    <div class="table-responsive panel-body">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+            <tr>
+                <th style="width:60px;">序号</th>
+                <th style="width:80px;">商品名称</th>
+                <th style="width:80px;">商品实际价格(￥)</th>
+                <th style="width:80px;">所需积分</th>
+                <th style="width:80px;">库存/总库存</th>
+                <th style="width:80px;">兑换说明</th>
+                <th style="width:80px;">图片</th>
+                <th style="width:80px;">商品类型</th>
+                <th style="width:80px;">是否包邮</th>
+                <th style="width:80px;">邮费(￥)</th>
+                <th style="width:80px;">添加时间</th>
+                <th style="width:100px;">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $list $item}
+            <tr>
+                <td>{$item['id']}</td>
+                <td>{$item['gname']}</td>
+                <td>{$item['price']}</td>
+                <td>{$item['integral']}</td>
+                <td>{$item['nstock']}/{$item['astock']}</td>
+                <td>{$item['explain']}</td>
+                <td><img src="{$item['img1']}" style="width: 50px;"></td>
+                <td>{if $item['type'] == '0'}未知 {/if}{if $item['type'] == '1'}虚拟商品 {/if}{if $item['type'] == '2'}实物 {/if}</td>
+                <td>{if $item['express'] == 0}未知{/if}{if $item['express'] == 1}包邮{/if}{if $item['express'] == 2}不包邮{/if}</td>
+                <td>{$item['cost']}</td>
+                <td>{php echo date('Y-m-d',$item['addtime']);}</td>
+                <td><a id="{$item['id']}" class="delete">删除</a></td>
+            </tr>
+            {/loop}
+            </tbody>
+        </table>
+    </div>
+    {$pager}
+</div>
+<script type="application/javascript">
+    $(function () {
+        $('.delete').click(function () {
+
+            if (!confirm('确认要删除?')) {
+                return false;
+            }
+
+            id = $(this).attr('id');
+            $.post('', {id:id, op:'delete'}, function (data) {
+                if (data.status == 1) {
+                    location.href = location.href;
+                } else {
+                    alert('删除失败');
+                }
+
+            }, 'json')
+        });
+    });
+
+</script>

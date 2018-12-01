@@ -392,7 +392,7 @@
             $val = $("#"+id+"_ptype_voucher option:selected").text();
             $('#' + id + '_val').val($val);
         });
-        
+
         $("#type-select").change(function () {
           //  console.log($(this).val());
 
@@ -421,14 +421,14 @@
                 }
             }, 'json');
         });
-        
+
         $('#is_robot').click(function () {
             if ($(this).val() == '1') {
                  $('#is_robot_max').show();
             } else {
                 $('#is_robot_max').hide();
             }
-        });        
+        });
 
     });
 </script>

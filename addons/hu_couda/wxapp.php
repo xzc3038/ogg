@@ -1248,6 +1248,16 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 			if ($prize["type"] == 2 && $prize["typevalue"] - 1 <= $prize["apply_num"]) {
 				$p->open($id);
 			}
+//            $res = "SELECT type,typevalue FROM {$cj_prize} WHERE id={$id}";
+//			if($res){
+			    if ($prize['type'] == 1){
+			        $code = '开奖时间为' . date("Y-m-d H:i",$prize['typevalue']);
+                }else if ($prize['type'] == 2){
+			        $code = '当抽奖人数达到' . $prize['typevalue'] . '人时，将自动开奖';
+                }else if ($prize['type'] == 3){
+			        $code = '该抽奖由抽奖发起人手动开奖';
+                }
+//            }
 			json($code);
 		} catch (Exception $e) {
 			$error = $e->getMessage();
@@ -1607,6 +1617,51 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		}
 		return !empty($this->w["setting"]["remote"]["type"]) && $is_oss == 0;
 	}
+
+    /**
+     * 幸运币中心
+     */
+	public function doPageLuck(){
+        $sql = "SELECT * FROM " . tablename(prefix_table("cj_member_goods")) . "WHERE isdelete=0";
+        $goodsList = pdo_fetchall($sql);
+        $data = [];
+        $data['integral'] = $this->member['integral'];
+        $data['goodsList'] = $goodsList;
+        json($data);
+    }
+
+    /**
+     * 兑换商品
+     */
+    public function doPageGood(){
+        $gid = $this->get("gid", 1);
+        $sql = "SELECT * FROM " . tablename(prefix_table("cj_member_goods")) . "WHERE id=" . $gid;
+        $good = pdo_fetch($sql);
+        json($good);
+    }
+    /**
+     * 任务中心
+     */
+    public function doPageProgram(){
+        $mid = $this->member['id'];
+        $sql = "SELECT pid FROM " . tablename(prefix_table("cj_member_integral")) . "WHERE mid=" . $mid . "and type=1";
+        $pidList = pdo_fetchall($sql);
+        $pidStr = '';
+        if ($pidList){
+            foreach ($pidList as $key=>$val){
+                if ($key == 0){
+                    $pidStr = $val;
+                }else{
+                    $pidStr .= $val . ",";
+                }
+            }
+        }else {
+            $pidStr = '0';
+        }
+        $sql1 = "SELECT * FROM " . tablename(prefix_table("cj_member_program")) . "WHERE id not in(" . $pidStr . ")";
+        $programList = pdo_fetchall($sql1);
+        json($programList);
+    }
 }
 function json($info, $status = 1)
 {

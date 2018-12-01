@@ -1353,6 +1353,93 @@ class hu_coudaModuleSite extends WeModuleSite
 		global $_GPC;
 		return isset($_GPC[$key]) ? $_GPC[$key] : $default;
 	}
+
+	/**
+     * 兑换管理
+     */
+	public function doWebGood(){
+        global $_GPC, $_W;
+        $op = $this->get('op');
+        $table = prefix_table('cj_member_goods');
+	    if ($op == 'delete'){
+	        $id = $this->get('id');
+            pdo_update($table, ['isdelete'=>1], ["id" => $id]);
+            json(1);
+        }else if ($op == 'add'){
+            if ($_W['ispost']){
+                $imgId = $this->get('img1');
+                $imgSrc = pdo_get(prefix_table("cj_resource"),['id'=>$imgId]);
+                $img1 = 'http://www.ogg.com/attachment' . $imgSrc['route'];
+                $gname = $this->get('gname');
+                $price = $this->get('price');
+                $integral = $this->get('integral');
+                $astock = $this->get('astock');
+                $nstock = $this->get('nstock');
+                $explain = $this->get('explain');
+                $type = $this->get('type');
+                $express = $this->get('express');
+                $cost = $this->get('cost');
+                $isdelete = 0;
+                $insert = ["gname" => $gname, "price" => $price, "integral" => $integral, "astock" => $astock, "nstock" => $nstock, "explain" => $explain, "type" => $type, "express" => $express, "cost" => $cost, "isdelete" => $isdelete, 'addtime'=>time(), 'updatetime'=>time(), 'img1'=> $img1];
+                pdo_insert($table, $insert);
+                message('添加成功', $this->createWebUrl('good'));
+            }
+            $upload = $_W['siteroot'] . "web/index.php?c=site&a=entry&do=upload&m=hu_couda";
+            $image = $_W['siteroot'] . "web/index.php?c=site&a=entry&do=image&m=hu_couda";
+            include $this->template('add_good');
+        }else{
+            $pindex = max(1, intval($this->get('page')));
+            $psize = 10;
+            $list = pdo_fetchall('SELECT * FROM ' . tablename(prefix_table('cj_member_goods')) . "WHERE isdelete=0 " . ' ORDER BY id ASC LIMIT ' . ($pindex - 1) * $psize . ',' . $psize);
+            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename(prefix_table('cj_member_goods')) . "WHERE isdelete=0");
+            $pager = pagination($total, $pindex, $psize);
+            include $this->template('good');
+        }
+
+    }
+    public function doWebupload(){
+        if ($this->get("jietu")) {
+            $_FILES["file"]["name"] = $_FILES["file"]["name"] . ".png";
+        }
+        if (!isset($_FILES["file"])) {
+            json("请上传图片", 0);
+        }
+        load()->func("file");
+        $reslut = file_upload($_FILES["file"]);
+        if (isset($reslut["errno"])) {
+            json($reslut["message"], 0);
+        }
+        $pic = "/" . $reslut["path"];
+        if ($this->_is_oss()) {
+            $remotestatus = file_remote_upload($reslut["path"]);
+            if (is_error($remotestatus)) {
+                json("远程附件上传失败", 0);
+            }
+        }
+        $data = ["member_id" => $this->member["id"], "route" => $pic, "created" => time()];
+        if (!pdo_insert(prefix_table("cj_resource"), $data)) {
+            json("领取失败", 0);
+        }
+        json(pdo_insertid());
+    }
+    public function doWebImage()
+    {
+        $id = $this->get("id");
+        if (!is_numeric($id)) {
+            json("参数错误", 0);
+        }
+        $image = pdo_get(prefix_table("cj_resource"), ["id" => $id]);
+        if (empty($image)) {
+            json("图片不存在", 0);
+        }
+        header("content-type:image/png");
+        if ($this->_is_oss()) {
+            echo file_get_contents($this->w["attachurl"] . $image["route"]);
+        } else {
+            echo file_get_contents(ATTACHMENT_ROOT . $image["route"]);
+        }
+        die;
+    }
 }
 function json($info, $status = 1)
 {
