@@ -1363,8 +1363,10 @@ class hu_coudaModuleSite extends WeModuleSite
         $table = prefix_table('cj_member_goods');
 	    if ($op == 'delete'){
 	        $id = $this->get('id');
-            pdo_update($table, ['isdelete'=>1], ["id" => $id]);
-            json(1);
+	        if (pdo_update($table, ['isdelete'=>1], ["id" => $id])){
+                json(1);
+            }
+            json(2);
         }else if ($op == 'add'){
             if ($_W['ispost']){
                 $imgId = $this->get('img1');
@@ -1373,13 +1375,32 @@ class hu_coudaModuleSite extends WeModuleSite
                 $gname = $this->get('gname');
                 $price = $this->get('price');
                 $integral = $this->get('integral');
-                $astock = $this->get('astock');
-                $nstock = $astock;
                 $explain = $this->get('explain');
                 $type = $this->get('type');
                 $express = $this->get('express');
                 $cost = $this->get('cost');
                 $isdelete = 0;
+                if (!$this->get('astock')){
+                    $astock = $nstock = 0;
+                }else{
+                    $astock = $this->get('astock');
+                    $nstock = $astock;
+                }
+                if (!$gname){
+                    message('名称不能为空');
+                }elseif (!$price){
+                    message('实际价格不能为空');
+                }elseif (!$integral){
+                    message('所需积分不能为空');
+                }elseif (!$explain){
+                    message('描述不能为空');
+                }elseif (!$type){
+                    message('商品类型不能为空');
+                }elseif ($type == 2 && empty($express)){
+                    message('是否包邮不能为空');
+                }elseif ($type == 2 && empty($cost)){
+                    message('邮费不能为空');
+                }
                 $insert = ["gname" => $gname, "price" => $price, "integral" => $integral, "astock" => $astock, "nstock" => $nstock, "explain" => $explain, "type" => $type, "express" => $express, "cost" => $cost, "isdelete" => $isdelete, 'addtime'=>time(), 'updatetime'=>time(), 'img1'=> $img1];
                 pdo_insert($table, $insert);
                 message('添加成功', $this->createWebUrl('good'));
@@ -1395,7 +1416,55 @@ class hu_coudaModuleSite extends WeModuleSite
             $pager = pagination($total, $pindex, $psize);
             include $this->template('good');
         }
-
+    }
+    /**
+     * 添加商品兑换账号
+     */
+    public function doWebAccount(){
+        if ($this->get('op') == 'add'){
+            $gid      = $this->get('gid');
+            $account  = $this->get('account');
+            $password = $this->get('password');
+            $type     = $this->get('type');
+            if (!$gid){
+                message('商品ID不能为空', $this->createWebUrl('good'));
+            }elseif (!$account){
+                message('账号不能为空');
+            }elseif ($type != 0 && $type != 1){
+                message('类型有误');
+            }elseif ($type == 1 && empty($password)){
+                message('该类型密码不能为空');
+            }
+            pdo_begin();
+            if (!pdo_insert(prefix_table('cj_member_account'),array('gid'=>$gid, 'account'=>$account, 'password'=>$password, 'type'=>$type, 'createtime'=>time(), 'updatetime'=>time(), 'is_use'=>0))){
+                message('帐户添加失败');
+            }
+            $good = $list = pdo_fetch('SELECT * FROM ' . tablename(prefix_table('cj_member_goods')) . "WHERE id=" . $gid);
+            $astock = $good['astock'] + 1;
+            $nstock = $good['nstock'] + 1;
+            if (!pdo_update(prefix_table('cj_member_goods'),array('astock'=>$astock, 'nstock'=>$nstock, 'updatetime'=>time()),['id'=>$gid])){
+                message('库存更新失败');
+            }
+            pdo_commit();
+            message('添加成功！');
+        }elseif ($this->get('op') == 'list'){
+            if ($this->get('opp') == 'delete'){
+                $id = $this->get('id');
+                if (pdo_delete(prefix_table('cj_member_account'), ["id" => $id])){
+                    json(1);
+                }
+                json(2);
+            }
+            $pindex = max(1, intval($this->get('page')));
+            $psize = 10;
+            $list = pdo_fetchall('SELECT ma.*, mg.gname FROM ' . tablename(prefix_table('cj_member_account')) . ' ma left join '  . tablename(prefix_table('cj_member_goods')) . 'mg on ma.gid=mg.id' . ' ORDER BY id DESC LIMIT ' . ($pindex - 1) * $psize . ',' . $psize);
+            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename(prefix_table('cj_member_account')));
+            $pager = pagination($total, $pindex, $psize);
+            include $this->template('account_list');
+        }else{
+            $gid = $this->get('gid');
+            include $this->template('add_account');
+        }
     }
     /**
      * 兑换记录

@@ -20,6 +20,7 @@
                 <th style="width:80px;">是否包邮</th>
                 <th style="width:80px;">邮费(￥)</th>
                 <th style="width:80px;">添加时间</th>
+                <th style="width:80px;">更新时间</th>
                 <th style="width:100px;">操作</th>
             </tr>
             </thead>
@@ -37,7 +38,8 @@
                 <td>{if $item['express'] == 0}未知{/if}{if $item['express'] == 1}包邮{/if}{if $item['express'] == 2}不包邮{/if}</td>
                 <td>{$item['cost']}</td>
                 <td>{php echo date('Y-m-d',$item['addtime']);}</td>
-                <td><a id="{$item['id']}" class="delete">删除</a></td>
+                <td>{php echo date('Y-m-d',$item['updatetime']);}</td>
+                <td><a id="{$item['id']}" class="delete">删除</a>{if $item['type'] == 1}<a href="{php echo $this->createWeburl('account', array('gid' => $item['id']));}">&nbsp;|&nbsp;添加账号</a><a href="{php echo $this->createWeburl('account', array('gid' => $item['id'], 'op'=>'list'));}">&nbsp;|&nbsp;查看账号</a>{/if}</td>
             </tr>
             {/loop}
             </tbody>

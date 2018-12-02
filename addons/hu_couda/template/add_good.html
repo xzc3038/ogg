@@ -31,11 +31,24 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">商品类型:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" type="text" name="type" list="car" id="type">
+                        <datalist id="car">
+                            <option value="1">虚拟商品</option>
+                            <option value="2">实物</option>
+                        </datalist>
+                        <span style="color: red;display: none;" id="notice">虚拟商品账号需增添完商品后前往【兑换管理-添加账号】中添加</span>
+                    </div>
+                </div>
+
+                <div class="form-group" id="stock" style="display: none;">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">总库存:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <input class="form-control" type="number" min="0" step="1" name="astock">
                     </div>
                 </div>
+                
 
                 <!--<div class="form-group">-->
                     <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">现库存:</label>-->
@@ -64,18 +77,8 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">商品类型:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="text" name="type" list="car">
-                        <datalist id="car">
-                            <option value="1">虚拟商品</option>
-                            <option value="2">实物</option>
-                        </datalist>
-                    </div>
-                </div>
 
-                <div class="form-group">
+                <div class="form-group shiwu" style="display: none">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否包邮:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <input class="form-control" type="text" name="express" list="car1">
@@ -86,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group shiwu" style="display: none">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">邮费:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <input class="form-control" type="number" min="0" step="0.01" name="cost">
@@ -189,6 +192,18 @@
                 $('#advertisement-0').hide();
             }
             $('#advertisement-' + val).show();
+        });
+
+        $('#type').change(function () {
+            if ($('#type').val() == 1) {
+                $('#notice').css('display','');
+                $('#stock').css('display','none');
+                $('.shiwu').css('display','none');
+            }else{
+                $('#notice').css('display','none');
+                $('#stock').css('display','');
+                $('.shiwu').css('display','');
+            }
         });
 
     });
