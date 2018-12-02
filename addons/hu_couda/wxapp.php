@@ -1631,13 +1631,80 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
     }
 
     /**
-     * 兑换商品
+     * 兑换商品详情
      */
     public function doPageGood(){
-        $gid = $this->get("gid", 1);
+        $gid = $this->get("gid");
         $sql = "SELECT * FROM " . tablename(prefix_table("cj_member_goods")) . "WHERE id=" . $gid;
         $good = pdo_fetch($sql);
         json($good);
+    }
+    /**
+     * 兑换商品
+     */
+    public  function doPageChange(){
+        $gid = $this->get("gid");
+        $mid = $this->member['id'];
+        $account = '';
+        $password = '';
+        $data = [];
+        $sql = "SELECT * FROM " . tablename(prefix_table("cj_member_goods")) . "WHERE id=" . $gid;
+        $good = pdo_fetch($sql);
+        $sql1 = "SELECT integral FROM " . tablename(prefix_table("cj_member")) . "WHERE id=" . $mid;
+        $member = pdo_fetch($sql1);
+        if ($good['integral'] > $member['integral']){
+            $data['status'] = 0;//积分不够
+            $data['cha'] = $good['integral'] - $member['integral'];
+        }else{
+            if ($good['nstock'] <= 0){
+                $data['status'] = 1;//库存不足
+            }else{
+                $memberNow = $member['integral'] - $good['integral'];
+                $nstockNow = $good['nstock']-1;
+                $statusIn = $good['type'] == 1?3:1;
+                pdo_begin();
+                if (!pdo_update(prefix_table('cj_member'), array("integral" => $memberNow), ["id" => $mid])){
+                    $data['status'] = '2';//积分更新错误
+                    json($data);
+                }
+                if (!pdo_update(prefix_table('cj_member_goods'), array("nstock" => $nstockNow), ["id" => $gid])){
+                    $data['status'] = '3';//库存更新错误
+                    json($data);
+                }
+                //虚拟商品
+                if ($good['type'] == 1){
+                    $sql = "SELECT * FROM " . tablename(prefix_table("cj_member_account")) . "WHERE is_use=0";
+                    $account = pdo_fetch($sql);
+                    if (!$account){
+                        $data['status'] = '6';//奖品获取失败
+                        json($data);
+                    }
+                    if (!pdo_update(prefix_table('cj_member_account'),array('is_use'=>1),['id'=>$account['id']])){
+                        $data['status'] = '7';//更新奖品获取
+                        json($data);
+                    }
+                    if (!pdo_insert(prefix_table('cj_member_integral'), array('mid'=>$mid, 'point'=>$good['integral'], 'npoint'=>$memberNow, 'addtime'=>time(),'updatetime'=>time(), 'position'=>'用于兑换'.$good['gname'], 'type'=>2, 'gid'=>$gid, 'status'=>$statusIn, 'aid'=>$account['id']))){
+                        $data['status'] = '4';//历史更新错误
+                        json($data);
+                    }
+                    //带密码
+                    if ($account['type'] == 1){
+                        $data['password'] = $account['password'];
+                    }
+                    $data['account'] = $account['account'];
+                    //带不带密码，0不带1带
+                    $data['atype'] = intval($account['type']);
+                    //商品类型1虚拟2实物
+                    $data['gtype'] = intval($good['type']);
+                    $data['stock'] = $nstockNow;
+                }else{
+
+                }
+                pdo_commit();
+                $data['status'] = '5';//成功
+            }
+        }
+        json($data);
     }
     /**
      * 任务中心

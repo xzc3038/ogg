@@ -143,8 +143,10 @@ function module_entries($name, $types = array(), $rid = 0, $args = null) {
 			if (!defined('SYSTEM_WELCOME_MODULE') && $bind['entry'] == 'system_welcome') {
 				continue;
 			}
+
 			$entries[$bind['entry']][] = array('eid' => $bind['eid'], 'title' => $bind['title'], 'do' => $bind['do'], 'url' => $url, 'from' => 'define', 'icon' => $bind['icon'], 'displayorder' => $bind['displayorder'], 'direct' => $bind['direct']);
 		}
+
 	}
 	return $entries;
 }

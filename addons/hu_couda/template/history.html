@@ -1,0 +1,74 @@
+{template 'header'}
+<link href="./resource/css/app.css" rel="stylesheet">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="javascript:;">积分兑换历史</a></li>
+</ul>
+<div class="panel panel-default">
+    <div class="table-responsive panel-body">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+            <tr>
+                <th style="width:60px;">编号</th>
+                <th style="width:60px;">用户</th>
+                <th style="width:60px;">积分状态</th>
+                <th style="width:60px;">此时积分</th>
+                <th style="width:60px;">增减类型</th>
+                <th style="width:80px;">场景说明</th>
+                <th style="width:80px;">小程序名称</th>
+                <th style="width:80px;">兑换商品</th>
+                <th style="width:80px;">商品状态</th>
+                <th style="width:80px;">创建时间</th>
+                <th style="width:80px;">更新时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {loop $list $item}
+            <tr>
+                <td>{$item['id']}</td>
+                <td>{$item['nickname']}</td>
+                <td>{$item['point']}</td>
+                <td>{$item['npoint']}</td>
+                <td>{$item['type']}</td>
+                <td>{$item['position']}</td>
+                <td>{$item['mpname']}</td>
+                <td>{$item['gname']}</td>
+                {if $item['mgtype'] == 2}
+                    <td>
+                        <select name="status" class="status" id="{$item['id']}" size="1" aria-invalid="false" style="width: 150px;">
+                            <option {if $item['status'] == 0}selected = "selected"{/if} value="0">未知</option>
+                            <option {if $item['status'] == 1}selected = "selected"{/if} value="1">已兑换</option>
+                            <option {if $item['status'] == 2}selected = "selected"{/if} value="2">已发货</option>
+                            <option {if $item['status'] == 3}selected = "selected"{/if} value="3">已完成</option>
+                        </select>
+                    </td>
+                {else}
+                    <td>
+                        <select size="1" aria-invalid="false" style="width: 150px;">
+                            <option selected = "selected">已完成</option>
+                        </select>
+                    </td>
+                {/if}
+                <td>{$item['addtime']}</td>
+                <td>{$item['updatetime']}</td>
+            </tr>
+            {/loop}
+            </tbody>
+        </table>
+    </div>
+    {$pager}
+</div>
+
+<script>
+   $(function () {
+       $('.status').change(function () {
+           $.post('', {id:$(this).attr('id'), status: $(this).val(), 'op' : 'update'}, function (data) {
+               if (data.status == 1) {
+                   alert('设置成功');
+               } else {
+                   alert('设置失败');
+               }
+           }, 'json');
+       });
+   })
+</script>
+

@@ -1374,7 +1374,7 @@ class hu_coudaModuleSite extends WeModuleSite
                 $price = $this->get('price');
                 $integral = $this->get('integral');
                 $astock = $this->get('astock');
-                $nstock = $this->get('nstock');
+                $nstock = $astock;
                 $explain = $this->get('explain');
                 $type = $this->get('type');
                 $express = $this->get('express');
@@ -1397,6 +1397,47 @@ class hu_coudaModuleSite extends WeModuleSite
         }
 
     }
+    /**
+     * 兑换记录
+     */
+    public function doWebHistory(){
+        $op = $this->get('op');
+        if ($op == 'update'){
+            $id = $this->get('id');
+            $status = $this->get('status');
+            if (pdo_update(prefix_table('cj_member_integral'), array("status" => $status), ["id" => $id])) {
+                json(1);
+            }
+            json('',0);
+        }
+        $pindex = max(1, intval($this->get('page')));
+        $psize = 10;
+        $list = pdo_fetchall('SELECT mi.*, m.nickname, mg.gname, mg.type as mgtype, mp.name as mpname FROM ' . tablename(prefix_table('cj_member_integral')) . ' mi left join '  . tablename(prefix_table('cj_member')) . 'm on mi.mid=m.id left join ' . tablename(prefix_table('cj_member_goods')) . ' mg on mi.gid=mg.id left join ' . tablename(prefix_table('cj_member_program')) . ' mp on mi.pid=mp.id' . ' ORDER BY id ASC LIMIT ' . ($pindex - 1) * $psize . ',' . $psize);
+        if ($list){
+            foreach ($list as &$val){
+                if($val['type'] == 1 || $val['type'] == 3){
+                    $val['point'] = '+' . $val['point'];
+                    $val['type'] = $val['type'] == 1?'点击小程序增加':'其他增加';
+                }else if ($val['type'] == 2 || $val['type'] == 4){
+                    $val['point'] = '-' . $val['point'];
+                    $val['type'] = $val['type'] == 2?'兑换商品减少':'其他减少';
+                }else{
+                    $val['type'] = '未知';
+                }
+                $val['addtime'] = date('Y-m-d H:i', $val['addtime']);
+                $val['updatetime'] = date('Y-m-d H:i', $val['updatetime']);
+//                $val['status'] = $val['status'] == 0?'未知':$val['status'] == 1?'已兑换':$val['status'] == 2?'已发货':'已完成';
+            }
+        }
+
+        $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename(prefix_table('cj_member_integral')));
+        $pager = pagination($total, $pindex, $psize);
+        include $this->template('history');
+    }
+
+    /**
+     * 图片上传
+     */
     public function doWebupload(){
         if ($this->get("jietu")) {
             $_FILES["file"]["name"] = $_FILES["file"]["name"] . ".png";
