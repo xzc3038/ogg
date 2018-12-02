@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36a7ed7c-f944-4f41-be04-3e00b6902ee0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/addons/hu_couda/template/account_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addons/hu_couda/template/add_account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/template/add_good.html" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/template/add_good.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/template/good.html" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/template/good.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/hu_couda/wxapp.php" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/wxapp.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,20 +13,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wxapp.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wxapp.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="1690" column="47" lean-forward="true" selection-start-line="1690" selection-start-column="47" selection-end-line="1690" selection-end-column="47" />
+            <state relative-caret-position="370">
+              <caret line="1740" column="67" lean-forward="true" selection-start-line="1740" selection-start-column="67" selection-end-line="1740" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="site.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="site.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/site.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="1451" column="39" selection-start-line="1451" selection-start-column="39" selection-end-line="1451" selection-end-column="39" />
+            <state relative-caret-position="-670">
+              <caret line="1446" column="13" lean-forward="true" selection-start-line="1446" selection-start-column="13" selection-end-line="1446" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -143,16 +138,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>doWebadd</find>
-      <find>tpl_form_field_image</find>
       <find>filePicker2</find>
       <find>$upload</find>
       <find>po</find>
       <find>doWebconfig</find>
       <find>insert</find>
       <find>pdo_insert</find>
-      <find>date</find>
-      <find>date(</find>
       <find>configarr</find>
       <find>dowebmember</find>
       <find>dowebadd</find>
@@ -172,7 +163,11 @@
       <find>int</find>
       <find>is_release</find>
       <find>dowebgoods</find>
+      <find>doPageHistory</find>
+      <find>date</find>
+      <find>desc</find>
       <find>pdo_dele</find>
+      <find>date(</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -196,12 +191,12 @@
         <option value="$PROJECT_DIR$/framework/model/module.mod.php" />
         <option value="$PROJECT_DIR$/web/common/common.func.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/history.html" />
-        <option value="$PROJECT_DIR$/addons/hu_couda/wxapp.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/add_good.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/add_account.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/good.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/account_list.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/site.php" />
+        <option value="$PROJECT_DIR$/addons/hu_couda/wxapp.php" />
       </list>
     </option>
   </component>
@@ -316,12 +311,12 @@
       <workItem from="1543460697938" duration="4285000" />
       <workItem from="1543554248657" duration="16014000" />
       <workItem from="1543628315211" duration="29273000" />
-      <workItem from="1543716402606" duration="28528000" />
+      <workItem from="1543716402606" duration="31355000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78100000" />
+    <option name="totallyTimeSpent" value="80927000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -726,13 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="1690" column="47" lean-forward="true" selection-start-line="1690" selection-start-column="47" selection-end-line="1690" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/account_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
@@ -742,8 +730,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/site.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="1451" column="39" selection-start-line="1451" selection-start-column="39" selection-end-line="1451" selection-end-column="39" />
+        <state relative-caret-position="-670">
+          <caret line="1446" column="13" lean-forward="true" selection-start-line="1446" selection-start-column="13" selection-end-line="1446" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="1740" column="67" lean-forward="true" selection-start-line="1740" selection-start-column="67" selection-end-line="1740" selection-end-column="67" />
         </state>
       </provider>
     </entry>

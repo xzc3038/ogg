@@ -1729,6 +1729,25 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
         $programList = pdo_fetchall($sql1);
         json($programList);
     }
+    /**
+     * 幸运记录
+     */
+    public function doPageLuckhistory(){
+        $mid = $this->member['id'];
+        $sql = "SELECT * FROM " . tablename(prefix_table("cj_member_integral")) . "WHERE mid=" . $mid . " ORDER BY addtime DESC";
+        $history = pdo_fetchall($sql);
+        $data = [];
+        foreach ($history as &$val) {
+            $val['addtime'] = date('Y-m-d H:i:s', $val['addtime']);
+        }
+        if($history){
+            $data['total'] = 1;
+        }else {
+            $data['total'] = 0;
+        }
+        $data['history'] = $history;
+        json($data);
+    }
 }
 function json($info, $status = 1)
 {
