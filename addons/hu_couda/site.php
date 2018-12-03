@@ -1371,7 +1371,7 @@ class hu_coudaModuleSite extends WeModuleSite
             if ($_W['ispost']){
                 $imgId = $this->get('img1');
                 $imgSrc = pdo_get(prefix_table("cj_resource"),['id'=>$imgId]);
-                $img1 = 'http://www.ogg.com/attachment' . $imgSrc['route'];
+                $img1 = $_W['siteroot'] .'attachment' . $imgSrc['route'];
                 $gname = $this->get('gname');
                 $price = $this->get('price');
                 $integral = $this->get('integral');
@@ -1502,6 +1502,57 @@ class hu_coudaModuleSite extends WeModuleSite
         $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename(prefix_table('cj_member_integral')));
         $pager = pagination($total, $pindex, $psize);
         include $this->template('history');
+    }
+    /**
+     * 小程序管理
+     */
+    public function doWebProgram(){
+        global $_GPC, $_W;
+        $op = $this->get('op');
+        if ($op == 'add'){
+            $opp = $this->get('opp');
+            if ($opp == 'add'){
+                $imgId    = $this->get('img1');
+                $imgSrc   = pdo_get(prefix_table("cj_resource"),['id'=>$imgId]);
+                $img1     = $_W['siteroot'] .'attachment' . $imgSrc['route'];
+                $appid    = $this->get('appid');
+                $name     = $this->get('name');
+                $describe = $this->get('describe');
+                $integral = $this->get('integral');
+                if (!$appid){
+                    message('appid不能为空');
+                }elseif (!$name){
+                    message('名称不能为空');
+                }elseif (!$describe){
+                    message('描述不能为空');
+                }elseif (!$integral){
+                    message('幸运币不能为空');
+                }elseif (!$img1){
+                    message('头像不能为空');
+                }
+                if (!pdo_insert(prefix_table('cj_member_program'),['appid'=>$appid, 'name'=>$name, 'describe'=>$describe, 'integral'=>$integral, 'avater'=>$img1, 'addtime'=>time(), 'updatetime'=>time(), 'count'=>0, 'isdelete'=>0])){
+                    message('添加失败');
+                }
+                message('添加成功', $this->createWebUrl('program'));
+            }
+            $upload = $_W['siteroot'] . "web/index.php?c=site&a=entry&do=upload&m=hu_couda";
+            $image = $_W['siteroot'] . "web/index.php?c=site&a=entry&do=image&m=hu_couda";
+            include $this->template('add_program');
+        }else if ($op == 'delete'){
+            $id = $this->get('id');
+            if (pdo_update(prefix_table('cj_member_program'),array('isdelete'=>1),['id'=>$id])){
+                json(1);
+            }else{
+                json(0);
+            }
+        }else{
+            $pindex = max(1, intval($this->get('page')));
+            $psize = 10;
+            $list = pdo_fetchall('SELECT * FROM ' . tablename(prefix_table('cj_member_program')) . ' WHERE isdelete=0 ORDER BY id ASC LIMIT ' . ($pindex - 1) * $psize . ',' . $psize);
+            $total = pdo_fetchcolumn('SELECT COUNT(*) FROM ' . tablename(prefix_table('cj_member_program')));
+            $pager = pagination($total, $pindex, $psize);
+            include $this->template('program');
+        }
     }
 
     /**

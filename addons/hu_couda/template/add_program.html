@@ -5,67 +5,40 @@
 <script type="text/javascript" src="./resource/js/require.js?v=20170426"></script>
 <div class="main">
     <div class="panel panel-info">
-        <div class="panel-heading">添加兑换商品</div>
+        <div class="panel-heading">添加小程序</div>
         <div class="panel-body">
-            <form action="{php echo $this->createWeburl('good');}" method="post" class="form-horizontal" id="myform">
+            <form action="{php echo $this->createWeburl('program');}" method="post" class="form-horizontal" id="myform">
 
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">商品名称</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">appid</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="gname" placeholder="商品名称" type="text">
+                        <input class="form-control" name="appid" type="text">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">商品实际价格:</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">小程序名称:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="number" min="0" step="0.01" name="price">
+                        <input class="form-control" type="text" name="name">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">所需积分:</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">描述:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" type="text" name="describe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">点击获取幸运币:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <input class="form-control" type="number" min="0" step="1" name="integral">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">商品类型:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="text" name="type" list="car" id="type">
-                        <datalist id="car">
-                            <option value="1">虚拟商品</option>
-                            <option value="2">实物</option>
-                        </datalist>
-                        <span style="color: red;display: none;" id="notice">虚拟商品账号需增添完商品后前往【兑换管理-添加账号】中添加</span>
-                    </div>
-                </div>
-
-                <div class="form-group" id="stock" style="display: none;">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">总库存:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="number" min="0" step="1" name="astock">
-                    </div>
-                </div>
-                
-
-                <!--<div class="form-group">-->
-                    <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">现库存:</label>-->
-                    <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
-                        <!--<input class="form-control" type="number" min="0" step="1" name="nstock">-->
-                    <!--</div>-->
-                <!--</div>-->
-
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">兑换说明:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="text" name="explain">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">奖品图片:</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">小程序头像:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <div id="filePicker2">选择图片</div>
                         <div class="input-group " style="margin-top:.5em;">
@@ -77,28 +50,10 @@
                     </div>
                 </div>
 
-
-                <div class="form-group shiwu" style="display: none">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否包邮:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="text" name="express" list="car1">
-                        <datalist id="car1">
-                            <option value="1">包邮</option>
-                            <option value="2">不包邮</option>
-                        </datalist>
-                    </div>
-                </div>
-
-                <div class="form-group shiwu" style="display: none">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">邮费:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" type="number" min="0" step="0.01" name="cost">
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
                     <div class="" >
+                        <input type="hidden" name="opp" value="add">
                         <input type="hidden" name="op" value="add">
                         <input type="submit" name="submit" id="submit" value="提交" class="btn btn-primary">
                     </div>

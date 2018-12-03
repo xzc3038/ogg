@@ -555,7 +555,14 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				}
 			}
 		}
-		json($prize);
+		$data['prize'] = $prize;
+		$sql = "SELECT pc.* , m.nickname, m.user_img FROM " . tablename(prefix_table('cj_prize_code')) . " pc LEFT JOIN " . tablename(prefix_table('cj_member')) . " m on pc.member_id=m.id ORDER BY id DESC LIMIT 10";
+		$codeList = pdo_fetchall($sql);
+		foreach ($codeList as &$item){
+            $item['txt'] = $item['nickname'] . '参与了抽奖';
+        }
+        $data['codeList'] = $codeList;
+		json($data);
 	}
 	public function doPageTotal()
 	{
@@ -1711,21 +1718,21 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
      */
     public function doPageProgram(){
         $mid = $this->member['id'];
-        $sql = "SELECT pid FROM " . tablename(prefix_table("cj_member_integral")) . "WHERE mid=" . $mid . "and type=1";
+        $sql = "SELECT pid FROM " . tablename(prefix_table("cj_member_integral")) . "WHERE mid=" . $mid . " and type=1";
         $pidList = pdo_fetchall($sql);
         $pidStr = '';
         if ($pidList){
             foreach ($pidList as $key=>$val){
                 if ($key == 0){
-                    $pidStr = $val;
+                    $pidStr = $val['pid'];
                 }else{
-                    $pidStr .= $val . ",";
+                    $pidStr .= ',' . $val['pid'];
                 }
             }
         }else {
             $pidStr = '0';
         }
-        $sql1 = "SELECT * FROM " . tablename(prefix_table("cj_member_program")) . "WHERE id not in(" . $pidStr . ")";
+        $sql1 = "SELECT * FROM " . tablename(prefix_table("cj_member_program")) . "WHERE isdelete=0 AND id not in(" . $pidStr . ")";
         $programList = pdo_fetchall($sql1);
         json($programList);
     }
@@ -1746,6 +1753,61 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
             $data['total'] = 0;
         }
         $data['history'] = $history;
+        json($data);
+    }
+    /**
+     * 点击小程序获取幸运币
+     */
+    public function doPageWechat(){
+        $mid = $this->member['id'];
+        $wid = $this->get('wid');
+        $data = [];
+        pdo_begin();
+        $program = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_member_program")) . "WHERE id=" . $wid);
+        $member = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_member")) . "WHERE id=" . $mid);
+        //此时积分
+        $npoint = $member['integral'] + $program['integral'];
+        if (!$program){
+            $data['status'] = 1;//查询小程序失败
+            json($data);
+        }
+        if (!$member){
+            $data['status'] = 2;//查询用户失败
+            json($data);
+        }
+        if (!pdo_insert(prefix_table("cj_member_integral"),['mid'=>$mid, 'point'=>$program['integral'], 'npoint'=>$npoint, 'addtime'=>time(), 'position'=>'点击小程序[' . $program['name'] . ']增加', 'type'=>1, 'pid'=>$program['id'], 'status'=>3, 'updatetime'=>time()])){
+            $data['status'] = 3;//更新记录失败
+            json($data);
+        }
+        if (!pdo_update(prefix_table("cj_member"),array('integral'=>$npoint),['id'=>$mid])){
+            $data['status'] = 4;//更新幸运币失败
+            json($data);
+        }
+        if (!pdo_update(prefix_table("cj_member_program"),array('count'=>($program['count'] + 1)),['id'=>$wid])){
+            $data['status'] = 5;//更新点击失败
+            json($data);
+        }
+        //获取新列表
+        $sql = "SELECT pid FROM " . tablename(prefix_table("cj_member_integral")) . "WHERE isdelete=0 AND mid=" . $mid . " and type=1";
+        $pidList = pdo_fetchall($sql);
+        $pidStr = '';
+        if ($pidList){
+            foreach ($pidList as $key=>$val){
+                if ($key == 0){
+                    $pidStr = $val['pid'];
+                }else{
+                    $pidStr .= ',' . $val['pid'];
+                }
+            }
+        }else {
+            $pidStr = '0';
+        }
+        $sql1 = "SELECT * FROM " . tablename(prefix_table("cj_member_program")) . "WHERE id not in(" . $pidStr . ")";
+        $programList = pdo_fetchall($sql1);
+        pdo_commit();
+        $data['status'] = 6;
+        $data['coin'] = $program['integral'];
+        $data['programList'] = $programList;
         json($data);
     }
 }
