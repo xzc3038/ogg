@@ -1,0 +1,178 @@
+{template 'header'}
+<link href="./resource/css/app.css" rel="stylesheet">
+<link href="../addons/{$_GPC['m']}/template/css/webuploader.css" rel="stylesheet">
+<script type="application/javascript" src="../addons/{$_GPC['m']}/template/js/webuploader.min.js"></script>
+<script type="text/javascript" src="./resource/js/require.js?v=20170426"></script>
+<div class="main">
+    <div class="panel panel-info">
+        <div class="panel-heading">我要上首页</div>
+        <div class="panel-body">
+            <form action="{php echo $this->createWeburl('help');}" method="post" class="form-horizontal" id="myform">
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">商品类型:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" type="text" name="type" list="car" id="type" value="{if $data['type'] == 0}文字{else}图片{/if}">
+                        <datalist id="car">
+                            <option value="0">文字</option>
+                            <option value="1">图片</option>
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="form-group" id="text">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">文字内容(微信号):</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" type="text"  name="text" value="{$data['text']}">
+                    </div>
+                </div>
+
+                <div class="form-group" id="image">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">图片(二维码):</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <div id="filePicker2">选择图片</div>
+                        <div class="input-group " style="margin-top:.5em;">
+                            <img id="adv-img2" src="{php echo $default_prize_img_url}" onerror="this.src='./resource/images/nopic.jpg'; this.title='图片未找到.'" class="img-responsive img-thumbnail" width="150">
+                            <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片" onclick="$('#adv-img2').attr('src', './resource/images/nopic.jpg');$('#single-image1').val('')">×</em>
+                            <span class="help-block">图片比例：304*136</span>
+                            <img src="{$data[img]}" style="width: 150px;" alt="">
+                        </div>
+                        <input type="hidden" value="{php echo $default_prize_img['value']}" name="img1" id="single-image2">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">描述:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" type="text" name="describe" value="{$data['discript']}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">更新时间:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" value="{php echo date('Y-m-d',$data['updatetime']);}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label"></label>
+                    <div>
+                        <input type="hidden" name="op" value="update">
+                        <input type="submit" name="submit" id="submit" value="提交" class="btn btn-primary">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#myTab a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        })
+    });
+</script>
+<script type="application/javascript">
+    $(function () {
+        var adv = "{$advertisement_type['value']}";
+        if (adv == 1) {
+            var uploader = new WebUploader.Uploader({
+                auto : true,
+                server : '{$upload}',
+                pick : '#filePicker',
+                extensions: 'gif,jpg,jpeg,bmp,png'
+                // 其他配置项
+            });
+            adv == 2;
+            uploader.on('uploadSuccess', function(file, data) {
+                $('#single-image').val(data.info);
+                console.log(1);
+                //console.log(file);
+                //console.log(data);
+                $('#adv-img').attr('src', '{$image}&id=' + data.info);
+                //$('#' + file.id).addClass('upload-state-done');
+            });
+        }
+
+        var uploader1 = new WebUploader.Uploader({
+            auto : true,
+            server : '{$upload}',
+            pick : '#filePicker1',
+            extensions: 'gif,jpg,jpeg,bmp,png'
+            // 其他配置项
+        });
+        uploader1.on('uploadSuccess', function(file, data) {
+            $('#single-image1').val(data.info);
+            console.log(file);
+            console.log(data);
+            $('#adv-img1').attr('src', '{$image}&id=' + data.info);
+        });
+
+        var uploader2 = new WebUploader.Uploader({
+            auto : true,
+            server : '{$upload}',
+            pick : '#filePicker2',
+            extensions: 'gif,jpg,jpeg,bmp,png'
+            // 其他配置项
+        });
+        uploader2.on('uploadSuccess', function(file, data) {
+            $('#single-image2').val(data.info);
+            $('#adv-img2').attr('src', '{$image}&id=' + data.info);
+        });
+
+        $('#advertisement_type').change(function () {
+            if (adv == 0) {
+                var uploader = new WebUploader.Uploader({
+                    auto : true,
+                    server : '{$upload}',
+                    pick : '#filePicker',
+                    extensions: 'gif,jpg,jpeg,bmp,png'
+                    // 其他配置项
+                });
+                adv == 2;
+                uploader.on('uploadSuccess', function(file, data) {
+                    $('#single-image').val(data.info);
+                    console.log(2);
+                    //console.log(file);
+                    //console.log(data);
+                    $('#adv-img').attr('src', '{$image}&id=' + data.info);
+                    //$('#' + file.id).addClass('upload-state-done');
+                });
+
+            }
+            val = $(this).val();
+            if (val == 0) {
+                $('#advertisement-1').hide();
+            } else {
+                $('#advertisement-0').hide();
+            }
+            $('#advertisement-' + val).show();
+        });
+
+        // if ($('#type').val() == '文字'){
+        //     $('#image').css('display','none');
+        //     $('#text').css('display','');
+        // }else{
+        //     $('#image').css('display','block');
+        //     $('#text').css('display','none');
+        // }
+
+        $('#type').change(function () {
+            var type = $('#type').val();
+            if (type == 0){
+                $('#image').css('display','none');
+                $('#text').css('display','');
+            } else {
+                $('#image').css('display','');
+                $('#text').css('display','none');
+            }
+        })
+    });
+</script>
+
+
+

@@ -408,7 +408,8 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	public function doPageRegister()
 	{
 		$member_id = $this->member["id"];
-		if (!$this->get("nickname") || !$this->get("headimgurl")) {
+//		if (!$this->get("nickname") || !$this->get("headimgurl")) {
+		if (!$this->get("nickname")) {
 			json("非法请求", 0);
 		}
 		$update = ["nickname" => $this->get("nickname"), "user_img" => $this->get("headimgurl") ? $this->get("headimgurl") : $this->w["siteroot"] . "addons/hu_couda/template/images/nopic.jpg", "gender" => $this->get("gender"), "province" => $this->get("province"), "city" => $this->get("city"), "country" => $this->get("country"), "add_time" => time(), "set_time" => time()];
@@ -581,6 +582,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	}
 	public function doPageRecommend()
 	{
+
 		$contact = $this->get("contact");
 		if (empty($contact)) {
 			json("请填写联系方式", 0);
@@ -615,7 +617,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 			$orderid = $prize->unifiedOrder($this->member["id"], $pay_money);
 			$xcx = pdo_get(prefix_table("cj_config"), ["key" => "title"]);
 			$xcx = $xcx ? $xcx["value"] : '';
-			$order = array("tid" => $orderid, "fee" => floatval($pay_money), "title" => $xcx . "的订单");
+			$order = array("tid" => $orderid, "fee" => floatval($pay_money), "title" => $xcx . "的订单");//订单号，价格，标题
 			global $_W;
 			$_W["openid"] = $this->member["openid"];
 			$_W["member"]["uid"] = $this->member["id"];
@@ -844,7 +846,11 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				$prize->bag($this->member["id"], $insert_id, $data["trd_val"], $data["trd_num"]);
 			}
 			if ($isjump == 1 && $this->get("copyorjump") == 2) {
-				$data = ["prize_id" => $insert_id, "appid" => $this->get("appid"), "path" => $this->get("path"), "extraData" => $this->get("extraData"), "app_name" => $this->get("appname")];
+                global $_W;
+			    $ImgSrc = pdo_fetch("SELECT route FROM " . tablename(prefix_table('cj_resource')) . " WHERE id=" . $this->get("wechatImg"));
+                $wechatImg = $_W['siteroot'] .'attachment' . $ImgSrc['route'];
+//				$data = ["prize_id" => $insert_id, "appid" => $this->get("appid"), "path" => $this->get("path"), "extraData" => $this->get("extraData"), "app_name" => $this->get("appname")];
+				$data = ["prize_id" => $insert_id, "appid" => '1', "path" => '2', "extraData" => '3', "app_name" => $this->get("appname"), "wechatImg"=>$wechatImg];
 				pdo_insert(prefix_table("cj_jump_program"), $data);
 			}
 			pdo_commit();
@@ -1809,6 +1815,18 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
         $data['coin'] = $program['integral'];
         $data['programList'] = $programList;
         json($data);
+    }
+    /**
+     * 商务合作
+     */
+    public function doPageHelp(){
+        json(pdo_get(prefix_table("cj_member_help")));
+    }
+    /**
+     * 我的目录
+     */
+    public function doPageMe(){
+        json(pdo_get(prefix_table("cj_member_me")));
     }
 }
 function json($info, $status = 1)

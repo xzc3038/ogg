@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">默认奖品图片:</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">奖品图片:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <div id="filePicker2">选择图片</div>
                         <div class="input-group " style="margin-top:.5em;">

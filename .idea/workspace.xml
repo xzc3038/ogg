@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36a7ed7c-f944-4f41-be04-3e00b6902ee0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/addons/hu_couda/template/add_program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addons/hu_couda/template/program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/hu_couda/template/help.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/hu_couda/template/me.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/hu_couda/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/template/add_good.html" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/template/add_good.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/template/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/template/history.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/hu_couda/wxapp.php" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/wxapp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tpl/web/default/hu_couda/2_add_good.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/tpl/web/default/hu_couda/2_add_good.tpl.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,70 +18,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wxapp.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wxapp.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="560" column="31" selection-start-line="560" selection-start-column="31" selection-end-line="560" selection-end-column="31" />
-              <folding>
-                <element signature="n#__construct#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageQrcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageAuthor#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageRelease#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#_release#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageVoucher#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageUpload#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#L#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageShare#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageShareImg#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageLogin#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageRegister#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageMy#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageWithdrawals#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#setPayment#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageProblem#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageHistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageMywinn#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageLaunch#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageTotal#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageRecommend#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageAdd#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageWriteoff#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageWriteOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageVoucherList#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageVoucherDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPagePayResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#_payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageAllcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPagePrizeWins#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageGetAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageAll#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageApply#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageCode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageOpenPrize#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageOpen#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#sendTpl#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageConfigarr#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageConfig#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageAdvertisement#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPagePopupadv#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageJump#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#get#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#getImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPagePay#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#hasOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#_is_oss#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageLuck#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageGood#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageChange#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageProgram#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageLuckhistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-                <element signature="n#doPageWechat#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="512">
+              <caret line="1828" column="52" selection-start-line="1828" selection-start-column="52" selection-end-line="1828" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework/class/account/account.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29880">
+              <caret line="1494" column="10" selection-start-line="1494" selection-start-column="10" selection-end-line="1494" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="account.mod.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/framework/model/account.mod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="766">
+              <caret line="661" column="13" selection-start-line="661" selection-start-column="13" selection-end-line="661" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_good.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_good.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="9" column="116" selection-start-line="9" selection-start-column="105" selection-end-line="9" selection-end-column="116" />
             </state>
           </provider>
         </entry>
@@ -90,64 +57,34 @@
       <file leaf-file-name="site.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/site.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="1483" column="156" selection-start-line="1483" selection-start-column="111" selection-end-line="1483" selection-end-column="156" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_program.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_program.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="56" column="52" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="program.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/program.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+            <state relative-caret-position="263">
+              <caret line="1614" column="47" lean-forward="true" selection-start-line="1614" selection-start-column="47" selection-end-line="1614" selection-end-column="47" />
               <folding>
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#doWebGood#0;n#hu_coudaModuleSite#0;n#!!top" />
+                <element signature="n#doWebAccount#0;n#hu_coudaModuleSite#0;n#!!top" />
+                <element signature="n#doWebHistory#0;n#hu_coudaModuleSite#0;n#!!top" />
+                <element signature="n#doWebProgram#0;n#hu_coudaModuleSite#0;n#!!top" />
+                <element signature="n#doWebHelp#0;n#hu_coudaModuleSite#0;n#!!top" />
+                <element signature="n#doWebupload#0;n#hu_coudaModuleSite#0;n#!!top" />
+                <element signature="n#doWebImage#0;n#hu_coudaModuleSite#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="install.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/install.php">
+      <file leaf-file-name="me.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/me.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="360">
+              <caret line="39" column="63" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="63" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/account_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="940">
-              <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_account.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_account.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -156,52 +93,31 @@
       <file leaf-file-name="history.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/history.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            <state relative-caret-position="820">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="help.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/help.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="53" column="104" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="104" />
               <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add_good.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_good.html">
+      <file leaf-file-name="account_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/account_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="67" column="77" selection-start-line="67" selection-start-column="77" selection-end-line="67" selection-end-column="77" />
-              <folding>
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="good.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/good.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="1" selection-start-line="1" selection-end-line="5" selection-end-column="5" />
-              <folding>
-                <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#10;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#11;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="246">
+              <caret line="27" column="63" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -210,26 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dowebmember</find>
-      <find>dowebadd</find>
-      <find>8</find>
-      <find>upload</find>
-      <find>image</find>
-      <find>pdo_ge</find>
-      <find>默认奖品图片</find>
-      <find>modules_bindings</find>
-      <find>业务菜单</find>
-      <find>业务</find>
-      <find>dopageimage</find>
-      <find>doWebrecommend</find>
-      <find>webmember</find>
-      <find>commit</find>
-      <find>$member</find>
-      <find>int</find>
-      <find>is_release</find>
-      <find>dowebgoods</find>
-      <find>doPageHistory</find>
-      <find>date</find>
       <find>desc</find>
       <find>pdo_dele</find>
       <find>date(</find>
@@ -240,6 +136,26 @@
       <find>cj_prize_code</find>
       <find>author</find>
       <find>index</find>
+      <find>1517435421</find>
+      <find>$_W['account']['key']</find>
+      <find>mch_id</find>
+      <find>微信支付秘钥</find>
+      <find>pagerecommend</find>
+      <find>身份密钥</find>
+      <find>secret</find>
+      <find>$_W['uniaccount']['name']</find>
+      <find>#weixin</find>
+      <find>save_setting</find>
+      <find>appid</find>
+      <find>pay</find>
+      <find>pay(</find>
+      <find>copyorjump</find>
+      <find>非法请求</find>
+      <find>recommend</find>
+      <find>webrecommend</find>
+      <find>pdo_update</find>
+      <find>webconfig</find>
+      <find>isP</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -268,10 +184,18 @@
         <option value="$PROJECT_DIR$/install.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/add_good.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/add_program.html" />
-        <option value="$PROJECT_DIR$/addons/hu_couda/site.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/program.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/history.html" />
+        <option value="$PROJECT_DIR$/framework/model/payment.mod.php" />
+        <option value="$PROJECT_DIR$/api.php" />
+        <option value="$PROJECT_DIR$/framework/class/account.class.php" />
+        <option value="$PROJECT_DIR$/data/tpl/web/default/wxapp/payment.tpl.php" />
+        <option value="$PROJECT_DIR$/framework/class/account/account.class.php" />
+        <option value="$PROJECT_DIR$/framework/model/account.mod.php" />
+        <option value="$PROJECT_DIR$/addons/hu_couda/site.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/wxapp.php" />
+        <option value="$PROJECT_DIR$/addons/hu_couda/template/help.html" />
+        <option value="$PROJECT_DIR$/addons/hu_couda/template/me.html" />
       </list>
     </option>
   </component>
@@ -285,8 +209,7 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="368" />
-    <option name="y" value="-18" />
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -324,25 +247,7 @@
             <path>
               <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
               <item name="ogg" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ogg" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ogg" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
-              <item name="entry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ogg" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -352,7 +257,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../study" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel/study" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -387,12 +292,15 @@
       <workItem from="1543554248657" duration="16014000" />
       <workItem from="1543628315211" duration="29273000" />
       <workItem from="1543716402606" duration="34326000" />
-      <workItem from="1543801709047" duration="21730000" />
+      <workItem from="1543801709047" duration="22988000" />
+      <workItem from="1543888304390" duration="17669000" />
+      <workItem from="1543980025525" duration="4405000" />
+      <workItem from="1544061658286" duration="19801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105628000" />
+    <option name="totallyTimeSpent" value="148761000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -433,80 +341,10 @@
           <line>393</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/source/entry/site.ctrl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/Wxadoc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="52" column="133" lean-forward="true" selection-start-line="52" selection-start-column="133" selection-end-line="52" selection-end-column="133" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/Gd.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" column="7" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/model/prize.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6720">
-          <caret line="336" column="45" lean-forward="true" selection-start-line="336" selection-start-column="45" selection-end-line="336" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5360">
-          <caret line="268" column="21" lean-forward="true" selection-start-line="268" selection-start-column="21" selection-end-line="268" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2100">
-          <caret line="105" column="43" selection-start-line="105" selection-start-column="43" selection-end-line="105" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="135" column="30" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/source/site/entry.ctrl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/cashier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2700">
@@ -545,13 +383,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/phpqrcode/cache/frame_40.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/model/prize.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6720">
-          <caret line="336" column="45" selection-start-line="336" selection-start-column="45" selection-end-line="336" selection-end-column="45" />
-        </state>
-      </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_0.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -663,13 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/member.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -680,27 +504,10 @@
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_goods.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4560">
-          <caret line="228" column="65" lean-forward="true" selection-start-line="228" selection-start-column="65" selection-end-line="228" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/account_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="940">
-          <caret line="47" column="63" selection-start-line="47" selection-start-column="63" selection-end-line="47" selection-end-column="63" />
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
@@ -708,155 +515,190 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="425" column="59" selection-start-line="425" selection-start-column="51" selection-end-line="425" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_good.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="67" column="77" selection-start-line="67" selection-start-column="77" selection-end-line="67" selection-end-column="77" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#7;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/good.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="5" selection-end-column="5" />
-          <folding>
-            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#10;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#11;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_program.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
+        <state relative-caret-position="1120">
           <caret line="56" column="52" selection-start-line="56" selection-start-column="52" selection-end-line="56" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/program.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
+        <state relative-caret-position="580">
           <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/model/payment.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2820">
+          <caret line="144" column="55" selection-start-line="144" selection-start-column="55" selection-end-line="144" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/model/prize.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11900">
+          <caret line="595" column="20" selection-start-line="595" selection-start-column="20" selection-end-line="595" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/class/account.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24860">
+          <caret line="1312" column="47" selection-start-line="1312" selection-start-column="47" selection-end-line="1312" selection-end-column="47" />
           <folding>
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#__call#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#__get#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#refund#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#payResult#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#payResultQuery#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#share#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#click#0;n#WeModuleSite#0;n#!!top" />
+            <element signature="n#__call#0;n#WeModuleCron#0;n#!!top" />
+            <element signature="n#addCronLog#0;n#WeModuleCron#0;n#!!top" />
+            <element signature="n#__call#0;n#WeModuleWxapp#0;n#!!top" />
+            <element signature="n#result#0;n#WeModuleWxapp#0;n#!!top" />
+            <element signature="n#checkSign#0;n#WeModuleWxapp#0;n#!!top" />
+            <element signature="n#wechatExtend#0;n#WeModuleWxapp#0;n#!!top" />
+            <element signature="n#creditExtend#0;n#WeModuleWxapp#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/tpl/web/default/wxapp/payment.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="107" column="64" selection-start-line="107" selection-start-column="52" selection-end-line="107" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/class/account/account.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29880">
+          <caret line="1494" column="10" selection-start-line="1494" selection-start-column="10" selection-end-line="1494" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/model/account.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="661" column="13" selection-start-line="661" selection-start-column="13" selection-end-line="661" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/good.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-334">
+          <caret line="1" selection-start-line="1" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/recommend.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/account_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="27" column="63" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="23" column="33" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1674">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/history.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#6;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="820">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_good.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="116" selection-start-line="9" selection-start-column="105" selection-end-line="9" selection-end-column="116" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/site.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="1483" column="156" selection-start-line="1483" selection-start-column="111" selection-end-line="1483" selection-end-column="156" />
+        <state relative-caret-position="263">
+          <caret line="1614" column="47" lean-forward="true" selection-start-line="1614" selection-start-column="47" selection-end-line="1614" selection-end-column="47" />
+          <folding>
+            <element signature="n#doWebGood#0;n#hu_coudaModuleSite#0;n#!!top" />
+            <element signature="n#doWebAccount#0;n#hu_coudaModuleSite#0;n#!!top" />
+            <element signature="n#doWebHistory#0;n#hu_coudaModuleSite#0;n#!!top" />
+            <element signature="n#doWebProgram#0;n#hu_coudaModuleSite#0;n#!!top" />
+            <element signature="n#doWebHelp#0;n#hu_coudaModuleSite#0;n#!!top" />
+            <element signature="n#doWebupload#0;n#hu_coudaModuleSite#0;n#!!top" />
+            <element signature="n#doWebImage#0;n#hu_coudaModuleSite#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="1828" column="52" selection-start-line="1828" selection-start-column="52" selection-end-line="1828" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/help.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="560" column="31" selection-start-line="560" selection-start-column="31" selection-end-line="560" selection-end-column="31" />
+          <caret line="53" column="104" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="104" />
           <folding>
-            <element signature="n#__construct#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageQrcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageAuthor#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageRelease#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#_release#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageVoucher#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageUpload#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#L#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageShare#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageShareImg#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageLogin#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageRegister#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageMy#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageWithdrawals#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#setPayment#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageProblem#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageHistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageMywinn#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageLaunch#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageTotal#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageRecommend#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageAdd#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageWriteoff#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageWriteOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageVoucherList#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageVoucherDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPagePayResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#_payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageAllcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPagePrizeWins#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageGetAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageAll#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageApply#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageCode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageOpenPrize#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageOpen#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#sendTpl#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageConfigarr#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageConfig#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageAdvertisement#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPagePopupadv#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageJump#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#get#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#getImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPagePay#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#hasOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#_is_oss#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageLuck#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageGood#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageChange#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageProgram#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageLuckhistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
-            <element signature="n#doPageWechat#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/me.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="39" column="63" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

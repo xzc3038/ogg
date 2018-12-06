@@ -1554,6 +1554,75 @@ class hu_coudaModuleSite extends WeModuleSite
             include $this->template('program');
         }
     }
+    /**
+     * 商务合作内容
+     */
+    public function doWebHelp(){
+        global $_GPC, $_W;
+        if ($this->get('op') == 'update'){
+            $type = $this->get('type');
+            $describe = $this->get('describe');
+            $updatetime = time();
+            if (empty($type)){
+                message('类型不能为空');
+            }else if (empty($describe)){
+                message('描述不能为空');
+            }else{
+                if ($type == 0){
+                    $text = $this->get('text');
+                    if (empty($text)){
+                        message('文字内容不能为空');
+                    }else{
+                        $res = pdo_update(prefix_table('cj_member_help'),['type'=>$type, 'text'=>$text, 'discript'=>$describe, 'updatetime'=>$updatetime]);
+                        if (!$res){
+                            message('更新失败');
+                        }
+                    }
+                }else{
+                    $imgId    = $this->get('img1');
+                    $imgSrc   = pdo_get(prefix_table("cj_resource"),['id'=>$imgId]);
+                    $img      = $_W['siteroot'] .'attachment' . $imgSrc['route'];
+                    if (empty($img)){
+                        message('图片不能为空');
+                    }else{
+                        $res = pdo_update(prefix_table('cj_member_help'),['type'=>$type, 'img'=>$img, 'discript'=>$describe, 'updatetime'=>$updatetime]);
+                        if (!$res){
+                            message('更新失败');
+                        }
+                    }
+                }
+            }
+
+        }
+        $data = pdo_fetch("SELECT * FROM " . tablename(prefix_table('cj_member_help')));
+        $upload = $_W['siteroot'] . "web/index.php?c=site&a=entry&do=upload&m=hu_couda";
+        $image = $_W['siteroot'] . "web/index.php?c=site&a=entry&do=image&m=hu_couda";
+        include $this->template('help');
+    }
+    /**
+     * 控制个人中心目录
+     */
+    public function doWebMe(){
+        global $_W;
+        if ($this->get('op') == 'update'){
+            $luck     = $this->get('luck');
+            $ticket   = $this->get('ticket');
+            $write    = $this->get('write');
+            $cash     = $this->get('cash');
+            $service  = $this->get('service');
+            $problem  = $this->get('problem');
+            $more     = $this->get('more');
+            $feedback = $this->get('feedback');
+
+            $res = pdo_update(prefix_table('cj_member_me'),['luck'=>$luck, 'ticket'=>$ticket, 'write'=>$write, 'cash'=>$cash, 'service'=>$service, 'problem'=>$problem, 'more'=>$more, 'feedback'=>$feedback, 'updatetime'=>time()]);
+            if (!$res){
+                message('修改失败！');
+            }
+            message('修改成功！');
+        }
+        $data = pdo_get(prefix_table('cj_member_me'));
+        include $this->template('me');
+    }
 
     /**
      * 图片上传
