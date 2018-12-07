@@ -1354,55 +1354,56 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	{
 		$option = ["appid" => $this->w["uniaccount"]["key"], "secret" => $this->w["uniaccount"]["secret"]];
 		$wxObj = new Wxadoc($option);
-		$config = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_allfans_begin"]);
-		$tpl_to_allfans_begin = $config["value"];
-		if ($tpl_to_allfans_begin) {
-			$time = time() - 7 * 86400;
-			$home_recommendation_need_check_cfg = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation_need_check"]);
-			$home_recommendation_need_check = $home_recommendation_need_check_cfg["value"];
-			if ($home_recommendation_need_check) {
-				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0 and chk_flag=1) or is_global=0)";
-			} else {
-				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0) or is_global=0)";
-			}
-			$cj_prize_arr = pdo_fetchall($sql);
-			foreach ($cj_prize_arr as $line) {
-				$begin_member = $line["tpl_flag_begin"] == "B" ? 0 : (int) $line["tpl_flag_begin"];
-				$get_num = 100;
-				$members = pdo_fetchall("SELECT id, openid FROM " . tablename(prefix_table("cj_member")) . " WHERE is_robot=0 order by id asc limit {$begin_member}, {$get_num}");
-				if ($members) {
-					if ($line["is_global"] == 0) {
-						$data_tpl = ["keyword1" => ["value" => $line["uname"] ? $line["uname"] : "新抽奖活动发布"], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
-						foreach ($members as $member) {
-							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
-							if ($form_id) {
-								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
-								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
-							}
-						}
-					} else {
-						$member_name = pdo_fetchcolumn("select nickname from " . tablename(prefix_table("cj_member")) . " where id=" . $line["member_id"]);
-						$data_tpl = ["keyword1" => ["value" => $member_name ? $member_name : $line["uname"]], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
-						foreach ($members as $member) {
-							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
-							if ($form_id) {
-								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
-								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
-							}
-						}
-					}
-					pdo_update(prefix_table("cj_prize"), ["tpl_flag_begin" => $begin_member + $get_num], ["id" => $line["id"]]);
-				} else {
-					pdo_update(prefix_table("cj_prize"), ["to_allfans_flag" => 2, "tpl_flag_begin" => "F"], ["id" => $line["id"]]);
-				}
-			}
-		}
+//		$config = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_allfans_begin"]);
+//		$tpl_to_allfans_begin = $config["value"];
+//		if ($tpl_to_allfans_begin) {
+//			$time = time() - 7 * 86400;
+//			$home_recommendation_need_check_cfg = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation_need_check"]);
+//			$home_recommendation_need_check = $home_recommendation_need_check_cfg["value"];
+//			if ($home_recommendation_need_check) {
+//				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0 and chk_flag=1) or is_global=0)";
+//			} else {
+//				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0) or is_global=0)";
+//			}
+//			$cj_prize_arr = pdo_fetchall($sql);
+//			foreach ($cj_prize_arr as $line) {
+//				$begin_member = $line["tpl_flag_begin"] == "B" ? 0 : (int) $line["tpl_flag_begin"];
+//				$get_num = 100;
+//				$members = pdo_fetchall("SELECT id, openid FROM " . tablename(prefix_table("cj_member")) . " WHERE is_robot=0 order by id asc limit {$begin_member}, {$get_num}");
+//				if ($members) {
+//					if ($line["is_global"] == 0) {
+//						$data_tpl = ["keyword1" => ["value" => $line["uname"] ? $line["uname"] : "新抽奖活动发布"], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
+//						foreach ($members as $member) {
+//							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
+//							if ($form_id) {
+//								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
+//								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
+//							}
+//						}
+//					} else {
+//						$member_name = pdo_fetchcolumn("select nickname from " . tablename(prefix_table("cj_member")) . " where id=" . $line["member_id"]);
+//						$data_tpl = ["keyword1" => ["value" => $member_name ? $member_name : $line["uname"]], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
+//						foreach ($members as $member) {
+//							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
+//							if ($form_id) {
+//								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
+//								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
+//							}
+//						}
+//					}
+//					pdo_update(prefix_table("cj_prize"), ["tpl_flag_begin" => $begin_member + $get_num], ["id" => $line["id"]]);
+//				} else {
+//					pdo_update(prefix_table("cj_prize"), ["to_allfans_flag" => 2, "tpl_flag_begin" => "F"], ["id" => $line["id"]]);
+//				}
+//			}
+//		}
 		$config = pdo_get(prefix_table("cj_config"), ["key" => "open_prize_notice"]);
 		if (empty($config)) {
 			return true;
 		}
-		$tpl_to_organiser = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_organiser"]);
-		$tpl_to_organiser = $tpl_to_organiser["value"];
+        $config = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_allfans_begin"]);
+//		$tpl_to_organiser = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_organiser"]);
+//		$tpl_to_organiser = $tpl_to_organiser["value"];
 		$template = pdo_getall(prefix_table("cj_template_message"), ["type" => 1, "status" => 0]);
 		if (empty($template)) {
 			return true;
@@ -1425,7 +1426,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 					$title = $prize["fir_cname"];
 				}
 			}
-			$data = ["keyword1" => ["value" => "抽奖已经开启,快去看看你是不是幸运儿!"], "keyword2" => ["value" => $title]];
+			$data = ["keyword1" => ["value" => $title], "keyword2" => ["value" => "抽奖已经开启,快去看看你是不是幸运儿!"]];
 			pdo_update(prefix_table("cj_template_message"), ["status" => 1], ["id" => $value["id"]]);
 			$order = pdo_getall(prefix_table("cj_order"), ["prize_id" => $value["relation_id"]]);
 			$is_robot_num = 0;
@@ -1442,15 +1443,16 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 					$is_robot_num++;
 				}
 			}
-			if ($prize_organiser && $tpl_to_organiser) {
+//			if ($prize_organiser && $tpl_to_organiser) {
 				$time = time() - 7 * 86400;
 				$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $prize["member_id"] . "' AND created > {$time}");
-				$data = ["keyword1" => ["value" => "您发起的抽奖活动已开奖,快去看看中奖信息吧!"], "keyword2" => ["value" => "总参与人数：" . count($order) . ($is_robot_num ? "【其中机器人 " . $is_robot_num . "】" : '')]];
+//				$data = ["keyword1" => ["value" => "您发起的抽奖活动已开奖,快去看看中奖信息吧!"], "keyword2" => ["value" => "总参与人数：" . count($order) . ($is_robot_num ? "【其中机器人 " . $is_robot_num . "】" : '')]];
+				$data = ["keyword1" => ["value" => "您发起的抽奖活动已开奖,快去看看中奖信息吧!"], "keyword2" => ["value" => "总参与人数：" . count($order)]];
 				if ($form_id) {
-					$wxObj->sendTemplateMessage($prize_organiser, $tpl_to_organiser, $data, $form_id["form_id"], "pages/partake/partake?id=" . $value["relation_id"]);
+					$wxObj->sendTemplateMessage($prize_organiser, $config["value"], $data, $form_id["form_id"], "pages/partake/partake?id=" . $value["relation_id"]);
 					pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
 				}
-			}
+//			}
 		}
 		return true;
 	}
