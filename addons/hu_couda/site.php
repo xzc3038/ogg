@@ -353,18 +353,18 @@ class hu_coudaModuleSite extends WeModuleSite
 			pdo_update($cj_config, ["value" => $this->get('open_prize_notice')], ["key" => "open_prize_notice"]);
 			pdo_update($cj_config, ["value" => $this->get('switch_examine')], ["key" => "switch_examine"]);
 			pdo_update($cj_config, ["value" => $this->get('red_package_fee')], ["key" => "red_package_fee"]);
-			pdo_update($cj_config, ["value" => $this->get('pay_function')], ["key" => "pay_function"]);
+//			pdo_update($cj_config, ["value" => $this->get('pay_function')], ["key" => "pay_function"]);
 			pdo_update($cj_config, ["value" => $this->get('is_release')], ["key" => "is_release"]);
 			pdo_update($cj_config, ["value" => $this->get('release_msg')], ["key" => "release_msg"]);
 			pdo_update($cj_config, ["value" => $this->get('advertisement_type')], ["key" => "advertisement_type"]);
-			pdo_update($cj_config, ["value" => $this->get('home_recommendation')], ["key" => "home_recommendation"]);
+//			pdo_update($cj_config, ["value" => $this->get('home_recommendation')], ["key" => "home_recommendation"]);
 			pdo_update($cj_config, ["value" => $this->get('is_oss')], ["key" => "is_oss"]);
 			pdo_update($cj_config, ["value" => $this->get('js_default_shop')], ["key" => "js_default_shop"]);
 			pdo_update($cj_config, ["value" => $this->get('voucher_open')], ["key" => "voucher_open"]);
 			pdo_update($cj_config, ["value" => $this->get('default_prize_img')], ["key" => "default_prize_img"]);
 			pdo_update($cj_config, ["value" => $this->get('tpl_to_organiser')], ["key" => "tpl_to_organiser"]);
 			pdo_update($cj_config, ["value" => $this->get('tpl_to_allfans_begin')], ["key" => "tpl_to_allfans_begin"]);
-			pdo_update($cj_config, ["value" => $this->get('home_max_peoples')], ["key" => "home_max_peoples"]);
+//			pdo_update($cj_config, ["value" => $this->get('home_max_peoples')], ["key" => "home_max_peoples"]);
 			pdo_update($cj_config, ["value" => $this->get('home_recommendation_need_check')], ["key" => "home_recommendation_need_check"]);
 			pdo_update($cj_config, ["value" => $this->get('robot') ? $this->get('robot_m') : 0], ["key" => "robot_m"]);
 			pdo_update($cj_config, ["value" => $this->get('robot_m_percent')], ["key" => "robot_m_percent"]);
@@ -372,6 +372,17 @@ class hu_coudaModuleSite extends WeModuleSite
 			pdo_update($cj_config, ["value" => $this->get('robot_of_not_home')], ["key" => "robot_of_not_home"]);
 			pdo_update($cj_config, ["value" => $this->get('alipay_pwd')], ["key" => "alipay_pwd"]);
 			pdo_update($cj_config, ["value" => $this->get('list_show_type')], ["key" => "list_show_type"]);
+
+//			控制三个版本
+			pdo_update($cj_config, ["value" => $this->get('base_max_people')], ["key" => "base_max_people"]);
+			pdo_update($cj_config, ["value" => $this->get('height_price')], ["key" => "height_price"]);
+			pdo_update($cj_config, ["value" => $this->get('home_time1')], ["key" => "home_time1"]);
+			pdo_update($cj_config, ["value" => $this->get('home_price1')], ["key" => "home_price1"]);
+            pdo_update($cj_config, ["value" => $this->get('home_time2')], ["key" => "home_time2"]);
+            pdo_update($cj_config, ["value" => $this->get('home_price2')], ["key" => "home_price2"]);
+            pdo_update($cj_config, ["value" => $this->get('home_time3')], ["key" => "home_time3"]);
+            pdo_update($cj_config, ["value" => $this->get('home_price3')], ["key" => "home_price3"]);
+
 			$path1 = ATTACHMENT_ROOT . $_W['uniacid'] . 'cert/';
 			if (!file_exists($path1)) {
 				@mkdir($path1, 0777, true);
@@ -424,11 +435,11 @@ class hu_coudaModuleSite extends WeModuleSite
 		$advertisement = $initial('advertisement', '');
 		$red_package_fee = $initial('red_package_fee', 0);
 		$red_package_fee = $initial('red_package_fee', 0);
-		$pay_function = $initial('pay_function', 5);
+//		$pay_function = $initial('pay_function', 5);
 		$is_release = $initial('is_release', 0);
 		$release_msg = $initial('release_msg', '无发布权限');
 		$advertisement_type = $initial('advertisement_type', 0);
-		$home_recommendation = $initial('home_recommendation', 1500);
+//		$home_recommendation = $initial('home_recommendation', 1500);
 		$popup_adv = $initial('popup_adv', '');
 		$is_oss = $initial('is_oss', 0);
 		$js_default_shop = $initial('js_default_shop', 0);
@@ -437,7 +448,7 @@ class hu_coudaModuleSite extends WeModuleSite
 		$default_prize_img_url = $default_prize_img['value'] > 0 ? $this->getImage($default_prize_img['value']) : '';
 		$tpl_to_organiser = $initial('tpl_to_organiser', '');
 		$tpl_to_allfans_begin = $initial('tpl_to_allfans_begin', '');
-		$home_max_peoples = $initial('home_max_peoples', '');
+//		$home_max_peoples = $initial('home_max_peoples', '');
 		$home_recommendation_need_check = $initial('home_recommendation_need_check', '');
 		$robot_m = $initial('robot_m', '');
 		$robot_m_percent = $initial('robot_m_percent', '');
@@ -445,6 +456,16 @@ class hu_coudaModuleSite extends WeModuleSite
 		$robot_of_not_home = $initial('robot_of_not_home', '');
 		$alipay_pwd = $initial('alipay_pwd', '');
 		$list_show_type = $initial('list_show_type', '');
+
+		$base_max_people = $initial('base_max_people', '0');
+		$height_price    = $initial('height_price', '0');
+		$home_time1      = $initial('home_time1', '0');
+		$home_price1     = $initial('home_price1', '0');
+        $home_time2      = $initial('home_time2', '0');
+        $home_price2     = $initial('home_price2', '0');
+        $home_time3      = $initial('home_time3', '0');
+        $home_price3     = $initial('home_price3', '0');
+
 		if ($popup_adv) {
 			$popup_adv['value'] = json_decode($popup_adv['value'], true);
 			$popup_adv['value']['image_url'] = $this->getImage($popup_adv['value']['image']);
@@ -858,6 +879,7 @@ class hu_coudaModuleSite extends WeModuleSite
 					$data['is_robot'] = 0;
 				}
 				$data['page_order'] = $this->get('page_order');
+                $data['condition'] = $this->get('condition');
 				if ($prize_id == 0) {
 					if (!pdo_insert(prefix_table('cj_pre_prize'), $data)) {
 						throw new Exception('添加失败');
@@ -1563,7 +1585,7 @@ class hu_coudaModuleSite extends WeModuleSite
             $type = $this->get('type');
             $describe = $this->get('describe');
             $updatetime = time();
-            if (empty($type)){
+            if ($type != 0 || $type !=1){
                 message('类型不能为空');
             }else if (empty($describe)){
                 message('描述不能为空');

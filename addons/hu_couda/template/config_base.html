@@ -121,21 +121,84 @@
                     </div>
                 </div>
 
+                <!--免费版人数-->
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">付费功能价格:</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">免费版最多人数限制:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="pay_function" placeholder="付费功能价格" value="{$pay_function['value']}" type="text">
-                        <span class="help-block">手机端发奖时-补充信息-公众号复制/小程序跳转 功能费用</span>
+                        <input class="form-control" name="base_max_people" value="{$base_max_people['value']}" type="number" min="0" step="1">
+                        <span class="help-block">手机端发布活动时，如果为人数开奖，最高参与人数</span>
+                    </div>
+                </div>
+                <!--高级版价格-->
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">高级版价格:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" name="height_price" value="{$height_price['value']}" type="number" min="0.01">
+                        <span class="help-block">高级版发布价格费用，最低0.01</span>
                     </div>
                 </div>
 
+                <!--首页版1-->
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页推荐功能价格:</label>
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版时间1:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="home_recommendation" placeholder="首页推荐功能价格" value="{$home_recommendation['value']}" type="text">
-                        <span class="help-block">用户付款后奖品信息将自动显示到首页</span>
+                        <input class="form-control" name="home_time1" value="{$home_time1['value']}" type="number" min="0" step="1">
+                        <span class="help-block">首页版1发布时间</span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版价格1:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" name="home_price1" value="{$home_price1['value']}" type="number" min="0.01">
+                        <span class="help-block">首页版1发布价格费用，最低0.01</span>
+                    </div>
+                </div>
+                <!--首页版2-->
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版时间2:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" name="home_time2" value="{$home_time2['value']}" type="number" min="0" step="1">
+                        <span class="help-block">首页版2发布时间</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版价格2:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" name="home_price2" value="{$home_price2['value']}" type="number" min="0.01">
+                        <span class="help-block">首页版2发布价格费用，最低0.01</span>
+                    </div>
+                </div>
+                <!--首页版3-->
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版时间3:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" name="home_time3" value="{$home_time3['value']}" type="number" min="0" step="1">
+                        <span class="help-block">首页版3发布时间</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版价格3:</label>
+                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
+                        <input class="form-control" name="home_price3" value="{$home_price3['value']}" type="number" min="0.01">
+                        <span class="help-block">首页版3发布价格费用，最低0.01</span>
+                    </div>
+                </div>
+
+                <!--<div class="form-group">-->
+                    <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">付费功能价格:</label>-->
+                    <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
+                        <!--<input class="form-control" name="pay_function" placeholder="付费功能价格" value="{$pay_function['value']}" type="text">-->
+                        <!--<span class="help-block">手机端发奖时-补充信息-公众号复制/小程序跳转 功能费用</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="form-group">-->
+                    <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">首页推荐功能价格:</label>-->
+                    <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
+                        <!--<input class="form-control" name="home_recommendation" placeholder="首页推荐功能价格" value="{$home_recommendation['value']}" type="text">-->
+                        <!--<span class="help-block">用户付款后奖品信息将自动显示到首页</span>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页推荐是否需要后台审核:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -143,13 +206,13 @@
                         <span class="help-block">开启后手机端发布的活动必须由后台审核通过后才可到首页</span>
                     </div>
                 </div>        
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页推荐最多人数限制:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="home_max_peoples" value="{$home_max_peoples['value']}" type="text">
-                        <span class="help-block">手机端发布活动时，如果为人数开奖，允许用户填写人数上限的值，0为不限制</span>
-                    </div>
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">首页推荐最多人数限制:</label>-->
+                    <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
+                        <!--<input class="form-control" name="home_max_peoples" value="{$home_max_peoples['value']}" type="text">-->
+                        <!--<span class="help-block">手机端发布活动时，如果为人数开奖，允许用户填写人数上限的值，0为不限制</span>-->
+                    <!--</div>-->
+                <!--</div>-->
         
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">分配前端用户默认店铺:</label>

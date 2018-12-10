@@ -20,7 +20,7 @@
                 <div class="col-sm-8 col-lg-2">
                     <input type="text" class="form-control" name="nickname"  value="<?php  echo $nickname;?>" />
                 </div>
-                
+
                 <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label" >状态</label>
                 <div class="col-sm-8 col-lg-2">
                     <select class="" name="status">
@@ -29,7 +29,7 @@
                         <option <?php  if($status == 1) { ?>selected="selected"<?php  } ?> value="1">已结束</option>
                     </select>
                 </div>
-                
+
                 <label class="col-xs-12 col-sm-2 col-md-2 col-lg-1 control-label" >审核</label>
                 <div class="col-sm-8 col-lg-2">
                     <select class="" name="chk_flag">
@@ -38,13 +38,13 @@
                         <option <?php  if($chk_flag == 1) { ?>selected="selected"<?php  } ?> value="2">待审</option>
                     </select>
                 </div>
-                
+
                 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
                     <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> 搜索</button>
                 </div>
             </div>
 
-            
+
         </form>
     </div>
 </div>
@@ -91,9 +91,9 @@
                 <td><?php  echo $item['chk_flag_val'];?></td>
 
                 <td><?php  echo $item['in_prize'];?></td>
-                <td><a id="<?php  echo $item['id'];?>" class="delete">删除</a> | 
+                <td><a id="<?php  echo $item['id'];?>" class="delete">删除</a> |
                     <?php  if($item['chk_flag_val']!='是') { ?><a id="<?php  echo $item['id'];?>" class="check">审核</a> | <?php  } ?>
-                    <a href="<?php  echo $this->createWeburl('statistics1', array('op' => 'apply', 'id' => $item['id']));?>">指定中奖</a> | 
+                    <a href="<?php  echo $this->createWeburl('statistics1', array('op' => 'apply', 'id' => $item['id']));?>">指定中奖</a> |
                     <a href="<?php  echo $_SERVER['REQUEST_URI'];?>&op=in_prize&id=<?php  echo $item['id'];?>">中奖查询</a>
                 </td>
 
@@ -136,7 +136,7 @@
                 }
 
             }, 'json')
-        });        
+        });
         $('.list-img').on({
             mouseover : function(){
                 $(this).find('img').show() ;

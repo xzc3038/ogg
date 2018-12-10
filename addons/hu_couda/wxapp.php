@@ -478,47 +478,110 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	}
 	public function doPageHistory()
 	{
-		$p = $this->get("p", 1);
-		$page_size = 10;
-		$limit = ($p - 1) * $page_size;
+//		$p = $this->get("p", 1);
+//		$page_size = 10;
+//		$limit = ($p - 1) * $page_size;
 		$status = $this->get("status", 1) == 1 ? 1 : 0;
 		$cj_order = tablename(prefix_table("cj_order"));
 		$cj_prize = tablename(prefix_table("cj_prize"));
-		$sql = "SELECT A.* FROM {$cj_order} A LEFT JOIN {$cj_prize} B ON A.prize_id=B.id WHERE A.member_id = {$this->member["id"]} AND B.status={$status} ORDER BY order_id DESC LIMIT {$limit}, {$page_size}";
+//		$sql = "SELECT A.* FROM {$cj_order} A LEFT JOIN {$cj_prize} B ON A.prize_id=B.id WHERE A.member_id = {$this->member["id"]} AND B.status={$status} ORDER BY order_id DESC LIMIT {$limit}, {$page_size}";
+		$sql = "SELECT A.*, B.* FROM {$cj_order} A LEFT JOIN {$cj_prize} B ON A.prize_id=B.id WHERE A.member_id = {$this->member["id"]} AND B.status={$status} ORDER BY order_id DESC";
 		$order = pdo_fetchall($sql);
-		foreach ($order as &$value) {
-			$value["is_win"] = pdo_get(prefix_table("cj_prize_result"), ["prize_id" => $value["prize_id"], "member_id" => $this->member["id"]]);
-			$value["pinfo"] = pdo_get(prefix_table("cj_prize"), ["id" => $value["prize_id"]]);
-			$value["pinfo"]["minfo"] = pdo_get(prefix_table("cj_member"), ["id" => $value["pinfo"]["member_id"]]);
-		}
+        if ($order) {
+            foreach ($order as &$value) {
+                if ($value["type"] == 1) {
+                    $typevalue_flag = date("m月d日 H:i", $value["typevalue"]);
+                    $open_year = date("Y", $value["typevalue"]);
+                    if ($open_year > date("Y")) {
+                        $typevalue_flag = $open_year . "年" . $typevalue_flag;
+                    }
+                    $value["typevalue_flag"] = $typevalue_flag;
+                }
+                $image = pdo_get(prefix_table("cj_resource"), ["id" => $value["attach_id"]]);
+                $value["imgurl"] = $this->getImage($image["route"], false, true);
+                $value["joined"] = $this->member["id"] ? pdo_get(prefix_table("cj_order"), ["prize_id" => $value["id"], "member_id" => $this->member["id"]]) : '';
+                if ($value["sec_val"] != '') {
+                    $value["fir_label"] = "一";
+                } else {
+                    $value["fir_label"] = '';
+                }
+            }
+        }
+//		foreach ($order as &$value) {
+//			$value["is_win"] = pdo_get(prefix_table("cj_prize_result"), ["prize_id" => $value["prize_id"], "member_id" => $this->member["id"]]);
+//			$value["pinfo"] = pdo_get(prefix_table("cj_prize"), ["id" => $value["prize_id"]]);
+//			$value["pinfo"]["minfo"] = pdo_get(prefix_table("cj_member"), ["id" => $value["pinfo"]["member_id"]]);
+//		}
 		json($order);
 	}
 	public function doPageMywinn()
 	{
-		$p = $this->get("p", 1);
-		$page_size = 10;
-		$limit = ($p - 1) * $page_size;
+//		$p = $this->get("p", 1);
+//		$page_size = 10;
+//		$limit = ($p - 1) * $page_size;
 		$cj_prize_result = tablename(prefix_table("cj_prize_result"));
 		$cj_prize = tablename(prefix_table("cj_prize"));
-		$sql = "SELECT A.* FROM {$cj_prize_result} A LEFT JOIN {$cj_prize} B ON A.prize_id=B.id WHERE A.member_id = {$this->member["id"]}  ORDER BY result_id DESC LIMIT {$limit}, {$page_size}";
+//		$sql = "SELECT A.* FROM {$cj_prize_result} A LEFT JOIN {$cj_prize} B ON A.prize_id=B.id WHERE A.member_id = {$this->member["id"]}  ORDER BY result_id DESC LIMIT {$limit}, {$page_size}";
+		$sql = "SELECT A.*, B.* FROM {$cj_prize_result} A LEFT JOIN {$cj_prize} B ON A.prize_id=B.id WHERE A.member_id = {$this->member["id"]}  ORDER BY result_id DESC";
 		$order = pdo_fetchall($sql);
-		foreach ($order as &$value) {
-			$value["is_win"] = pdo_get(prefix_table("cj_prize_result"), ["prize_id" => $value["prize_id"], "member_id" => $this->member["id"]]);
-			$value["pinfo"] = pdo_get(prefix_table("cj_prize"), ["id" => $value["prize_id"]]);
-			$value["pinfo"]["minfo"] = pdo_get(prefix_table("cj_member"), ["id" => $value["pinfo"]["member_id"]]);
-		}
+        if ($order) {
+            foreach ($order as &$value) {
+                if ($value["type"] == 1) {
+                    $typevalue_flag = date("m月d日 H:i", $value["typevalue"]);
+                    $open_year = date("Y", $value["typevalue"]);
+                    if ($open_year > date("Y")) {
+                        $typevalue_flag = $open_year . "年" . $typevalue_flag;
+                    }
+                    $value["typevalue_flag"] = $typevalue_flag;
+                }
+                $image = pdo_get(prefix_table("cj_resource"), ["id" => $value["attach_id"]]);
+                $value["imgurl"] = $this->getImage($image["route"], false, true);
+                $value["joined"] = $this->member["id"] ? pdo_get(prefix_table("cj_order"), ["prize_id" => $value["id"], "member_id" => $this->member["id"]]) : '';
+                if ($value["sec_val"] != '') {
+                    $value["fir_label"] = "一";
+                } else {
+                    $value["fir_label"] = '';
+                }
+            }
+        }
+//		foreach ($order as &$value) {
+//			$value["is_win"] = pdo_get(prefix_table("cj_prize_result"), ["prize_id" => $value["prize_id"], "member_id" => $this->member["id"]]);
+//			$value["pinfo"] = pdo_get(prefix_table("cj_prize"), ["id" => $value["prize_id"]]);
+//			$value["pinfo"]["minfo"] = pdo_get(prefix_table("cj_member"), ["id" => $value["pinfo"]["member_id"]]);
+//		}
 		json($order);
 	}
 	public function doPageLaunch()
 	{
-		$p = $this->get("p", 1);
-		$page_size = 10;
-		$limit = ($p - 1) * $page_size;
+//		$p = $this->get("p", 1);
+//		$page_size = 10;
+//		$limit = ($p - 1) * $page_size;
 		$status = $this->get("status", 1) == 1 ? 1 : 0;
-		$prize = pdo_getall(prefix_table("cj_prize"), ["member_id" => $this->member["id"], "status" => $status], [], '', ["id desc"], "{$limit}, {$page_size}");
-		foreach ($prize as &$value) {
-			$value["minfo"] = $this->member;
-		}
+//		$prize = pdo_getall(prefix_table("cj_prize"), ["member_id" => $this->member["id"], "status" => $status], [], '', ["id desc"], "{$limit}, {$page_size}");
+		$prize = pdo_getall(prefix_table("cj_prize"), ["member_id" => $this->member["id"], "status" => $status], [], '', ["id desc"]);
+//		foreach ($prize as &$value) {
+//			$value["minfo"] = $this->member;
+//		}
+        if ($prize) {
+            foreach ($prize as &$value) {
+                if ($value["type"] == 1) {
+                    $typevalue_flag = date("m月d日 H:i", $value["typevalue"]);
+                    $open_year = date("Y", $value["typevalue"]);
+                    if ($open_year > date("Y")) {
+                        $typevalue_flag = $open_year . "年" . $typevalue_flag;
+                    }
+                    $value["typevalue_flag"] = $typevalue_flag;
+                }
+                $image = pdo_get(prefix_table("cj_resource"), ["id" => $value["attach_id"]]);
+                $value["imgurl"] = $this->getImage($image["route"], false, true);
+                $value["joined"] = $this->member["id"] ? pdo_get(prefix_table("cj_order"), ["prize_id" => $value["id"], "member_id" => $this->member["id"]]) : '';
+                if ($value["sec_val"] != '') {
+                    $value["fir_label"] = "一";
+                } else {
+                    $value["fir_label"] = '';
+                }
+            }
+        }
 		json($prize);
 	}
 	public function doPageIndex()
@@ -582,24 +645,41 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	}
 	public function doPageRecommend()
 	{
-
 		$contact = $this->get("contact");
-		if (empty($contact)) {
-			json("请填写联系方式", 0);
-		}
+//		if (empty($contact)) {
+//			json("请填写联系方式", 0);
+//		}
+
 		$money = 0;
-		$recommend = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation"]);
-		if (empty($recommend)) {
-			$money = 1500;
-		} else {
-			$money = $recommend["value"];
-		}
-		$isjump = $this->get("isjump");
-		if ($isjump == 1) {
-			$pay_function = pdo_get(prefix_table("cj_config"), ["key" => "pay_function"]);
-			$pay_function = $pay_function ? $pay_function["value"] : 5;
-			$money += $pay_function;
-		}
+		$version = $this->get('versions');
+		if ($version == 2){ //高级版收费
+            $money +=  pdo_get(prefix_table("cj_config"), ["key" => "height_price"])['value'];
+        }elseif ($version == 1){ //首页版收费
+		    $home = $this->get('home');
+		    if ($home == 1){
+		        $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price1"])['value'];
+            }elseif ($home == 2){
+                $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price2"])['value'];
+            }elseif ($home == 3){
+                $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price3"])['value'];
+            }
+        }
+        if ($money == 0){//临时
+		    $money = 1505;
+        }
+
+//		$recommend = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation"]);
+//		if (empty($recommend)) {
+//			$money = 1500;
+//		} else {
+//			$money = $recommend["value"];
+//		}
+//		$isjump = $this->get("isjump");
+//		if ($isjump == 1) {
+//			$pay_function = pdo_get(prefix_table("cj_config"), ["key" => "pay_function"]);
+//			$pay_function = $pay_function ? $pay_function["value"] : 5;
+//			$money += $pay_function;
+//		}
 		$redpack_money = $this->get("redpack_money");
 		if ($redpack_money) {
 			$money += $redpack_money;
@@ -661,10 +741,26 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				json(array("msg" => "非店铺管理员没有发布奖品权限"), -2);
 			}
 		}
+		$version = $this->get("versions");
 		$attach_id = $this->get("attach_id");
 		$title = $this->get("title");
 		$desc_type = $this->get("desc_type");
-		$description = $this->get("description");
+		$condition = $this->get('condition');
+        //详细描述文字
+        $descriptionText = $this->get("descriptionText");
+		//详细描述图片
+		$descriptionImg = $this->get("descriptionImg");
+        $img = explode(",", $descriptionImg);
+        $description = '';
+        if (!empty($descriptionText)){
+            $description = $descriptionText;
+        }
+        if (!empty($descriptionImg)){
+            foreach ($img as $item) {
+                $description .= '&lt;img src=&quot;' . $this->getImage($item) . '&quot; width=&quot;100%&quot;/&gt;';
+            }
+        }
+
 		$uname = $this->get("uname");
 		if (0 && !$uname) {
 			$uname = pdo_fetchcolumn("select shop_name from " . tablename(prefix_table("cj_shop")) . " where id=" . (int) $this->member["shop_id"]);
@@ -681,28 +777,152 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		$prize = new prize();
 		$is_voucher = $prize->is_voucher($this->member["id"]);
 		if ($fir_ptype == 2) {
-			$fir_val = htmlspecialchars_decode($this->get("fir_cardmsg"));
-			$fir_num = $is_voucher ? $this->get("fir_num") : count(json_decode($fir_val, true));
-		} else {
+			$fir_str = htmlspecialchars_decode($this->get("fir_cardmsg"));
+			if (substr($fir_str,-1) == ';'){
+                $fir_vals = explode(';',substr($fir_str,0,-1));
+            }else{
+                $fir_vals = explode(';',$fir_str);
+            }
+            $fir_num =  count($fir_vals);
+			$fir_val = '[';                                  //[{"cardnum":"","cardpass":""}]
+            foreach ($fir_vals as $key=>$val){
+                if ($key == 0){
+                    $fir_val .= '{"cardnum":"' . $val . '","cardpass":""}';
+                }else{
+                    $fir_val .= ',{"cardnum":"' . $val . '","cardpass":""}';
+                }
+            }
+            $fir_val .= ']';
+        } else {
 			$fir_val = $this->get("fir_val");
 			$fir_num = $this->get("fir_num", 0);
 		}
 		$sec_ptype = $this->get("sec_ptype");
 		if ($sec_ptype == 2) {
-			$sec_val = htmlspecialchars_decode($this->get("sec_cardmsg"));
-			$sec_num = $is_voucher ? $this->get("sec_num") : count(json_decode($sec_val, true));
+//			$sec_val = htmlspecialchars_decode($this->get("sec_cardmsg"));
+//			$sec_num = $is_voucher ? $this->get("sec_num") : count(json_decode($sec_val, true));
+            $sec_str = htmlspecialchars_decode($this->get("sec_cardmsg"));
+            if (substr($sec_str,-1) == ';'){
+                $sec_vals = explode(';',substr($sec_str,0,-1));
+            }else{
+                $sec_vals = explode(';',$sec_str);
+            }
+            $sec_num =  count($sec_vals);
+            $sec_val = '[';                                  //[{"cardnum":"","cardpass":""}]
+            foreach ($sec_vals as $key=>$val){
+                if ($key == 0){
+                    $sec_val .= '{"cardnum":"' . $val . '","cardpass":""}';
+                }else{
+                    $sec_val .= ',{"cardnum":"' . $val . '","cardpass":""}';
+                }
+            }
+            $sec_val .= ']';
 		} else {
 			$sec_val = $this->get("sec_val");
 			$sec_num = $this->get("sec_num", 0);
 		}
 		$trd_ptype = $this->get("trd_ptype");
 		if ($trd_ptype == 2) {
-			$trd_val = htmlspecialchars_decode($this->get("trd_cardmsg"));
-			$trd_num = $is_voucher ? $this->get("trd_num") : count(json_decode($trd_val, true));
+//			$trd_val = htmlspecialchars_decode($this->get("trd_cardmsg"));
+//			$trd_num = $is_voucher ? $this->get("trd_num") : count(json_decode($trd_val, true));
+            $trd_str = htmlspecialchars_decode($this->get("trd_cardmsg"));
+            if (substr($trd_str,-1) == ';'){
+                $trd_vals = explode(';',substr($trd_str,0,-1));
+            }else{
+                $trd_vals = explode(';',$trd_str);
+            }
+            $trd_num =  count($trd_vals);
+            $trd_val = '[';                                  //[{"cardnum":"","cardpass":""}]
+            foreach ($trd_vals as $key=>$val){
+                if ($key == 0){
+                    $trd_val .= '{"cardnum":"' . $val . '","cardpass":""}';
+                }else{
+                    $trd_val .= ',{"cardnum":"' . $val . '","cardpass":""}';
+                }
+            }
+            $trd_val .= ']';
 		} else {
 			$trd_val = $this->get("trd_val");
 			$trd_num = $this->get("trd_num", 0);
 		}
+
+		//全部字段的判断
+        if (empty($attach_id)){
+            json('奖品图片不能为空',0);
+        }elseif (empty($description)){
+            json('详细说明不能为空', 0);
+        }
+        if ($fir_ptype == 0){ //奖品1实物判断
+            if (empty($fir_num)){
+                json('奖品数量不能为空',0);
+            }elseif ($fir_num < 0) {
+                json('奖品数量不正确', 0);
+            }
+        }else{               //奖品1虚拟判断
+		    if (empty($fir_cname)){
+                json('奖品名称不能为空',0);
+            }elseif (empty($fir_num)){
+                json('奖品数量不能为空',0);
+            }
+        }
+        if (!empty($sec_val)){ //奖品2
+            if ($sec_ptype == 0){ //奖品2实物判断
+                if (empty($sec_num)){
+                    json('奖品数量不能为空',0);
+                }elseif ($sec_num < 0) {
+                    json('奖品数量不正确', 0);
+                }
+            }else{               //奖品2虚拟判断
+                if (empty($sec_cname)){
+                    json('奖品名称不能为空',0);
+                }elseif (empty($sec_num)){
+                    json('奖品数量不能为空',0);
+                }
+            }
+        }
+        if (!empty($trd_val)){ //奖品3
+            if ($trd_ptype == 0){ //奖品3实物判断
+                if (empty($trd_num)){
+                    json('奖品数量不能为空',0);
+                }elseif ($trd_num < 0) {
+                    json('奖品数量不正确', 0);
+                }
+            }else{               //奖品3虚拟判断
+                if (empty($trd_cname)){
+                    json('奖品名称不能为空',0);
+                }elseif (empty($trd_num)){
+                    json('奖品数量不能为空',0);
+                }
+            }
+        }
+//        分版本检测
+        if ($version != '3'){        //首页版
+            if (empty($uname)){
+                json('赞助名称不能为空',0);
+            }elseif (empty($title)){
+                json('一句话广告不能为空',0);
+            }
+            if ($this->get("copyorjump") == 1){
+                if (empty($wechat_no)){
+                    json('公众号/微信号不能为空',0);
+                }elseif (empty($wechat_title)){
+                    json('公众号/微信号描述不能为空',0);
+                }
+            }else{
+                if (empty($this->get("appname"))){
+                    json('小程序名称不能为空',0);
+                }elseif (empty($this->get("wechatImg"))){
+                    json('小程序二维码不能为空',0);
+                }
+            }
+        }elseif($version == '3'){
+		    $base_max_people = pdo_get(prefix_table("cj_config"), ["key" => "base_max_people"])['value'];
+		    if ($this->get('type') == "people" && $this->get("typevalue") > $base_max_people){
+                json('开奖人数不能大于' . $base_max_people,0);
+            }
+        }
+
+
 		$max_group_num = 0;
 		$type = $this->get("type", "people");
 		$types = ["people" => 2, "time" => 1, "manual" => 3];
@@ -743,9 +963,11 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				$money += $fee;
 			}
 		}
+
+
 		$isjump = $this->get("isjump");
 		if ($isjump == 1 && !$insert_rec_id) {
-			$pay_function = pdo_get(prefix_table("cj_config"), ["key" => "pay_function"]);
+			$pay_function = pdo_get(prefix_table("cj_config"), ["key" => "height_price"]);
 			$pay_function = $pay_function ? $pay_function["value"] : 5;
 			$money += $pay_function;
 		}
@@ -771,7 +993,21 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				json("奖品发布失败", 0);
 			}
 		}
-		$data = ["title" => $title ? $title : $this->member["nickname"] . "手机发布", "brief_description" => $title, "member_id" => $this->member["id"], "uname" => $uname, "wechat_no" => $wechat_no, "wechat_title" => $wechat_title, "typevalue" => $typevalue, "max_group_num" => $max_group_num, "desc_type" => $desc_type, "desc_text" => $desc_type, "type" => $type, "attach_id" => $attach_id, "fir_ptype" => $fir_ptype, "fir_num" => $fir_num, "fir_val" => $fir_val, "sec_ptype" => $sec_ptype, "sec_num" => $sec_num, "sec_val" => $sec_val, "trd_ptype" => $trd_ptype, "trd_num" => $trd_num, "trd_val" => $trd_val, "description" => $description, "fir_cname" => $fir_cname, "sec_cname" => $sec_cname, "trd_cname" => $trd_cname, "created" => time(), "is_share" => $is_share, "is_command" => $is_command, "default_shop_id" => $this->member["shop_id"], "recommend_id" => $insert_rec_id, "to_allfans_flag" => 1];
+
+		if ($version == 1){
+		    $home = $this->get('home');
+            if ($home == 1){
+                $endtime = time() + (pdo_get(prefix_table("cj_config"),['key'=>'home_time1'])['value']) * 86400;
+            }elseif ($home == 2){
+                $endtime = time() + (pdo_get(prefix_table("cj_config"),['key'=>'home_time2'])['value']) * 86400;
+            }elseif ($home == 3){
+                $endtime = time() + (pdo_get(prefix_table("cj_config"),['key'=>'home_time3'])['value']) * 86400;
+            }
+            $data = ["title" => $title ? $title : $this->member["nickname"] . "手机发布", "brief_description" => $title, "member_id" => $this->member["id"], "uname" => $uname, "wechat_no" => $wechat_no, "wechat_title" => $wechat_title, "typevalue" => $endtime, "max_group_num" => $max_group_num, "desc_type" => $desc_type, "desc_text" => $desc_type, "type" => 1, "attach_id" => $attach_id, "fir_ptype" => $fir_ptype, "fir_num" => $fir_num, "fir_val" => $fir_val, "sec_ptype" => $sec_ptype, "sec_num" => $sec_num, "sec_val" => $sec_val, "trd_ptype" => $trd_ptype, "trd_num" => $trd_num, "trd_val" => $trd_val, "description" => $description, "fir_cname" => $fir_cname, "sec_cname" => $sec_cname, "trd_cname" => $trd_cname, "created" => time(), "is_share" => $is_share, "is_command" => $is_command, "default_shop_id" => $this->member["shop_id"], "recommend_id" => $insert_rec_id, "to_allfans_flag" => 1, "condition"=>$condition, "version"=>$version, "home"=>$this->get('home'), 'is_global'=>0];
+        }else{
+            $data = ["title" => $title ? $title : $this->member["nickname"] . "手机发布", "brief_description" => $title, "member_id" => $this->member["id"], "uname" => $uname, "wechat_no" => $wechat_no, "wechat_title" => $wechat_title, "typevalue" => $typevalue, "max_group_num" => $max_group_num, "desc_type" => $desc_type, "desc_text" => $desc_type, "type" => $type, "attach_id" => $attach_id, "fir_ptype" => $fir_ptype, "fir_num" => $fir_num, "fir_val" => $fir_val, "sec_ptype" => $sec_ptype, "sec_num" => $sec_num, "sec_val" => $sec_val, "trd_ptype" => $trd_ptype, "trd_num" => $trd_num, "trd_val" => $trd_val, "description" => $description, "fir_cname" => $fir_cname, "sec_cname" => $sec_cname, "trd_cname" => $trd_cname, "created" => time(), "is_share" => $is_share, "is_command" => $is_command, "default_shop_id" => $this->member["shop_id"], "recommend_id" => $insert_rec_id, "to_allfans_flag" => 1, "condition"=>$condition, "version"=>$version];
+        }
+
 		if ($is_command == 1) {
 			$data["command"] = $this->get("command");
 			if (empty($data["command"])) {
@@ -1092,6 +1328,31 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		if ($prize["type"] == 1) {
 			$prize["typevalue"] = date("Y-m-d H:i:s", $prize["typevalue"]);
 		}
+
+        $sql = "SELECT pc.* , m.nickname, m.user_img FROM " . tablename(prefix_table('cj_prize_code')) . " pc LEFT JOIN " . tablename(prefix_table('cj_member')) . " m on pc.member_id=m.id ORDER BY id DESC LIMIT 10";
+        $codeList = pdo_fetchall($sql);
+        foreach ($codeList as &$item){
+            $item['txt'] = $item['nickname'] . '参与了抽奖';
+        }
+        $prize['codeList'] = $codeList;
+        $gender = $this->member['gender'];
+        if ($prize['condition'] != 0){
+            if ($prize['condition'] == 1){
+                if ($gender == 2){
+                    $prize['iscondition'] = 1;//女，条件男，不能参与
+                }else{
+                    $prize['iscondition'] = 0;
+                }
+            }else{
+                if ($gender == 1){
+                    $prize['iscondition'] = 2;//男，条件女，不能参与
+                }else{
+                    $prize['iscondition'] = 0;
+                }
+            }
+        }else{
+            $prize['iscondition'] = 0;
+        }
 		json($prize);
 	}
 	public function doPageAllcode()
@@ -1354,56 +1615,55 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	{
 		$option = ["appid" => $this->w["uniaccount"]["key"], "secret" => $this->w["uniaccount"]["secret"]];
 		$wxObj = new Wxadoc($option);
-//		$config = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_allfans_begin"]);
-//		$tpl_to_allfans_begin = $config["value"];
-//		if ($tpl_to_allfans_begin) {
-//			$time = time() - 7 * 86400;
-//			$home_recommendation_need_check_cfg = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation_need_check"]);
-//			$home_recommendation_need_check = $home_recommendation_need_check_cfg["value"];
-//			if ($home_recommendation_need_check) {
-//				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0 and chk_flag=1) or is_global=0)";
-//			} else {
-//				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0) or is_global=0)";
-//			}
-//			$cj_prize_arr = pdo_fetchall($sql);
-//			foreach ($cj_prize_arr as $line) {
-//				$begin_member = $line["tpl_flag_begin"] == "B" ? 0 : (int) $line["tpl_flag_begin"];
-//				$get_num = 100;
-//				$members = pdo_fetchall("SELECT id, openid FROM " . tablename(prefix_table("cj_member")) . " WHERE is_robot=0 order by id asc limit {$begin_member}, {$get_num}");
-//				if ($members) {
-//					if ($line["is_global"] == 0) {
-//						$data_tpl = ["keyword1" => ["value" => $line["uname"] ? $line["uname"] : "新抽奖活动发布"], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
-//						foreach ($members as $member) {
-//							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
-//							if ($form_id) {
-//								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
-//								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
-//							}
-//						}
-//					} else {
-//						$member_name = pdo_fetchcolumn("select nickname from " . tablename(prefix_table("cj_member")) . " where id=" . $line["member_id"]);
-//						$data_tpl = ["keyword1" => ["value" => $member_name ? $member_name : $line["uname"]], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
-//						foreach ($members as $member) {
-//							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
-//							if ($form_id) {
-//								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
-//								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
-//							}
-//						}
-//					}
-//					pdo_update(prefix_table("cj_prize"), ["tpl_flag_begin" => $begin_member + $get_num], ["id" => $line["id"]]);
-//				} else {
-//					pdo_update(prefix_table("cj_prize"), ["to_allfans_flag" => 2, "tpl_flag_begin" => "F"], ["id" => $line["id"]]);
-//				}
-//			}
-//		}
+		$config = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_allfans_begin"]);
+		$tpl_to_allfans_begin = $config["value"];
+		if ($tpl_to_allfans_begin) {
+			$time = time() - 7 * 86400;
+			$home_recommendation_need_check_cfg = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation_need_check"]);
+			$home_recommendation_need_check = $home_recommendation_need_check_cfg["value"];
+			if ($home_recommendation_need_check) {
+				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0 and chk_flag=1) or is_global=0)";
+			} else {
+				$sql = "SELECT * FROM " . tablename(prefix_table("cj_prize")) . " WHERE is_cancel=0 and status=0 and tpl_flag_begin!='' and tpl_flag_begin!='F' and ((is_global=1 and recommend_id > 0 and member_id>0) or is_global=0)";
+			}
+			$cj_prize_arr = pdo_fetchall($sql);
+			foreach ($cj_prize_arr as $line) {
+				$begin_member = $line["tpl_flag_begin"] == "B" ? 0 : (int) $line["tpl_flag_begin"];
+				$get_num = 100;
+				$members = pdo_fetchall("SELECT id, openid FROM " . tablename(prefix_table("cj_member")) . " WHERE is_robot=0 order by id asc limit {$begin_member}, {$get_num}");
+				if ($members) {
+					if ($line["is_global"] == 0) {
+						$data_tpl = ["keyword1" => ["value" => $line["uname"] ? $line["uname"] : "新抽奖活动发布"], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
+						foreach ($members as $member) {
+							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
+							if ($form_id) {
+								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
+								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
+							}
+						}
+					} else {
+						$member_name = pdo_fetchcolumn("select nickname from " . tablename(prefix_table("cj_member")) . " where id=" . $line["member_id"]);
+						$data_tpl = ["keyword1" => ["value" => $member_name ? $member_name : $line["uname"]], "keyword2" => ["value" => $line["title"]], "keyword3" => ["value" => $line["type"] == 1 ? "活动结束时间 " . date("Y-m-d H:i:s", $line["typevalue"]) : "活动限约人数 " . $line["typevalue"] . " 人"]];
+						foreach ($members as $member) {
+							$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $member["id"] . "' AND created > {$time}");
+							if ($form_id) {
+								$wxObj->sendTemplateMessage($member["openid"], $tpl_to_allfans_begin, $data_tpl, $form_id["form_id"], "pages/partake/partake?id=" . $line["id"]);
+								pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
+							}
+						}
+					}
+					pdo_update(prefix_table("cj_prize"), ["tpl_flag_begin" => $begin_member + $get_num], ["id" => $line["id"]]);
+				} else {
+					pdo_update(prefix_table("cj_prize"), ["to_allfans_flag" => 2, "tpl_flag_begin" => "F"], ["id" => $line["id"]]);
+				}
+			}
+		}
 		$config = pdo_get(prefix_table("cj_config"), ["key" => "open_prize_notice"]);
 		if (empty($config)) {
 			return true;
 		}
-        $config = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_allfans_begin"]);
-//		$tpl_to_organiser = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_organiser"]);
-//		$tpl_to_organiser = $tpl_to_organiser["value"];
+		$tpl_to_organiser = pdo_get(prefix_table("cj_config"), ["key" => "tpl_to_organiser"]);
+		$tpl_to_organiser = $tpl_to_organiser["value"];
 		$template = pdo_getall(prefix_table("cj_template_message"), ["type" => 1, "status" => 0]);
 		if (empty($template)) {
 			return true;
@@ -1426,7 +1686,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 					$title = $prize["fir_cname"];
 				}
 			}
-			$data = ["keyword1" => ["value" => $title], "keyword2" => ["value" => "抽奖已经开启,快去看看你是不是幸运儿!"]];
+			$data = ["keyword1" => ["value" => "抽奖已经开启,快去看看你是不是幸运儿!"], "keyword2" => ["value" => $title]];
 			pdo_update(prefix_table("cj_template_message"), ["status" => 1], ["id" => $value["id"]]);
 			$order = pdo_getall(prefix_table("cj_order"), ["prize_id" => $value["relation_id"]]);
 			$is_robot_num = 0;
@@ -1443,16 +1703,16 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 					$is_robot_num++;
 				}
 			}
-//			if ($prize_organiser && $tpl_to_organiser) {
+			if ($prize_organiser && $tpl_to_organiser) {
 				$time = time() - 7 * 86400;
 				$form_id = pdo_fetch("SELECT * FROM " . tablename(prefix_table("cj_form_id")) . " WHERE member_id='" . $prize["member_id"] . "' AND created > {$time}");
 //				$data = ["keyword1" => ["value" => "您发起的抽奖活动已开奖,快去看看中奖信息吧!"], "keyword2" => ["value" => "总参与人数：" . count($order) . ($is_robot_num ? "【其中机器人 " . $is_robot_num . "】" : '')]];
 				$data = ["keyword1" => ["value" => "您发起的抽奖活动已开奖,快去看看中奖信息吧!"], "keyword2" => ["value" => "总参与人数：" . count($order)]];
 				if ($form_id) {
-					$wxObj->sendTemplateMessage($prize_organiser, $config["value"], $data, $form_id["form_id"], "pages/partake/partake?id=" . $value["relation_id"]);
+					$wxObj->sendTemplateMessage($prize_organiser, $tpl_to_organiser, $data, $form_id["form_id"], "pages/partake/partake?id=" . $value["relation_id"]);
 					pdo_delete(prefix_table("cj_form_id"), ["id" => $form_id["id"]]);
 				}
-//			}
+			}
 		}
 		return true;
 	}
@@ -1518,17 +1778,26 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		$config = pdo_get(prefix_table("cj_config"), ["key" => $key]);
 		if ($config) {
 			$config = $config["value"];
-		} else {
-			if ($key == "pay_function") {
-				pdo_insert(prefix_table("cj_config"), ["key" => "pay_function", "value" => 5]);
-				$config = 5;
-			} else {
-				if ($key == "home_recommendation") {
-					pdo_insert(prefix_table("cj_config"), ["key" => "home_recommendation", "value" => 1500]);
-					$config = 1500;
-				}
-			}
 		}
+		if ($key == 'home'){
+            $config['home_time1']  = pdo_get(prefix_table("cj_config"), ["key" => 'home_time1'])['value'];
+            $config['home_price1'] = pdo_get(prefix_table("cj_config"), ["key" => 'home_price1'])['value'];
+            $config['home_time2']  = pdo_get(prefix_table("cj_config"), ["key" => 'home_time2'])['value'];
+            $config['home_price2'] = pdo_get(prefix_table("cj_config"), ["key" => 'home_price2'])['value'];
+            $config['home_time3']  = pdo_get(prefix_table("cj_config"), ["key" => 'home_time3'])['value'];
+            $config['home_price3'] = pdo_get(prefix_table("cj_config"), ["key" => 'home_price3'])['value'];
+        }
+//		else {
+//			if ($key == "pay_function") {
+//				pdo_insert(prefix_table("cj_config"), ["key" => "pay_function", "value" => 5]);
+//				$config = 5;
+//			} else {
+//				if ($key == "home_recommendation") {
+//					pdo_insert(prefix_table("cj_config"), ["key" => "home_recommendation", "value" => 1500]);
+//					$config = 1500;
+//				}
+//			}
+//		}
 		json($config);
 	}
 	public function doPageAdvertisement()
