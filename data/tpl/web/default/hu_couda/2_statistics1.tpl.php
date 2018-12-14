@@ -58,6 +58,7 @@
                 <th style="width:80px;">小程序二维码</th>
                 <?php  if($is_global == 0) { ?><th style="width:80px;">名称</th><?php  } ?>
                 <?php  if($is_global == 1) { ?><th style="width:80px;">名称</th><?php  } ?>
+                <th style="width:50px;">版本</th>
                 <th style="width:100px;">发布人</th>
                 <th style="width:100px;">开奖方式</th>
                 <th style="width:100px;">开奖时间/人数</th>
@@ -77,6 +78,9 @@
                 </td>
                 <?php  if($is_global == 0) { ?><td><a href="<?php  echo $_SERVER['REQUEST_URI'];?>&op=details&id=<?php  echo $item['id'];?>"><?php  echo $item['title'];?></a></td><?php  } ?>
                 <?php  if($is_global == 1) { ?><td><?php  echo $item['prize_name'];?></td><?php  } ?>
+                <?php  if($item['version'] == 1) { ?> <td>首页版</td><?php  } ?>
+                <?php  if($item['version'] == 2) { ?> <td>高级版</td><?php  } ?>
+                <?php  if($item['version'] == 3) { ?> <td>免费版</td><?php  } ?>
                 <td><?php  echo $item['member']['nickname'];?></td>
                 <td><?php  echo $item['types'];?></td>
                 <td><?php  echo $item['typevalue'];?></td>

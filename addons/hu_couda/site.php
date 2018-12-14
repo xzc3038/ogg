@@ -1585,7 +1585,7 @@ class hu_coudaModuleSite extends WeModuleSite
             $type = $this->get('type');
             $describe = $this->get('describe');
             $updatetime = time();
-            if ($type != 0 || $type !=1){
+            if ($type != 0 && $type !=1){
                 message('类型不能为空');
             }else if (empty($describe)){
                 message('描述不能为空');

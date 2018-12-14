@@ -619,6 +619,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				}
 			}
 		}
+        shuffle($prize);
 		$data['prize'] = $prize;
 		$sql = "SELECT pc.* , m.nickname, m.user_img FROM " . tablename(prefix_table('cj_prize_code')) . " pc LEFT JOIN " . tablename(prefix_table('cj_member')) . " m on pc.member_id=m.id ORDER BY id DESC LIMIT 10";
 		$codeList = pdo_fetchall($sql);
@@ -626,6 +627,33 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
             $item['txt'] = $item['nickname'] . '参与了抽奖';
         }
         $data['codeList'] = $codeList;
+
+
+		//高级版
+        $sql1 = "SELECT * FROM " .  tablename(prefix_table('cj_prize')) . " WHERE version=2 AND is_cancel=0 AND is_share=0 AND status=0 ORDER BY id DESC LIMIT 10";
+        $version2List = pdo_fetchall($sql1);
+        if ($version2List){
+            foreach ($version2List as &$value) {
+                if ($value["type"] == 1) {
+                    $typevalue_flag = date("m月d日 H:i", $value["typevalue"]);
+                    $open_year = date("Y", $value["typevalue"]);
+                    if ($open_year > date("Y")) {
+                        $typevalue_flag = $open_year . "年" . $typevalue_flag;
+                    }
+                    $value["typevalue_flag"] = $typevalue_flag;
+                }
+                $image = pdo_get(prefix_table("cj_resource"), ["id" => $value["attach_id"]]);
+                $value["imgurl"] = $this->getImage($image["route"], false, true);
+                $value["joined"] = $this->member["id"] ? pdo_get(prefix_table("cj_order"), ["prize_id" => $value["id"], "member_id" => $this->member["id"]]) : '';
+                if ($value["sec_val"] != '') {
+                    $value["fir_label"] = "一";
+                } else {
+                    $value["fir_label"] = '';
+                }
+            }
+        }
+        shuffle($version2List);
+        $data['version2List'] = $version2List;
 		json($data);
 	}
 	public function doPageTotal()
@@ -646,15 +674,14 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 	public function doPageRecommend()
 	{
 		$contact = $this->get("contact");
-//		if (empty($contact)) {
-//			json("请填写联系方式", 0);
-//		}
-
 		$money = 0;
 		$version = $this->get('versions');
 		if ($version == 2){ //高级版收费
             $money +=  pdo_get(prefix_table("cj_config"), ["key" => "height_price"])['value'];
         }elseif ($version == 1){ //首页版收费
+            if (empty($contact)) {
+                json("请填写联系方式", 0);
+            }
 		    $home = $this->get('home');
 		    if ($home == 1){
 		        $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price1"])['value'];
@@ -668,18 +695,6 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		    $money = 1505;
         }
 
-//		$recommend = pdo_get(prefix_table("cj_config"), ["key" => "home_recommendation"]);
-//		if (empty($recommend)) {
-//			$money = 1500;
-//		} else {
-//			$money = $recommend["value"];
-//		}
-//		$isjump = $this->get("isjump");
-//		if ($isjump == 1) {
-//			$pay_function = pdo_get(prefix_table("cj_config"), ["key" => "pay_function"]);
-//			$pay_function = $pay_function ? $pay_function["value"] : 5;
-//			$money += $pay_function;
-//		}
 		$redpack_money = $this->get("redpack_money");
 		if ($redpack_money) {
 			$money += $redpack_money;
@@ -712,11 +727,13 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 			if (!($res = $prize->change($this->member["id"], $money, 9))) {
 				throw new Exception("更新余额失败");
 			}
-			$data = ["member_id" => $this->member["id"], "contact" => $contact, "created" => time()];
-			if (!pdo_insert(prefix_table("cj_home_recommend"), $data)) {
-				throw new Exception("推荐失败");
-			}
-			$insert_rec_id = pdo_insertid();
+			if ($version == 1){
+                $data = ["member_id" => $this->member["id"], "contact" => $contact, "created" => time()];
+                if (!pdo_insert(prefix_table("cj_home_recommend"), $data)) {
+                    throw new Exception("推荐失败");
+                }
+                $insert_rec_id = pdo_insertid();
+            }
 			pdo_commit();
 		} catch (Exception $e) {
 			pdo_rollback();
@@ -735,7 +752,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		if (!$this->member["shop_id"]) {
 			$js_default_shop = pdo_get(prefix_table("cj_config"), ["key" => "js_default_shop"]);
 			if ($js_default_shop["value"]) {
-				pdo_update(prefix_table("cj_member"), array("shop_id" => $js_default_shop["value"]), ["id" => $member_id]);
+				pdo_update(prefix_table("cj_member"), array("shop_id" => $js_default_shop["value"]), ["id" => $this->member['id']]);
 				$this->member["shop_id"] = $js_default_shop["value"];
 			} else {
 				json(array("msg" => "非店铺管理员没有发布奖品权限"), -2);
@@ -773,11 +790,15 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		$fir_ptype = $this->get("fir_ptype");
 		$is_share = $this->get("is_share");
 		$is_command = $this->get("is_command", 0);
-		$insert_rec_id = (int) $this->get("insert_rec_id", 0);
+        $isjump = $this->get("isjump");
+//		$insert_rec_id = (int) $this->get("insert_rec_id", 0);
 		$prize = new prize();
 		$is_voucher = $prize->is_voucher($this->member["id"]);
 		if ($fir_ptype == 2) {
 			$fir_str = htmlspecialchars_decode($this->get("fir_cardmsg"));
+			if (empty($fir_str)){
+			    json('卡券不能为空',0);
+            }
 			if (substr($fir_str,-1) == ';'){
                 $fir_vals = explode(';',substr($fir_str,0,-1));
             }else{
@@ -802,6 +823,9 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 //			$sec_val = htmlspecialchars_decode($this->get("sec_cardmsg"));
 //			$sec_num = $is_voucher ? $this->get("sec_num") : count(json_decode($sec_val, true));
             $sec_str = htmlspecialchars_decode($this->get("sec_cardmsg"));
+            if (empty($sec_str)){
+                json('卡券不能为空',0);
+            }
             if (substr($sec_str,-1) == ';'){
                 $sec_vals = explode(';',substr($sec_str,0,-1));
             }else{
@@ -826,6 +850,9 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 //			$trd_val = htmlspecialchars_decode($this->get("trd_cardmsg"));
 //			$trd_num = $is_voucher ? $this->get("trd_num") : count(json_decode($trd_val, true));
             $trd_str = htmlspecialchars_decode($this->get("trd_cardmsg"));
+            if (empty($trd_str)){
+                json('卡券不能为空',0);
+            }
             if (substr($trd_str,-1) == ';'){
                 $trd_vals = explode(';',substr($trd_str,0,-1));
             }else{
@@ -895,6 +922,25 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
                 }
             }
         }
+        $typevalue = $this->get("typevalue");
+        if ($this->get('type') == 'people'){
+            $num = $fir_num + $sec_num + $trd_num;
+            if ($num > $typevalue){
+                json('开奖人数不能小于奖品数', 0);
+            }elseif ($typevalue <= 0){
+                json('开奖人数应为正数', 0);
+            }elseif (!is_numeric($typevalue)){
+                json('请填写正确的开奖人数', 0);
+            }
+
+        }elseif ($this->get('type') == 'time'){
+            $typevalue = strtotime($typevalue);
+            if ($typevalue <= time()){
+                json('开奖时间已过，请重新选择时间', 0);
+            }elseif (!is_numeric($typevalue)){
+                json('请选择开奖时间', 0);
+            }
+        }
 //        分版本检测
         if ($version != '3'){        //首页版
             if (empty($uname)){
@@ -946,54 +992,65 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 				}
 			}
 		}
-		$money = 0;
-		if (!$insert_rec_id && ($fir_ptype == 1 || $trd_ptype == 1 || $sec_ptype == 1)) {
-			if ($fir_ptype == 1) {
-				$money += $fir_val * $fir_num;
-			}
-			if ($sec_ptype == 1) {
-				$money += $sec_val * $sec_num;
-			}
-			if ($trd_ptype == 1) {
-				$money += $trd_val * $trd_num;
-			}
-			$red_package_fee = pdo_get(prefix_table("cj_config"), ["key" => "red_package_fee"]);
-			if ($red_package_fee && $red_package_fee["value"] > 0) {
-				$fee = ceil($money * $red_package_fee["value"]) / 100;
-				$money += $fee;
-			}
-		}
+
+		//支付
+        $contact = $this->get("contact");
+        if ($this->get('pay') == 'check'){
+
+        }else{
+            $money = 0;
+            if ($version == 2){ //高级版收费
+                $money +=  pdo_get(prefix_table("cj_config"), ["key" => "height_price"])['value'];
+            }elseif ($version == 1){ //首页版收费
+                if (empty($contact)) {
+                    json("请填写联系方式", 0);
+                }
+                $home = $this->get('home');
+                if ($home == 1){
+                    $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price1"])['value'];
+                }elseif ($home == 2){
+                    $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price2"])['value'];
+                }elseif ($home == 3){
+                    $money += pdo_get(prefix_table("cj_config"), ["key" => "home_price3"])['value'];
+                }
+            }
+            if ($money > 0){
+                sleep(2);
+
+                $pay_money = $money;
+                $orderid = $prize->unifiedOrder($this->member["id"], $pay_money);
+                $xcx = pdo_get(prefix_table("cj_config"), ["key" => "title"]);
+                $xcx = $xcx ? $xcx["value"] : '';
+                $order = array("tid" => $orderid, "fee" => floatval($pay_money), "title" => $xcx . "的订单");//订单号，价格，标题
+                global $_W;
+                $_W["openid"] = $this->member["openid"];
+                $_W["member"]["uid"] = $this->member["id"];
+                $paydata = $this->pay($order);
+                if (is_error($paydata)) {
+                    json($paydata["message"], 0);
+                }
+                json($paydata, 2);
+            }
+
+        }
+        if ($version == 1){
+            pdo_begin();
+            try {
+                $data = ["member_id" => $this->member["id"], "contact" => $contact, "created" => time()];
+                if (!pdo_insert(prefix_table("cj_home_recommend"), $data)) {
+                    throw new Exception("推荐失败");
+                }
+                $insert_rec_id = pdo_insertid();
+                pdo_commit();
+            } catch (Exception $e) {
+                pdo_rollback();
+                json($e->getMessage(), 0);
+            }
+        }
 
 
-		$isjump = $this->get("isjump");
-		if ($isjump == 1 && !$insert_rec_id) {
-			$pay_function = pdo_get(prefix_table("cj_config"), ["key" => "height_price"]);
-			$pay_function = $pay_function ? $pay_function["value"] : 5;
-			$money += $pay_function;
-		}
-		if ($money > 0) {
-			sleep(2);
-			$member = pdo_get(prefix_table("cj_member"), ["id" => $this->member["id"]]);
-			if ($member["money"] < $money) {
-				$orderid = $prize->unifiedOrder($this->member["id"], $money);
-				$xcx = pdo_get(prefix_table("cj_config"), ["key" => "title"]);
-				$xcx = $xcx ? $xcx["value"] : '';
-				$order = array("tid" => $orderid, "fee" => floatval($money), "title" => $xcx . "的订单");
-				global $_W;
-				$_W["openid"] = $this->member["openid"];
-				$_W["member"]["uid"] = $this->member["id"];
-				$paydata = $this->pay($order);
-				if (is_error($paydata)) {
-					json($paydata["message"], 0);
-				}
-				json($paydata, 2);
-			}
-			$res = $prize->change($this->member["id"], $money, 5);
-			if ($res == false) {
-				json("奖品发布失败", 0);
-			}
-		}
 
+		//保存
 		if ($version == 1){
 		    $home = $this->get('home');
             if ($home == 1){
@@ -1003,7 +1060,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
             }elseif ($home == 3){
                 $endtime = time() + (pdo_get(prefix_table("cj_config"),['key'=>'home_time3'])['value']) * 86400;
             }
-            $data = ["title" => $title ? $title : $this->member["nickname"] . "手机发布", "brief_description" => $title, "member_id" => $this->member["id"], "uname" => $uname, "wechat_no" => $wechat_no, "wechat_title" => $wechat_title, "typevalue" => $endtime, "max_group_num" => $max_group_num, "desc_type" => $desc_type, "desc_text" => $desc_type, "type" => 1, "attach_id" => $attach_id, "fir_ptype" => $fir_ptype, "fir_num" => $fir_num, "fir_val" => $fir_val, "sec_ptype" => $sec_ptype, "sec_num" => $sec_num, "sec_val" => $sec_val, "trd_ptype" => $trd_ptype, "trd_num" => $trd_num, "trd_val" => $trd_val, "description" => $description, "fir_cname" => $fir_cname, "sec_cname" => $sec_cname, "trd_cname" => $trd_cname, "created" => time(), "is_share" => $is_share, "is_command" => $is_command, "default_shop_id" => $this->member["shop_id"], "recommend_id" => $insert_rec_id, "to_allfans_flag" => 1, "condition"=>$condition, "version"=>$version, "home"=>$this->get('home'), 'is_global'=>0];
+            $data = ["title" => $title ? $title : $this->member["nickname"] . "手机发布", "brief_description" => $title, "member_id" => $this->member["id"], "uname" => $uname, "wechat_no" => $wechat_no, "wechat_title" => $wechat_title, "typevalue" => $endtime, "max_group_num" => $max_group_num, "desc_type" => $desc_type, "desc_text" => $desc_type, "type" => 1, "attach_id" => $attach_id, "fir_ptype" => $fir_ptype, "fir_num" => $fir_num, "fir_val" => $fir_val, "sec_ptype" => $sec_ptype, "sec_num" => $sec_num, "sec_val" => $sec_val, "trd_ptype" => $trd_ptype, "trd_num" => $trd_num, "trd_val" => $trd_val, "description" => $description, "fir_cname" => $fir_cname, "sec_cname" => $sec_cname, "trd_cname" => $trd_cname, "created" => time(), "is_share" => $is_share, "is_command" => $is_command, "default_shop_id" => $this->member["shop_id"], "recommend_id" => $insert_rec_id, "to_allfans_flag" => 1, "condition"=>$condition, "version"=>$version, "home"=>$this->get('home'), 'is_global'=>1];
         }else{
             $data = ["title" => $title ? $title : $this->member["nickname"] . "手机发布", "brief_description" => $title, "member_id" => $this->member["id"], "uname" => $uname, "wechat_no" => $wechat_no, "wechat_title" => $wechat_title, "typevalue" => $typevalue, "max_group_num" => $max_group_num, "desc_type" => $desc_type, "desc_text" => $desc_type, "type" => $type, "attach_id" => $attach_id, "fir_ptype" => $fir_ptype, "fir_num" => $fir_num, "fir_val" => $fir_val, "sec_ptype" => $sec_ptype, "sec_num" => $sec_num, "sec_val" => $sec_val, "trd_ptype" => $trd_ptype, "trd_num" => $trd_num, "trd_val" => $trd_val, "description" => $description, "fir_cname" => $fir_cname, "sec_cname" => $sec_cname, "trd_cname" => $trd_cname, "created" => time(), "is_share" => $is_share, "is_command" => $is_command, "default_shop_id" => $this->member["shop_id"], "recommend_id" => $insert_rec_id, "to_allfans_flag" => 1, "condition"=>$condition, "version"=>$version];
         }
@@ -2098,6 +2155,34 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
      */
     public function doPageMe(){
         json(pdo_get(prefix_table("cj_member_me")));
+    }
+    /**
+     * 高级版列表
+     */
+    public function doPageHeight(){
+        $sql1 = "SELECT * FROM " .  tablename(prefix_table('cj_prize')) . " WHERE version=2 AND is_cancel=0 AND is_share=0 AND status=0 ORDER BY id DESC LIMIT 10";
+        $version2List = pdo_fetchall($sql1);
+        if ($version2List){
+            foreach ($version2List as &$value) {
+                if ($value["type"] == 1) {
+                    $typevalue_flag = date("m月d日 H:i", $value["typevalue"]);
+                    $open_year = date("Y", $value["typevalue"]);
+                    if ($open_year > date("Y")) {
+                        $typevalue_flag = $open_year . "年" . $typevalue_flag;
+                    }
+                    $value["typevalue_flag"] = $typevalue_flag;
+                }
+                $image = pdo_get(prefix_table("cj_resource"), ["id" => $value["attach_id"]]);
+                $value["imgurl"] = $this->getImage($image["route"], false, true);
+                $value["joined"] = $this->member["id"] ? pdo_get(prefix_table("cj_order"), ["prize_id" => $value["id"], "member_id" => $this->member["id"]]) : '';
+                if ($value["sec_val"] != '') {
+                    $value["fir_label"] = "一";
+                } else {
+                    $value["fir_label"] = '';
+                }
+            }
+        }
+        json($version2List);
     }
 }
 function json($info, $status = 1)

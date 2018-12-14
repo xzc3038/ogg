@@ -1,7 +1,7 @@
 <div class="panel panel-success">
     <div class="panel-heading">基本设置</div>
     <div class="panel-body">
-            
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">定时任务地址</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="form-group" id="open_robot_m" style="display:{php echo $robot['value'] == 1 ? '' : 'none';}">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">手机端发布时的机器人配置:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -50,7 +50,7 @@
                             <option value="0" {if $robot_m['value']==0}selected="selected"{/if}>不开启</option>
                             <option value="1" {if $robot_m['value']==1}selected="selected"{/if}>开启</option>
                         </select>
-                        
+
                         <span id='span_robot_m_percent'style="width:30%; display:{php echo $robot_m['value']!=1?'none':'';}">时间开奖时生成机器人上限数量（最多可为{$is_robot_max}）
                         <input class="form-control" name="robot_m_percent" value="{$robot_m_percent['value']}" type="text" style="width:10%;display:inherit">人
                         </span>
@@ -63,8 +63,8 @@
                         <span class="help-block">开启后手机端发布的非首页推荐的活动（时间开奖的）会自动加入机器人</span>
                     </div>
                 </div>
-        
-                 
+
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">是否使用oss(修改后先保存):</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -85,15 +85,15 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包:</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <select class="select valid" name="red_bag" size="1" aria-invalid="false" style="width: 150px;">
-                            <option {if $red_bag['value'] == 0}selected = "selected"{/if} value="0">不开启</option>
-                            <option {if $red_bag['value'] == 1}selected = "selected"{/if} value="1">开启</option>
-                        </select>
-                    </div>
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">红包:</label>-->
+                    <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
+                        <!--<select class="select valid" name="red_bag" size="1" aria-invalid="false" style="width: 150px;">-->
+                            <!--<option {if $red_bag['value'] == 0}selected = "selected"{/if} value="0">不开启</option>-->
+                            <!--<option {if $red_bag['value'] == 1}selected = "selected"{/if} value="1">开启</option>-->
+                        <!--</select>-->
+                    <!--</div>-->
+                <!--</div>-->
 
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">参与人初始人数:</label>
@@ -114,12 +114,12 @@
 
 
 
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-3 col-md-2 control-label">红包手续费(%):</label>
-                    <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="red_package_fee" placeholder="红包手续费(%)" value="{$red_package_fee['value']}" type="text">
-                    </div>
-                </div>
+                <!--<div class="form-group">-->
+                    <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">红包手续费(%):</label>-->
+                    <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
+                        <!--<input class="form-control" name="red_package_fee" placeholder="红包手续费(%)" value="{$red_package_fee['value']}" type="text">-->
+                    <!--</div>-->
+                <!--</div>-->
 
                 <!--免费版人数-->
                 <div class="form-group">
@@ -133,8 +133,8 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">高级版价格:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="height_price" value="{$height_price['value']}" type="number" min="0.01">
-                        <span class="help-block">高级版发布价格费用，最低0.01</span>
+                        <input class="form-control" name="height_price" value="{$height_price['value']}" type="number" min="0" step="0.01">
+                        <span class="help-block">高级版发布价格费用</span>
                     </div>
                 </div>
 
@@ -149,8 +149,8 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版价格1:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="home_price1" value="{$home_price1['value']}" type="number" min="0.01">
-                        <span class="help-block">首页版1发布价格费用，最低0.01</span>
+                        <input class="form-control" name="home_price1" value="{$home_price1['value']}" type="number" min="0" step="0.01">
+                        <span class="help-block">首页版1发布价格费用</span>
                     </div>
                 </div>
                 <!--首页版2-->
@@ -164,8 +164,8 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版价格2:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="home_price2" value="{$home_price2['value']}" type="number" min="0.01">
-                        <span class="help-block">首页版2发布价格费用，最低0.01</span>
+                        <input class="form-control" name="home_price2" value="{$home_price2['value']}" type="number" min="0" step="0.01">
+                        <span class="help-block">首页版2发布价格费用</span>
                     </div>
                 </div>
                 <!--首页版3-->
@@ -179,8 +179,8 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">首页版价格3:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
-                        <input class="form-control" name="home_price3" value="{$home_price3['value']}" type="number" min="0.01">
-                        <span class="help-block">首页版3发布价格费用，最低0.01</span>
+                        <input class="form-control" name="home_price3" value="{$home_price3['value']}" type="number" min="0" step="0.01">
+                        <span class="help-block">首页版3发布价格费用</span>
                     </div>
                 </div>
 
@@ -205,7 +205,7 @@
                         <input name="home_recommendation_need_check" value="1" type="checkbox" {if $home_recommendation_need_check['value']}checked="checked"{/if}>是
                         <span class="help-block">开启后手机端发布的活动必须由后台审核通过后才可到首页</span>
                     </div>
-                </div>        
+                </div>
                 <!--<div class="form-group">-->
                     <!--<label class="col-xs-12 col-sm-3 col-md-2 control-label">首页推荐最多人数限制:</label>-->
                     <!--<div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">-->
@@ -213,7 +213,7 @@
                         <!--<span class="help-block">手机端发布活动时，如果为人数开奖，允许用户填写人数上限的值，0为不限制</span>-->
                     <!--</div>-->
                 <!--</div>-->
-        
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">分配前端用户默认店铺:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -225,8 +225,8 @@
                         </select>
                         <span class="help-block">用户通过手机发奖时，如果此用户未关联任何店铺，则给他分配一个店铺</span>
                     </div>
-                </div>  
-                
+                </div>
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">全局默认广告方式:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -299,7 +299,7 @@
                     <input type="hidden" value="{php echo $default_prize_img['value']}" name="default_prize_img" id="single-image2">
                 </div>
                 </div>
-                
+
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">apiclient_cert.pem:</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
@@ -318,14 +318,14 @@
                         <input class="form-control" name="apiclient_key" placeholder="标题" value="{$apiclient_key['value']}" type="text" readonly>
                         {/if}
                     </div>
-                </div>     
+                </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-3 col-md-2 control-label">免责声明设置</label>
                     <div class="col-sm-7 col-lg-8 col-md-8 col-xs-12">
                         <textarea class="form-control" name="relief_desc" rows="5">{$relief_desc['value']}</textarea>
                     </div>
-                </div>  
-               
+                </div>
+
     </div>
 </div>
 
