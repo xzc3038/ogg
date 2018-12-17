@@ -764,7 +764,7 @@ class hu_coudaModuleWxapp extends WeModuleWxapp
 		$desc_type = $this->get("desc_type");
 		$condition = $this->get('condition');
         //详细描述文字
-        $descriptionText = $this->get("descriptionText");
+        $descriptionText = htmlspecialchars($this->get("descriptionText"));
 		//详细描述图片
 		$descriptionImg = $this->get("descriptionImg");
         $img = explode(",", $descriptionImg);

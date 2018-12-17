@@ -112,6 +112,7 @@ function _login($forward = '') {
 			message('您的账号已到期，请前往商城购买续费。<div><a class="btn btn-primary" style="width:80px;" href="' . $url . '">去续费</a></div>', $url, 'error');
 		}
 		cache_build_frame_menu();
+		$forward = './index.php?c=site&a=entry&eid=1&version_id=1';
 		itoast("欢迎回来，{$record['username']}", $forward, 'success');
 	} else {
 		if (empty($failed)) {

@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="36a7ed7c-f944-4f41-be04-3e00b6902ee0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/site.php" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/site.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/template/config_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/template/config_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/hu_couda/template/statistics1.html" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/template/statistics1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/hu_couda/wxapp.php" beforeDir="false" afterPath="$PROJECT_DIR$/addons/hu_couda/wxapp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/tpl/web/default/hu_couda/2_config_base.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/tpl/web/default/hu_couda/2_config_base.tpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/tpl/web/default/hu_couda/2_statistics1.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/tpl/web/default/hu_couda/2_statistics1.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attachment/images/2/2018/11/KQUf841fx1Q6181qDhH21bnx3881HD.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tpl/web/default/user/login.tpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/tpl/web/default/user/login.tpl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/source/user/login.ctrl.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/source/user/login.ctrl.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/themes/default/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/themes/default/user/login.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,35 +21,531 @@
       <file leaf-file-name="wxapp.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="629" lean-forward="true" selection-start-line="629" selection-end-line="629" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/framework/class/account.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28840">
-              <caret line="1442" column="23" selection-start-line="1442" selection-start-column="23" selection-end-line="1442" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/framework/class/account/account.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28640">
-              <caret line="1432" column="23" selection-start-line="1432" selection-start-column="23" selection-end-line="1432" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prize.mod.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/model/prize.mod.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11900">
-              <caret line="595" column="20" selection-start-line="595" selection-start-column="20" selection-end-line="595" selection-end-column="20" />
+            <state relative-caret-position="268">
+              <caret line="766" column="74" lean-forward="true" selection-start-line="766" selection-start-column="74" selection-end-line="766" selection-end-column="74" />
+              <folding>
+                <element signature="n#__construct#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#684#743#0#PHP" />
+                <element signature="e#746#826#0#PHP" />
+                <element signature="e#944#989#0#PHP" />
+                <element signature="e#1026#1818#0#PHP" />
+                <element signature="e#1123#1814#0#PHP" />
+                <element signature="e#1142#1203#0#PHP" />
+                <element signature="e#1297#1540#0#PHP" />
+                <element signature="e#1611#1792#0#PHP" />
+                <element signature="n#doPageQrcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#1889#1921#0#PHP" />
+                <element signature="e#2050#2110#0#PHP" />
+                <element signature="e#2186#2246#0#PHP" />
+                <element signature="e#2285#2643#0#PHP" />
+                <element signature="n#doPageAuthor#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#2763#2841#0#PHP" />
+                <element signature="n#doPageRelease#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#2946#3083#0#PHP" />
+                <element signature="n#_release#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#doPageVoucher#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#3528#3562#0#PHP" />
+                <element signature="n#doPageUpload#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#3618#3711#0#PHP" />
+                <element signature="e#3714#3769#0#PHP" />
+                <element signature="e#3838#3904#0#PHP" />
+                <element signature="e#3939#4086#0#PHP" />
+                <element signature="e#4022#4082#0#PHP" />
+                <element signature="e#4175#4253#0#PHP" />
+                <element signature="n#L#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#4313#4369#0#PHP" />
+                <element signature="n#doPageShare#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#4484#4514#0#PHP" />
+                <element signature="e#4739#4799#0#PHP" />
+                <element signature="e#4863#7619#0#PHP" />
+                <element signature="e#5017#5051#0#PHP" />
+                <element signature="e#5147#5347#0#PHP" />
+                <element signature="e#5270#5347#0#PHP" />
+                <element signature="e#5351#5664#0#PHP" />
+                <element signature="e#5468#5659#0#PHP" />
+                <element signature="e#5532#5653#0#PHP" />
+                <element signature="e#5875#6209#0#PHP" />
+                <element signature="e#5918#6204#0#PHP" />
+                <element signature="e#5957#6198#0#PHP" />
+                <element signature="e#6291#6579#0#PHP" />
+                <element signature="e#6583#6919#0#PHP" />
+                <element signature="e#6923#7281#0#PHP" />
+                <element signature="e#6939#6978#0#PHP" />
+                <element signature="n#doPageShareImg#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#7770#7800#0#PHP" />
+                <element signature="e#7989#8049#0#PHP" />
+                <element signature="e#8129#13063#0#PHP" />
+                <element signature="e#8160#8300#0#PHP" />
+                <element signature="e#8389#8881#0#PHP" />
+                <element signature="e#9018#9053#0#PHP" />
+                <element signature="e#9057#9814#0#PHP" />
+                <element signature="e#9188#9569#0#PHP" />
+                <element signature="e#9312#9470#0#PHP" />
+                <element signature="e#9477#9569#0#PHP" />
+                <element signature="e#9575#9814#0#PHP" />
+                <element signature="e#9661#9809#0#PHP" />
+                <element signature="e#10620#10829#0#PHP" />
+                <element signature="e#10689#10829#0#PHP" />
+                <element signature="e#10700#10824#0#PHP" />
+                <element signature="e#10779#10824#0#PHP" />
+                <element signature="e#11075#11284#0#PHP" />
+                <element signature="e#11144#11284#0#PHP" />
+                <element signature="e#11155#11279#0#PHP" />
+                <element signature="e#11234#11279#0#PHP" />
+                <element signature="e#11288#11497#0#PHP" />
+                <element signature="e#11357#11497#0#PHP" />
+                <element signature="e#11368#11492#0#PHP" />
+                <element signature="e#11447#11492#0#PHP" />
+                <element signature="e#11692#11710#0#PHP" />
+                <element signature="e#11764#12068#0#PHP" />
+                <element signature="e#11780#11854#0#PHP" />
+                <element signature="e#12072#12327#0#PHP" />
+                <element signature="e#12088#12133#0#PHP" />
+                <element signature="e#12331#12512#0#PHP" />
+                <element signature="e#12516#12703#0#PHP" />
+                <element signature="n#doPageImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#13211#13258#0#PHP" />
+                <element signature="e#13325#13370#0#PHP" />
+                <element signature="e#13409#13577#0#PHP" />
+                <element signature="e#13505#13577#0#PHP" />
+                <element signature="n#doPageLogin#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#13654#13694#0#PHP" />
+                <element signature="e#13831#13922#0#PHP" />
+                <element signature="e#14003#14135#0#PHP" />
+                <element signature="n#doPageRegister#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#14607#14661#0#PHP" />
+                <element signature="e#14674#15030#0#PHP" />
+                <element signature="n#doPageMy#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#doPageWithdrawals#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#15255#15321#0#PHP" />
+                <element signature="e#15511#15555#0#PHP" />
+                <element signature="e#15573#16109#0#PHP" />
+                <element signature="e#15718#15809#0#PHP" />
+                <element signature="e#15813#15910#0#PHP" />
+                <element signature="e#15946#16012#0#PHP" />
+                <element signature="e#16034#16109#0#PHP" />
+                <element signature="n#setPayment#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#16532#16604#0#PHP" />
+                <element signature="e#16680#16749#0#PHP" />
+                <element signature="n#doPageProblem#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#16865#16925#0#PHP" />
+                <element signature="n#doPageHistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#17639#18657#0#PHP" />
+                <element signature="e#17665#18647#0#PHP" />
+                <element signature="e#17711#18111#0#PHP" />
+                <element signature="e#17900#18029#0#PHP" />
+                <element signature="e#18467#18633#0#PHP" />
+                <element signature="e#18563#18633#0#PHP" />
+                <element signature="e#18658#18691#0#PHP" />
+                <element signature="n#doPageMywinn#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#19681#20699#0#PHP" />
+                <element signature="e#19707#20689#0#PHP" />
+                <element signature="e#19753#20153#0#PHP" />
+                <element signature="e#19942#20071#0#PHP" />
+                <element signature="e#20509#20675#0#PHP" />
+                <element signature="e#20605#20675#0#PHP" />
+                <element signature="e#20700#20733#0#PHP" />
+                <element signature="n#doPageLaunch#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#21636#22654#0#PHP" />
+                <element signature="e#21662#22644#0#PHP" />
+                <element signature="e#21708#22108#0#PHP" />
+                <element signature="e#21897#22026#0#PHP" />
+                <element signature="e#22464#22630#0#PHP" />
+                <element signature="e#22560#22630#0#PHP" />
+                <element signature="n#doPageIndex#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#22913#23361#0#PHP" />
+                <element signature="e#23161#23361#0#PHP" />
+                <element signature="e#23439#23578#0#PHP" />
+                <element signature="e#23581#24356#0#PHP" />
+                <element signature="e#23598#24352#0#PHP" />
+                <element signature="e#23632#23927#0#PHP" />
+                <element signature="e#23776#23872#0#PHP" />
+                <element signature="e#24235#24347#0#PHP" />
+                <element signature="e#24304#24347#0#PHP" />
+                <element signature="e#24655#24751#0#PHP" />
+                <element signature="e#25018#26049#0#PHP" />
+                <element signature="e#25050#26039#0#PHP" />
+                <element signature="e#25103#25503#0#PHP" />
+                <element signature="e#25292#25421#0#PHP" />
+                <element signature="e#25859#26025#0#PHP" />
+                <element signature="e#25955#26025#0#PHP" />
+                <element signature="n#doPageTotal#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#26310#26376#0#PHP" />
+                <element signature="e#26351#26376#0#PHP" />
+                <element signature="e#26453#26508#0#PHP" />
+                <element signature="n#doPageRecommend#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#26675#27357#0#PHP" />
+                <element signature="e#26807#27357#0#PHP" />
+                <element signature="e#26851#26923#0#PHP" />
+                <element signature="e#26964#27347#0#PHP" />
+                <element signature="e#27085#27216#0#PHP" />
+                <element signature="e#27216#27347#0#PHP" />
+                <element signature="e#27366#27418#0#PHP" />
+                <element signature="e#27470#27764#0#PHP" />
+                <element signature="e#27612#27760#0#PHP" />
+                <element signature="e#27882#28468#0#PHP" />
+                <element signature="e#28378#28442#0#PHP" />
+                <element signature="e#28486#29031#0#PHP" />
+                <element signature="e#28495#28598#0#PHP" />
+                <element signature="e#28602#28934#0#PHP" />
+                <element signature="e#28744#28871#0#PHP" />
+                <element signature="e#28956#29031#0#PHP" />
+                <element signature="e#29093#29147#0#PHP" />
+                <element signature="e#29237#29641#0#PHP" />
+                <element signature="e#29361#29637#0#PHP" />
+                <element signature="e#29578#29637#0#PHP" />
+                <element signature="e#30387#30550#0#PHP" />
+                <element signature="e#31062#31939#0#PHP" />
+                <element signature="e#31154#31214#0#PHP" />
+                <element signature="e#31218#31398#0#PHP" />
+                <element signature="e#31328#31398#0#PHP" />
+                <element signature="e#31538#31812#0#PHP" />
+                <element signature="e#31589#31798#0#PHP" />
+                <element signature="e#31698#31798#0#PHP" />
+                <element signature="e#31852#31939#0#PHP" />
+                <element signature="e#31982#33056#0#PHP" />
+                <element signature="e#32250#32319#0#PHP" />
+                <element signature="e#32332#32512#0#PHP" />
+                <element signature="e#32442#32512#0#PHP" />
+                <element signature="e#32661#32935#0#PHP" />
+                <element signature="e#32712#32921#0#PHP" />
+                <element signature="e#32821#32921#0#PHP" />
+                <element signature="e#32969#33056#0#PHP" />
+                <element signature="e#33099#34173#0#PHP" />
+                <element signature="e#33367#33436#0#PHP" />
+                <element signature="e#33449#33629#0#PHP" />
+                <element signature="e#33559#33629#0#PHP" />
+                <element signature="e#33778#34052#0#PHP" />
+                <element signature="e#33829#34038#0#PHP" />
+                <element signature="e#33938#34038#0#PHP" />
+                <element signature="e#34086#34173#0#PHP" />
+                <element signature="e#34195#34332#0#PHP" />
+                <element signature="e#34260#34332#0#PHP" />
+                <element signature="e#34341#34733#0#PHP" />
+                <element signature="e#34385#34529#0#PHP" />
+                <element signature="e#34456#34529#0#PHP" />
+                <element signature="e#34539#34733#0#PHP" />
+                <element signature="e#34575#34723#0#PHP" />
+                <element signature="e#34648#34723#0#PHP" />
+                <element signature="e#34742#35239#0#PHP" />
+                <element signature="e#34783#35229#0#PHP" />
+                <element signature="e#34831#34991#0#PHP" />
+                <element signature="e#34910#34991#0#PHP" />
+                <element signature="e#35005#35229#0#PHP" />
+                <element signature="e#35051#35215#0#PHP" />
+                <element signature="e#35132#35215#0#PHP" />
+                <element signature="e#35248#35745#0#PHP" />
+                <element signature="e#35289#35735#0#PHP" />
+                <element signature="e#35337#35497#0#PHP" />
+                <element signature="e#35416#35497#0#PHP" />
+                <element signature="e#35511#35735#0#PHP" />
+                <element signature="e#35557#35721#0#PHP" />
+                <element signature="e#35638#35721#0#PHP" />
+                <element signature="e#35800#36425#0#PHP" />
+                <element signature="e#35900#36139#0#PHP" />
+                <element signature="e#35977#36053#0#PHP" />
+                <element signature="e#36053#36139#0#PHP" />
+                <element signature="e#36150#36425#0#PHP" />
+                <element signature="e#36249#36415#0#PHP" />
+                <element signature="e#36332#36415#0#PHP" />
+                <element signature="e#36450#37427#0#PHP" />
+                <element signature="e#36497#36640#0#PHP" />
+                <element signature="e#36566#36640#0#PHP" />
+                <element signature="e#36653#37125#0#PHP" />
+                <element signature="e#36705#36882#0#PHP" />
+                <element signature="e#36789#36882#0#PHP" />
+                <element signature="e#36896#37125#0#PHP" />
+                <element signature="e#36918#37111#0#PHP" />
+                <element signature="e#37011#37111#0#PHP" />
+                <element signature="e#37135#37427#0#PHP" />
+                <element signature="e#37266#37417#0#PHP" />
+                <element signature="e#37615#38161#0#PHP" />
+                <element signature="e#37675#37738#0#PHP" />
+                <element signature="e#37743#38161#0#PHP" />
+                <element signature="e#37753#38157#0#PHP" />
+                <element signature="e#37818#37875#0#PHP" />
+                <element signature="e#38037#38152#0#PHP" />
+                <element signature="e#38220#39847#0#PHP" />
+                <element signature="e#38265#39847#0#PHP" />
+                <element signature="e#38307#39063#0#PHP" />
+                <element signature="e#38447#39063#0#PHP" />
+                <element signature="e#38495#38575#0#PHP" />
+                <element signature="e#38636#39049#0#PHP" />
+                <element signature="e#39076#39836#0#PHP" />
+                <element signature="e#39694#39787#0#PHP" />
+                <element signature="e#39856#40383#0#PHP" />
+                <element signature="e#39913#40373#0#PHP" />
+                <element signature="e#40041#40168#0#PHP" />
+                <element signature="e#40262#40373#0#PHP" />
+                <element signature="e#40396#42862#0#PHP" />
+                <element signature="e#40462#40899#0#PHP" />
+                <element signature="e#40605#40752#0#PHP" />
+                <element signature="e#40752#40899#0#PHP" />
+                <element signature="e#40920#41886#0#PHP" />
+                <element signature="e#41897#42862#0#PHP" />
+                <element signature="e#41923#42851#0#PHP" />
+                <element signature="e#42866#42999#0#PHP" />
+                <element signature="e#42938#42995#0#PHP" />
+                <element signature="e#43017#46292#0#PHP" />
+                <element signature="e#43026#43435#0#PHP" />
+                <element signature="e#43156#43237#0#PHP" />
+                <element signature="e#43329#43388#0#PHP" />
+                <element signature="e#43439#43848#0#PHP" />
+                <element signature="e#43569#43650#0#PHP" />
+                <element signature="e#43742#43801#0#PHP" />
+                <element signature="e#43852#44262#0#PHP" />
+                <element signature="e#43982#44064#0#PHP" />
+                <element signature="e#44156#44215#0#PHP" />
+                <element signature="e#44334#44841#0#PHP" />
+                <element signature="e#44541#44633#0#PHP" />
+                <element signature="e#44638#44836#0#PHP" />
+                <element signature="e#44987#45077#0#PHP" />
+                <element signature="e#45113#45234#0#PHP" />
+                <element signature="e#45238#45359#0#PHP" />
+                <element signature="e#45363#45484#0#PHP" />
+                <element signature="e#45488#46174#0#PHP" />
+                <element signature="e#46217#46292#0#PHP" />
+                <element signature="n#doPageWriteoff#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#46371#46418#0#PHP" />
+                <element signature="e#46421#46481#0#PHP" />
+                <element signature="e#46484#47960#0#PHP" />
+                <element signature="e#46565#46712#0#PHP" />
+                <element signature="e#46961#47044#0#PHP" />
+                <element signature="e#47153#47199#0#PHP" />
+                <element signature="e#47204#47960#0#PHP" />
+                <element signature="e#47214#47355#0#PHP" />
+                <element signature="e#47455#47547#0#PHP" />
+                <element signature="e#47648#47956#0#PHP" />
+                <element signature="n#doPageWriteOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#48219#48264#0#PHP" />
+                <element signature="e#48267#48389#0#PHP" />
+                <element signature="n#doPageVoucherList#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#48679#48800#0#PHP" />
+                <element signature="n#doPageVoucherDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#49001#49084#0#PHP" />
+                <element signature="n#doPagePayResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#_payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#49692#50157#0#PHP" />
+                <element signature="e#49726#50153#0#PHP" />
+                <element signature="e#49829#49896#0#PHP" />
+                <element signature="e#49901#50082#0#PHP" />
+                <element signature="e#50106#50153#0#PHP" />
+                <element signature="n#doPageDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#50278#50325#0#PHP" />
+                <element signature="e#50389#50435#0#PHP" />
+                <element signature="e#50497#51044#0#PHP" />
+                <element signature="e#50782#51044#0#PHP" />
+                <element signature="e#50792#51040#0#PHP" />
+                <element signature="e#50941#51035#0#PHP" />
+                <element signature="e#51429#52213#0#PHP" />
+                <element signature="e#51576#51707#0#PHP" />
+                <element signature="e#51676#51707#0#PHP" />
+                <element signature="e#51711#52116#0#PHP" />
+                <element signature="e#51925#52116#0#PHP" />
+                <element signature="e#52231#52802#0#PHP" />
+                <element signature="e#52356#52485#0#PHP" />
+                <element signature="e#52702#52798#0#PHP" />
+                <element signature="e#53161#53433#1#PHP" />
+                <element signature="e#53196#53249#0#PHP" />
+                <element signature="e#53253#53330#0#PHP" />
+                <element signature="e#53614#54160#0#PHP" />
+                <element signature="e#53777#54156#0#PHP" />
+                <element signature="e#54011#54096#0#PHP" />
+                <element signature="e#54209#54557#0#PHP" />
+                <element signature="e#54602#54989#0#PHP" />
+                <element signature="e#54769#54985#0#PHP" />
+                <element signature="e#54992#55169#0#PHP" />
+                <element signature="e#55116#55169#0#PHP" />
+                <element signature="e#55815#55912#0#PHP" />
+                <element signature="e#56178#56274#0#PHP" />
+                <element signature="e#56366#56900#0#PHP" />
+                <element signature="e#56409#56836#0#PHP" />
+                <element signature="e#56456#56621#0#PHP" />
+                <element signature="e#56551#56621#0#PHP" />
+                <element signature="e#56635#56836#0#PHP" />
+                <element signature="e#56657#56822#0#PHP" />
+                <element signature="e#56752#56822#0#PHP" />
+                <element signature="e#56846#56900#0#PHP" />
+                <element signature="n#doPageAllcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#56984#57031#0#PHP" />
+                <element signature="e#57095#57141#0#PHP" />
+                <element signature="n#doPagePrizeWins#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#57300#57347#0#PHP" />
+                <element signature="e#57411#57528#0#PHP" />
+                <element signature="e#57633#57864#0#PHP" />
+                <element signature="n#doPageAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#doPageGetAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#58353#58537#0#PHP" />
+                <element signature="n#doPageAll#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#59112#60074#0#PHP" />
+                <element signature="e#59259#59390#0#PHP" />
+                <element signature="e#59359#59390#0#PHP" />
+                <element signature="e#59443#59848#0#PHP" />
+                <element signature="e#59657#59848#0#PHP" />
+                <element signature="e#59945#59987#0#PHP" />
+                <element signature="e#60108#60235#0#PHP" />
+                <element signature="e#60601#60887#0#PHP" />
+                <element signature="e#60684#60883#0#PHP" />
+                <element signature="n#doPageApply#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#60943#61027#0#PHP" />
+                <element signature="e#61107#61197#0#PHP" />
+                <element signature="e#61261#61307#0#PHP" />
+                <element signature="e#61413#61460#0#PHP" />
+                <element signature="e#61478#63898#0#PHP" />
+                <element signature="e#61505#62355#0#PHP" />
+                <element signature="e#61600#62082#0#PHP" />
+                <element signature="e#61715#62076#0#PHP" />
+                <element signature="e#62087#62350#0#PHP" />
+                <element signature="e#62359#62541#0#PHP" />
+                <element signature="e#62396#62467#0#PHP" />
+                <element signature="e#62472#62536#0#PHP" />
+                <element signature="e#62747#62837#0#PHP" />
+                <element signature="e#62966#63027#0#PHP" />
+                <element signature="e#63106#63160#0#PHP" />
+                <element signature="e#63164#63256#0#PHP" />
+                <element signature="e#63277#63377#0#PHP" />
+                <element signature="e#63478#63786#0#PHP" />
+                <element signature="e#63594#63786#0#PHP" />
+                <element signature="e#63707#63786#0#PHP" />
+                <element signature="e#63823#63898#0#PHP" />
+                <element signature="n#doPageCode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#64131#64199#0#PHP" />
+                <element signature="e#64272#64515#0#PHP" />
+                <element signature="e#64412#64511#0#PHP" />
+                <element signature="e#64579#64882#0#PHP" />
+                <element signature="e#64730#64882#0#PHP" />
+                <element signature="e#64915#65128#0#PHP" />
+                <element signature="e#64939#65124#0#PHP" />
+                <element signature="n#doPageOpenPrize#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#65213#65257#0#PHP" />
+                <element signature="e#65321#65464#0#PHP" />
+                <element signature="e#65487#65528#0#PHP" />
+                <element signature="n#doPageOpen#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#65851#65945#0#PHP" />
+                <element signature="e#65875#65941#0#PHP" />
+                <element signature="e#66130#66219#0#PHP" />
+                <element signature="e#66146#66215#0#PHP" />
+                <element signature="n#sendTpl#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#66549#69630#0#PHP" />
+                <element signature="e#66817#67331#0#PHP" />
+                <element signature="e#67098#67331#0#PHP" />
+                <element signature="e#67374#69626#0#PHP" />
+                <element signature="e#67688#69621#0#PHP" />
+                <element signature="e#67709#69371#0#PHP" />
+                <element signature="e#69492#69621#0#PHP" />
+                <element signature="e#69713#69754#0#PHP" />
+                <element signature="e#69989#70032#0#PHP" />
+                <element signature="e#70035#72335#0#PHP" />
+                <element signature="e#70190#70388#0#PHP" />
+                <element signature="e#70392#70584#0#PHP" />
+                <element signature="e#70461#70584#0#PHP" />
+                <element signature="e#70472#70579#0#PHP" />
+                <element signature="e#70532#70579#0#PHP" />
+                <element signature="e#70890#71541#0#PHP" />
+                <element signature="e#71002#71536#0#PHP" />
+                <element signature="e#71221#71495#0#PHP" />
+                <element signature="e#71502#71536#0#PHP" />
+                <element signature="e#71545#72331#0#PHP" />
+                <element signature="e#72082#72326#0#PHP" />
+                <element signature="n#doPageConfigarr#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#72422#72464#0#PHP" />
+                <element signature="e#72511#74388#0#PHP" />
+                <element signature="e#72540#74384#0#PHP" />
+                <element signature="e#72645#73093#0#PHP" />
+                <element signature="e#72685#72893#0#PHP" />
+                <element signature="e#72900#73093#0#PHP" />
+                <element signature="e#73135#74384#0#PHP" />
+                <element signature="e#73518#74334#0#PHP" />
+                <element signature="n#doPageConfig#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#74472#74514#0#PHP" />
+                <element signature="e#74582#74631#0#PHP" />
+                <element signature="e#74634#75309#0#PHP" />
+                <element signature="e#75310#75320#0#PHP" />
+                <element signature="n#doPageAdvertisement#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#75976#76396#0#PHP" />
+                <element signature="e#76096#76396#0#PHP" />
+                <element signature="e#76106#76392#0#PHP" />
+                <element signature="e#76478#76517#0#PHP" />
+                <element signature="e#76603#76651#0#PHP" />
+                <element signature="e#76654#76846#0#PHP" />
+                <element signature="n#doPagePopupadv#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#77055#77093#0#PHP" />
+                <element signature="e#77139#77210#0#PHP" />
+                <element signature="n#doPageJump#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#get#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#getImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#77577#77868#0#PHP" />
+                <element signature="e#77693#77789#0#PHP" />
+                <element signature="e#77871#77997#0#PHP" />
+                <element signature="e#78000#78042#0#PHP" />
+                <element signature="e#78045#78114#0#PHP" />
+                <element signature="n#doPagePay#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#78262#78329#0#PHP" />
+                <element signature="e#78446#78533#0#PHP" />
+                <element signature="n#hasOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="n#_is_oss#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#78731#78807#0#PHP" />
+                <element signature="e#78781#78807#0#PHP" />
+                <element signature="e#78888#78912#0#PHP" />
+                <element signature="n#doPageLuck#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#79232#79257#0#PHP" />
+                <element signature="n#doPageGood#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#79489#79512#0#PHP" />
+                <element signature="n#doPageChange#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#79964#82462#0#PHP" />
+                <element signature="e#80126#82462#0#PHP" />
+                <element signature="e#80144#82452#0#PHP" />
+                <element signature="e#80227#82452#0#PHP" />
+                <element signature="e#80448#80643#0#PHP" />
+                <element signature="e#80660#80859#0#PHP" />
+                <element signature="e#80899#82365#0#PHP" />
+                <element signature="e#82494#82517#0#PHP" />
+                <element signature="n#doPageProgram#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#82781#83074#0#PHP" />
+                <element signature="e#82808#83021#0#PHP" />
+                <element signature="e#82858#83007#0#PHP" />
+                <element signature="e#82934#83007#0#PHP" />
+                <element signature="e#83031#83074#0#PHP" />
+                <element signature="e#83290#83313#0#PHP" />
+                <element signature="n#doPageLuckhistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#83588#83695#0#PHP" />
+                <element signature="e#83704#83807#0#PHP" />
+                <element signature="e#83759#83807#0#PHP" />
+                <element signature="e#83876#83905#0#PHP" />
+                <element signature="n#doPageWechat#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#84361#84453#0#PHP" />
+                <element signature="e#84462#84552#0#PHP" />
+                <element signature="e#84566#84813#0#PHP" />
+                <element signature="e#84612#84812#0#PHP" />
+                <element signature="e#84561#84891#0#PHP" />
+                <element signature="e#84900#85061#0#PHP" />
+                <element signature="e#85070#85251#0#PHP" />
+                <element signature="e#85473#85766#0#PHP" />
+                <element signature="e#85500#85713#0#PHP" />
+                <element signature="e#85550#85699#0#PHP" />
+                <element signature="e#85626#85699#0#PHP" />
+                <element signature="e#85723#85766#0#PHP" />
+                <element signature="e#86102#86125#0#PHP" />
+                <element signature="n#doPageHelp#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#86225#86248#0#PHP" />
+                <element signature="n#doPageMe#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#86344#86368#0#PHP" />
+                <element signature="n#doPageHeight#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+                <element signature="e#86622#87653#0#PHP" />
+                <element signature="e#86654#87643#0#PHP" />
+                <element signature="e#86707#87107#0#PHP" />
+                <element signature="e#87463#87629#0#PHP" />
+                <element signature="e#87559#87629#0#PHP" />
+                <element signature="n#json#0;n#!!top" />
+                <element signature="n#yuan_img#0;n#!!top" />
+                <element signature="e#87991#88159#0#PHP" />
+                <element signature="e#88022#88088#0#PHP" />
+                <element signature="e#88091#88156#0#PHP" />
+                <element signature="e#88456#88689#0#PHP" />
+                <element signature="e#88486#88678#0#PHP" />
+                <element signature="e#88554#88665#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -58,8 +553,8 @@
       <file leaf-file-name="site.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/addons/hu_couda/site.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="1583" column="42" lean-forward="true" selection-start-line="1583" selection-start-column="42" selection-end-line="1583" selection-end-column="42" />
+            <state relative-caret-position="240">
+              <caret line="128" column="34" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="34" />
               <folding>
                 <element signature="n#__construct#0;n#hu_coudaModuleSite#0;n#!!top" />
                 <element signature="e#369#481#0#PHP" />
@@ -89,7 +584,6 @@
                 <element signature="e#4622#5167#0#PHP" />
                 <element signature="e#4633#5162#0#PHP" />
                 <element signature="e#4745#5162#0#PHP" />
-                <element signature="n#doWebRecommend#0;n#hu_coudaModuleSite#0;n#!!top" />
                 <element signature="e#5306#5580#0#PHP" />
                 <element signature="e#5684#5891#0#PHP" />
                 <element signature="e#5700#5887#0#PHP" />
@@ -440,6 +934,7 @@
                 <element signature="e#66782#66826#0#PHP" />
                 <element signature="e#66836#67334#0#PHP" />
                 <element signature="e#67345#67370#0#PHP" />
+                <element signature="n#doWebHelp#0;n#hu_coudaModuleSite#0;n#!!top" />
                 <element signature="e#67691#68909#0#PHP" />
                 <element signature="e#67762#68909#0#PHP" />
                 <element signature="e#67784#68895#0#PHP" />
@@ -474,61 +969,90 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="statistics1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/statistics1.html">
+      <file leaf-file-name="recommend.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/recommend.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1220">
-              <caret line="61" column="49" selection-end-line="155" selection-end-column="9" />
+            <state relative-caret-position="320">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config.html">
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/header.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config_base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config_base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+            <state relative-caret-position="3817">
+              <caret line="355" column="78" selection-start-line="355" selection-start-column="78" selection-end-line="355" selection-end-column="78" />
               <folding>
-                <element signature="n#div#13;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#15;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#17;n#div#1;n#div#0;n#!!top" />
-                <element signature="n#div#19;n#div#1;n#div#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add.html">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/themes/default/user/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1580">
-              <caret line="79" column="83" selection-start-line="79" selection-start-column="83" selection-end-line="79" selection-end-column="83" />
+            <state relative-caret-position="560">
+              <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="me.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/me.html">
+      <file leaf-file-name="login.ctrl.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/source/user/login.ctrl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="546">
+              <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
               <folding>
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1240">
+              <caret line="154" column="50" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+              <folding>
+                <element signature="e#129#431#0#PHP" />
+                <element signature="e#231#429#0#PHP" />
+                <element signature="e#433#650#0#PHP" />
+                <element signature="e#791#1384#0#PHP" />
+                <element signature="e#979#1078#0#PHP" />
+                <element signature="e#1080#1239#0#PHP" />
+                <element signature="e#1133#1200#0#PHP" />
+                <element signature="e#1455#1584#0#PHP" />
+                <element signature="e#1479#1582#0#PHP" />
+                <element signature="e#1515#1579#0#PHP" />
+                <element signature="e#1585#1653#0#PHP" />
+                <element signature="e#1713#1752#0#PHP" />
+                <element signature="e#1754#2059#0#PHP" />
+                <element signature="e#1826#2057#0#PHP" />
+                <element signature="e#1924#1982#0#PHP" />
+                <element signature="e#2148#2418#0#PHP" />
+                <element signature="e#2307#2388#0#PHP" />
+                <element signature="e#2420#2475#0#PHP" />
+                <element signature="e#2477#2550#0#PHP" />
+                <element signature="e#2551#2674#0#PHP" />
+                <element signature="e#2676#2823#0#PHP" />
+                <element signature="e#2838#3512#0#PHP" />
+                <element signature="e#2889#2983#0#PHP" />
+                <element signature="e#2985#3282#0#PHP" />
+                <element signature="e#3016#3148#0#PHP" />
+                <element signature="e#3151#3279#0#PHP" />
+                <element signature="e#3312#3510#0#PHP" />
               </folding>
             </state>
           </provider>
@@ -538,21 +1062,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>pagerecommend</find>
-      <find>pay</find>
-      <find>pageadd</find>
-      <find>copyorjump</find>
-      <find>pageconfig</find>
-      <find>pagerecomme</find>
-      <find>pagerecomm</find>
-      <find>is_glo</find>
-      <find>dopagerecommed</find>
-      <find>insert_rec_id</find>
       <find>dopagead</find>
       <find>$contact</find>
       <find>cj_home_recommend</find>
       <find>dopagerecommend</find>
-      <find>dopageadd</find>
       <find>首页抽奖</find>
       <find>dopagerec</find>
       <find>dowebstatistics1</find>
@@ -568,6 +1081,17 @@
       <find>$is_global</find>
       <find>$trd_val</find>
       <find>trd_cardmsg</find>
+      <find>立即注册</find>
+      <find>.login-panel</find>
+      <find>login</find>
+      <find>user</find>
+      <find>include $this-&gt;template('login');</find>
+      <find>include $this-&gt;template('</find>
+      <find>register</find>
+      <find>recommend</find>
+      <find>抽奖</find>
+      <find>dopageadd</find>
+      <find>$description</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -584,7 +1108,6 @@
         <option value="$PROJECT_DIR$/addons/hu_couda/lib/Gd.class.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/config.html" />
         <option value="$PROJECT_DIR$/app/themes/default/common/header.html" />
-        <option value="$PROJECT_DIR$/addons/hu_couda/template/header.html" />
         <option value="$PROJECT_DIR$/framework/model/module.mod.php" />
         <option value="$PROJECT_DIR$/web/common/common.func.php" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/add_account.html" />
@@ -608,6 +1131,13 @@
         <option value="$PROJECT_DIR$/addons/hu_couda/template/config_base.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/template/statistics1.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/site.php" />
+        <option value="$PROJECT_DIR$/web/index.php" />
+        <option value="$PROJECT_DIR$/framework/builtin/paycenter/site.php" />
+        <option value="$PROJECT_DIR$/web/themes/default/user/login.html" />
+        <option value="$PROJECT_DIR$/web/source/account/post/user.ctrl.php" />
+        <option value="$PROJECT_DIR$/web/source/utility/user.ctrl.php" />
+        <option value="$PROJECT_DIR$/web/source/user/login.ctrl.php" />
+        <option value="$PROJECT_DIR$/addons/hu_couda/template/header.html" />
         <option value="$PROJECT_DIR$/addons/hu_couda/wxapp.php" />
       </list>
     </option>
@@ -660,7 +1190,20 @@
             <path>
               <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
               <item name="ogg" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ogg" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ogg" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ogg" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -670,7 +1213,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../erp" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/20181214165132" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -719,27 +1262,28 @@
       <workItem from="1544512319859" duration="16956000" />
       <workItem from="1544579346121" duration="14195000" />
       <workItem from="1544665337917" duration="5232000" />
-      <workItem from="1544753544759" duration="270000" />
+      <workItem from="1544753544759" duration="11038000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278044000" />
+    <option name="totallyTimeSpent" value="288812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.153125" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.153125" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -748,7 +1292,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32969433" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -769,112 +1312,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/phpqrcode/cache/frame_2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/phpqrcode/cache/frame_3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/phpqrcode/cache/frame_4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/phpqrcode/cache/frame_5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/phpqrcode/cache/frame_40.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_0.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="903" column="9" selection-start-line="903" selection-start-column="9" selection-end-line="903" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/class/wxapp.account.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="174" column="56" lean-forward="true" selection-start-line="174" selection-start-column="56" selection-end-line="174" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/Gd.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/class/db.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="147" column="20" selection-start-line="147" selection-start-column="20" selection-end-line="147" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/source/entry/site.ctrl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/merchant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_shop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="77" selection-start-line="9" selection-start-column="77" selection-end-line="9" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/source/entry/__init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/themes/default/common/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/common/common.func.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="282" column="51" selection-start-line="282" selection-start-column="51" selection-end-line="282" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="222" column="109" selection-start-line="222" selection-start-column="105" selection-end-line="222" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/framework/model/module.mod.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="149" column="5" selection-start-line="149" selection-start-column="5" selection-end-line="149" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/member.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="161" column="92" selection-start-line="161" selection-start-column="82" selection-end-line="161" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add_goods.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -913,22 +1350,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data/tpl/web/default/wxapp/payment.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -950,9 +1377,6 @@
           <caret line="1" selection-start-line="1" selection-end-line="5" selection-end-column="5" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/recommend.html">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/account_list.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -982,22 +1406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/me.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_5.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -1023,27 +1431,6 @@
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config_index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework/class/account/account.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28640">
-          <caret line="1432" column="23" selection-start-line="1432" selection-start-column="23" selection-end-line="1432" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1580">
-          <caret line="79" column="83" selection-start-line="79" selection-start-column="83" selection-end-line="79" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/lib/Wxadoc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1051,9 +1438,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/framework/class/account.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1442" column="23" selection-start-line="1442" selection-start-column="23" selection-end-line="1442" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/class/account/account.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="1432" column="23" selection-start-line="1432" selection-start-column="23" selection-end-line="1432" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/model/prize.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="595" column="20" selection-start-line="595" selection-start-column="20" selection-end-line="595" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/statistics1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/config_base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
+        <state relative-caret-position="826">
           <caret line="54" column="41" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
           <folding>
             <element signature="n#div#13;n#div#1;n#div#0;n#!!top" />
@@ -1064,31 +1486,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/model/prize.mod.php">
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11900">
-          <caret line="595" column="20" selection-start-line="595" selection-start-column="20" selection-end-line="595" selection-end-column="20" />
+        <state relative-caret-position="826">
+          <caret line="79" column="83" selection-start-line="79" selection-start-column="83" selection-end-line="79" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/framework/class/account.class.php">
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/me.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28840">
-          <caret line="1442" column="23" selection-start-line="1442" selection-start-column="23" selection-end-line="1442" selection-end-column="23" />
+        <state relative-caret-position="560">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#8;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/statistics1.html">
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/module.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/merchant.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1220">
-          <caret line="61" column="49" selection-end-line="155" selection-end-column="9" />
+        <state relative-caret-position="-234">
+          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/cashier.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/new.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/newfile.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attachment/1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/tpl/web/default/user/login.tpl.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4580">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1240">
+          <caret line="154" column="50" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="50" />
+          <folding>
+            <element signature="e#129#431#0#PHP" />
+            <element signature="e#231#429#0#PHP" />
+            <element signature="e#433#650#0#PHP" />
+            <element signature="e#791#1384#0#PHP" />
+            <element signature="e#979#1078#0#PHP" />
+            <element signature="e#1080#1239#0#PHP" />
+            <element signature="e#1133#1200#0#PHP" />
+            <element signature="e#1455#1584#0#PHP" />
+            <element signature="e#1479#1582#0#PHP" />
+            <element signature="e#1515#1579#0#PHP" />
+            <element signature="e#1585#1653#0#PHP" />
+            <element signature="e#1713#1752#0#PHP" />
+            <element signature="e#1754#2059#0#PHP" />
+            <element signature="e#1826#2057#0#PHP" />
+            <element signature="e#1924#1982#0#PHP" />
+            <element signature="e#2148#2418#0#PHP" />
+            <element signature="e#2307#2388#0#PHP" />
+            <element signature="e#2420#2475#0#PHP" />
+            <element signature="e#2477#2550#0#PHP" />
+            <element signature="e#2551#2674#0#PHP" />
+            <element signature="e#2676#2823#0#PHP" />
+            <element signature="e#2838#3512#0#PHP" />
+            <element signature="e#2889#2983#0#PHP" />
+            <element signature="e#2985#3282#0#PHP" />
+            <element signature="e#3016#3148#0#PHP" />
+            <element signature="e#3151#3279#0#PHP" />
+            <element signature="e#3312#3510#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/builtin/paycenter/site.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/source/account/post/user.ctrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/source/utility/user.ctrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/common/common.func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="96" column="9" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/site.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="1583" column="42" lean-forward="true" selection-start-line="1583" selection-start-column="42" selection-end-line="1583" selection-end-column="42" />
+        <state relative-caret-position="240">
+          <caret line="128" column="34" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="34" />
           <folding>
             <element signature="n#__construct#0;n#hu_coudaModuleSite#0;n#!!top" />
             <element signature="e#369#481#0#PHP" />
@@ -1118,7 +1645,6 @@
             <element signature="e#4622#5167#0#PHP" />
             <element signature="e#4633#5162#0#PHP" />
             <element signature="e#4745#5162#0#PHP" />
-            <element signature="n#doWebRecommend#0;n#hu_coudaModuleSite#0;n#!!top" />
             <element signature="e#5306#5580#0#PHP" />
             <element signature="e#5684#5891#0#PHP" />
             <element signature="e#5700#5887#0#PHP" />
@@ -1469,6 +1995,7 @@
             <element signature="e#66782#66826#0#PHP" />
             <element signature="e#66836#67334#0#PHP" />
             <element signature="e#67345#67370#0#PHP" />
+            <element signature="n#doWebHelp#0;n#hu_coudaModuleSite#0;n#!!top" />
             <element signature="e#67691#68909#0#PHP" />
             <element signature="e#67762#68909#0#PHP" />
             <element signature="e#67784#68895#0#PHP" />
@@ -1502,10 +2029,597 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/recommend.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/themes/default/user/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/framework/model/cache.mod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="140" column="9" selection-start-line="140" selection-start-column="9" selection-end-line="140" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/source/user/login.ctrl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="113" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/hu_couda/template/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3817">
+          <caret line="355" column="78" selection-start-line="355" selection-start-column="78" selection-end-line="355" selection-end-column="78" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa3572.5199/wxapp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="981" column="50" selection-start-line="981" selection-start-column="27" selection-end-line="981" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_0.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2764">
+          <caret line="546" column="9" selection-start-line="546" selection-start-column="9" selection-end-line="546" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/addons/hu_couda/wxapp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="629" lean-forward="true" selection-start-line="629" selection-end-line="629" />
+        <state relative-caret-position="268">
+          <caret line="766" column="74" lean-forward="true" selection-start-line="766" selection-start-column="74" selection-end-line="766" selection-end-column="74" />
+          <folding>
+            <element signature="n#__construct#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#684#743#0#PHP" />
+            <element signature="e#746#826#0#PHP" />
+            <element signature="e#944#989#0#PHP" />
+            <element signature="e#1026#1818#0#PHP" />
+            <element signature="e#1123#1814#0#PHP" />
+            <element signature="e#1142#1203#0#PHP" />
+            <element signature="e#1297#1540#0#PHP" />
+            <element signature="e#1611#1792#0#PHP" />
+            <element signature="n#doPageQrcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#1889#1921#0#PHP" />
+            <element signature="e#2050#2110#0#PHP" />
+            <element signature="e#2186#2246#0#PHP" />
+            <element signature="e#2285#2643#0#PHP" />
+            <element signature="n#doPageAuthor#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#2763#2841#0#PHP" />
+            <element signature="n#doPageRelease#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#2946#3083#0#PHP" />
+            <element signature="n#_release#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#doPageVoucher#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#3528#3562#0#PHP" />
+            <element signature="n#doPageUpload#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#3618#3711#0#PHP" />
+            <element signature="e#3714#3769#0#PHP" />
+            <element signature="e#3838#3904#0#PHP" />
+            <element signature="e#3939#4086#0#PHP" />
+            <element signature="e#4022#4082#0#PHP" />
+            <element signature="e#4175#4253#0#PHP" />
+            <element signature="n#L#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#4313#4369#0#PHP" />
+            <element signature="n#doPageShare#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#4484#4514#0#PHP" />
+            <element signature="e#4739#4799#0#PHP" />
+            <element signature="e#4863#7619#0#PHP" />
+            <element signature="e#5017#5051#0#PHP" />
+            <element signature="e#5147#5347#0#PHP" />
+            <element signature="e#5270#5347#0#PHP" />
+            <element signature="e#5351#5664#0#PHP" />
+            <element signature="e#5468#5659#0#PHP" />
+            <element signature="e#5532#5653#0#PHP" />
+            <element signature="e#5875#6209#0#PHP" />
+            <element signature="e#5918#6204#0#PHP" />
+            <element signature="e#5957#6198#0#PHP" />
+            <element signature="e#6291#6579#0#PHP" />
+            <element signature="e#6583#6919#0#PHP" />
+            <element signature="e#6923#7281#0#PHP" />
+            <element signature="e#6939#6978#0#PHP" />
+            <element signature="n#doPageShareImg#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#7770#7800#0#PHP" />
+            <element signature="e#7989#8049#0#PHP" />
+            <element signature="e#8129#13063#0#PHP" />
+            <element signature="e#8160#8300#0#PHP" />
+            <element signature="e#8389#8881#0#PHP" />
+            <element signature="e#9018#9053#0#PHP" />
+            <element signature="e#9057#9814#0#PHP" />
+            <element signature="e#9188#9569#0#PHP" />
+            <element signature="e#9312#9470#0#PHP" />
+            <element signature="e#9477#9569#0#PHP" />
+            <element signature="e#9575#9814#0#PHP" />
+            <element signature="e#9661#9809#0#PHP" />
+            <element signature="e#10620#10829#0#PHP" />
+            <element signature="e#10689#10829#0#PHP" />
+            <element signature="e#10700#10824#0#PHP" />
+            <element signature="e#10779#10824#0#PHP" />
+            <element signature="e#11075#11284#0#PHP" />
+            <element signature="e#11144#11284#0#PHP" />
+            <element signature="e#11155#11279#0#PHP" />
+            <element signature="e#11234#11279#0#PHP" />
+            <element signature="e#11288#11497#0#PHP" />
+            <element signature="e#11357#11497#0#PHP" />
+            <element signature="e#11368#11492#0#PHP" />
+            <element signature="e#11447#11492#0#PHP" />
+            <element signature="e#11692#11710#0#PHP" />
+            <element signature="e#11764#12068#0#PHP" />
+            <element signature="e#11780#11854#0#PHP" />
+            <element signature="e#12072#12327#0#PHP" />
+            <element signature="e#12088#12133#0#PHP" />
+            <element signature="e#12331#12512#0#PHP" />
+            <element signature="e#12516#12703#0#PHP" />
+            <element signature="n#doPageImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#13211#13258#0#PHP" />
+            <element signature="e#13325#13370#0#PHP" />
+            <element signature="e#13409#13577#0#PHP" />
+            <element signature="e#13505#13577#0#PHP" />
+            <element signature="n#doPageLogin#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#13654#13694#0#PHP" />
+            <element signature="e#13831#13922#0#PHP" />
+            <element signature="e#14003#14135#0#PHP" />
+            <element signature="n#doPageRegister#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#14607#14661#0#PHP" />
+            <element signature="e#14674#15030#0#PHP" />
+            <element signature="n#doPageMy#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#doPageWithdrawals#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#15255#15321#0#PHP" />
+            <element signature="e#15511#15555#0#PHP" />
+            <element signature="e#15573#16109#0#PHP" />
+            <element signature="e#15718#15809#0#PHP" />
+            <element signature="e#15813#15910#0#PHP" />
+            <element signature="e#15946#16012#0#PHP" />
+            <element signature="e#16034#16109#0#PHP" />
+            <element signature="n#setPayment#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#16532#16604#0#PHP" />
+            <element signature="e#16680#16749#0#PHP" />
+            <element signature="n#doPageProblem#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#16865#16925#0#PHP" />
+            <element signature="n#doPageHistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#17639#18657#0#PHP" />
+            <element signature="e#17665#18647#0#PHP" />
+            <element signature="e#17711#18111#0#PHP" />
+            <element signature="e#17900#18029#0#PHP" />
+            <element signature="e#18467#18633#0#PHP" />
+            <element signature="e#18563#18633#0#PHP" />
+            <element signature="e#18658#18691#0#PHP" />
+            <element signature="n#doPageMywinn#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#19681#20699#0#PHP" />
+            <element signature="e#19707#20689#0#PHP" />
+            <element signature="e#19753#20153#0#PHP" />
+            <element signature="e#19942#20071#0#PHP" />
+            <element signature="e#20509#20675#0#PHP" />
+            <element signature="e#20605#20675#0#PHP" />
+            <element signature="e#20700#20733#0#PHP" />
+            <element signature="n#doPageLaunch#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#21636#22654#0#PHP" />
+            <element signature="e#21662#22644#0#PHP" />
+            <element signature="e#21708#22108#0#PHP" />
+            <element signature="e#21897#22026#0#PHP" />
+            <element signature="e#22464#22630#0#PHP" />
+            <element signature="e#22560#22630#0#PHP" />
+            <element signature="n#doPageIndex#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#22913#23361#0#PHP" />
+            <element signature="e#23161#23361#0#PHP" />
+            <element signature="e#23439#23578#0#PHP" />
+            <element signature="e#23581#24356#0#PHP" />
+            <element signature="e#23598#24352#0#PHP" />
+            <element signature="e#23632#23927#0#PHP" />
+            <element signature="e#23776#23872#0#PHP" />
+            <element signature="e#24235#24347#0#PHP" />
+            <element signature="e#24304#24347#0#PHP" />
+            <element signature="e#24655#24751#0#PHP" />
+            <element signature="e#25018#26049#0#PHP" />
+            <element signature="e#25050#26039#0#PHP" />
+            <element signature="e#25103#25503#0#PHP" />
+            <element signature="e#25292#25421#0#PHP" />
+            <element signature="e#25859#26025#0#PHP" />
+            <element signature="e#25955#26025#0#PHP" />
+            <element signature="n#doPageTotal#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#26310#26376#0#PHP" />
+            <element signature="e#26351#26376#0#PHP" />
+            <element signature="e#26453#26508#0#PHP" />
+            <element signature="n#doPageRecommend#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#26675#27357#0#PHP" />
+            <element signature="e#26807#27357#0#PHP" />
+            <element signature="e#26851#26923#0#PHP" />
+            <element signature="e#26964#27347#0#PHP" />
+            <element signature="e#27085#27216#0#PHP" />
+            <element signature="e#27216#27347#0#PHP" />
+            <element signature="e#27366#27418#0#PHP" />
+            <element signature="e#27470#27764#0#PHP" />
+            <element signature="e#27612#27760#0#PHP" />
+            <element signature="e#27882#28468#0#PHP" />
+            <element signature="e#28378#28442#0#PHP" />
+            <element signature="e#28486#29031#0#PHP" />
+            <element signature="e#28495#28598#0#PHP" />
+            <element signature="e#28602#28934#0#PHP" />
+            <element signature="e#28744#28871#0#PHP" />
+            <element signature="e#28956#29031#0#PHP" />
+            <element signature="e#29093#29147#0#PHP" />
+            <element signature="e#29237#29641#0#PHP" />
+            <element signature="e#29361#29637#0#PHP" />
+            <element signature="e#29578#29637#0#PHP" />
+            <element signature="e#30387#30550#0#PHP" />
+            <element signature="e#31062#31939#0#PHP" />
+            <element signature="e#31154#31214#0#PHP" />
+            <element signature="e#31218#31398#0#PHP" />
+            <element signature="e#31328#31398#0#PHP" />
+            <element signature="e#31538#31812#0#PHP" />
+            <element signature="e#31589#31798#0#PHP" />
+            <element signature="e#31698#31798#0#PHP" />
+            <element signature="e#31852#31939#0#PHP" />
+            <element signature="e#31982#33056#0#PHP" />
+            <element signature="e#32250#32319#0#PHP" />
+            <element signature="e#32332#32512#0#PHP" />
+            <element signature="e#32442#32512#0#PHP" />
+            <element signature="e#32661#32935#0#PHP" />
+            <element signature="e#32712#32921#0#PHP" />
+            <element signature="e#32821#32921#0#PHP" />
+            <element signature="e#32969#33056#0#PHP" />
+            <element signature="e#33099#34173#0#PHP" />
+            <element signature="e#33367#33436#0#PHP" />
+            <element signature="e#33449#33629#0#PHP" />
+            <element signature="e#33559#33629#0#PHP" />
+            <element signature="e#33778#34052#0#PHP" />
+            <element signature="e#33829#34038#0#PHP" />
+            <element signature="e#33938#34038#0#PHP" />
+            <element signature="e#34086#34173#0#PHP" />
+            <element signature="e#34195#34332#0#PHP" />
+            <element signature="e#34260#34332#0#PHP" />
+            <element signature="e#34341#34733#0#PHP" />
+            <element signature="e#34385#34529#0#PHP" />
+            <element signature="e#34456#34529#0#PHP" />
+            <element signature="e#34539#34733#0#PHP" />
+            <element signature="e#34575#34723#0#PHP" />
+            <element signature="e#34648#34723#0#PHP" />
+            <element signature="e#34742#35239#0#PHP" />
+            <element signature="e#34783#35229#0#PHP" />
+            <element signature="e#34831#34991#0#PHP" />
+            <element signature="e#34910#34991#0#PHP" />
+            <element signature="e#35005#35229#0#PHP" />
+            <element signature="e#35051#35215#0#PHP" />
+            <element signature="e#35132#35215#0#PHP" />
+            <element signature="e#35248#35745#0#PHP" />
+            <element signature="e#35289#35735#0#PHP" />
+            <element signature="e#35337#35497#0#PHP" />
+            <element signature="e#35416#35497#0#PHP" />
+            <element signature="e#35511#35735#0#PHP" />
+            <element signature="e#35557#35721#0#PHP" />
+            <element signature="e#35638#35721#0#PHP" />
+            <element signature="e#35800#36425#0#PHP" />
+            <element signature="e#35900#36139#0#PHP" />
+            <element signature="e#35977#36053#0#PHP" />
+            <element signature="e#36053#36139#0#PHP" />
+            <element signature="e#36150#36425#0#PHP" />
+            <element signature="e#36249#36415#0#PHP" />
+            <element signature="e#36332#36415#0#PHP" />
+            <element signature="e#36450#37427#0#PHP" />
+            <element signature="e#36497#36640#0#PHP" />
+            <element signature="e#36566#36640#0#PHP" />
+            <element signature="e#36653#37125#0#PHP" />
+            <element signature="e#36705#36882#0#PHP" />
+            <element signature="e#36789#36882#0#PHP" />
+            <element signature="e#36896#37125#0#PHP" />
+            <element signature="e#36918#37111#0#PHP" />
+            <element signature="e#37011#37111#0#PHP" />
+            <element signature="e#37135#37427#0#PHP" />
+            <element signature="e#37266#37417#0#PHP" />
+            <element signature="e#37615#38161#0#PHP" />
+            <element signature="e#37675#37738#0#PHP" />
+            <element signature="e#37743#38161#0#PHP" />
+            <element signature="e#37753#38157#0#PHP" />
+            <element signature="e#37818#37875#0#PHP" />
+            <element signature="e#38037#38152#0#PHP" />
+            <element signature="e#38220#39847#0#PHP" />
+            <element signature="e#38265#39847#0#PHP" />
+            <element signature="e#38307#39063#0#PHP" />
+            <element signature="e#38447#39063#0#PHP" />
+            <element signature="e#38495#38575#0#PHP" />
+            <element signature="e#38636#39049#0#PHP" />
+            <element signature="e#39076#39836#0#PHP" />
+            <element signature="e#39694#39787#0#PHP" />
+            <element signature="e#39856#40383#0#PHP" />
+            <element signature="e#39913#40373#0#PHP" />
+            <element signature="e#40041#40168#0#PHP" />
+            <element signature="e#40262#40373#0#PHP" />
+            <element signature="e#40396#42862#0#PHP" />
+            <element signature="e#40462#40899#0#PHP" />
+            <element signature="e#40605#40752#0#PHP" />
+            <element signature="e#40752#40899#0#PHP" />
+            <element signature="e#40920#41886#0#PHP" />
+            <element signature="e#41897#42862#0#PHP" />
+            <element signature="e#41923#42851#0#PHP" />
+            <element signature="e#42866#42999#0#PHP" />
+            <element signature="e#42938#42995#0#PHP" />
+            <element signature="e#43017#46292#0#PHP" />
+            <element signature="e#43026#43435#0#PHP" />
+            <element signature="e#43156#43237#0#PHP" />
+            <element signature="e#43329#43388#0#PHP" />
+            <element signature="e#43439#43848#0#PHP" />
+            <element signature="e#43569#43650#0#PHP" />
+            <element signature="e#43742#43801#0#PHP" />
+            <element signature="e#43852#44262#0#PHP" />
+            <element signature="e#43982#44064#0#PHP" />
+            <element signature="e#44156#44215#0#PHP" />
+            <element signature="e#44334#44841#0#PHP" />
+            <element signature="e#44541#44633#0#PHP" />
+            <element signature="e#44638#44836#0#PHP" />
+            <element signature="e#44987#45077#0#PHP" />
+            <element signature="e#45113#45234#0#PHP" />
+            <element signature="e#45238#45359#0#PHP" />
+            <element signature="e#45363#45484#0#PHP" />
+            <element signature="e#45488#46174#0#PHP" />
+            <element signature="e#46217#46292#0#PHP" />
+            <element signature="n#doPageWriteoff#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#46371#46418#0#PHP" />
+            <element signature="e#46421#46481#0#PHP" />
+            <element signature="e#46484#47960#0#PHP" />
+            <element signature="e#46565#46712#0#PHP" />
+            <element signature="e#46961#47044#0#PHP" />
+            <element signature="e#47153#47199#0#PHP" />
+            <element signature="e#47204#47960#0#PHP" />
+            <element signature="e#47214#47355#0#PHP" />
+            <element signature="e#47455#47547#0#PHP" />
+            <element signature="e#47648#47956#0#PHP" />
+            <element signature="n#doPageWriteOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#48219#48264#0#PHP" />
+            <element signature="e#48267#48389#0#PHP" />
+            <element signature="n#doPageVoucherList#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#48679#48800#0#PHP" />
+            <element signature="n#doPageVoucherDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#49001#49084#0#PHP" />
+            <element signature="n#doPagePayResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#_payResult#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#49692#50157#0#PHP" />
+            <element signature="e#49726#50153#0#PHP" />
+            <element signature="e#49829#49896#0#PHP" />
+            <element signature="e#49901#50082#0#PHP" />
+            <element signature="e#50106#50153#0#PHP" />
+            <element signature="n#doPageDetails#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#50278#50325#0#PHP" />
+            <element signature="e#50389#50435#0#PHP" />
+            <element signature="e#50497#51044#0#PHP" />
+            <element signature="e#50782#51044#0#PHP" />
+            <element signature="e#50792#51040#0#PHP" />
+            <element signature="e#50941#51035#0#PHP" />
+            <element signature="e#51429#52213#0#PHP" />
+            <element signature="e#51576#51707#0#PHP" />
+            <element signature="e#51676#51707#0#PHP" />
+            <element signature="e#51711#52116#0#PHP" />
+            <element signature="e#51925#52116#0#PHP" />
+            <element signature="e#52231#52802#0#PHP" />
+            <element signature="e#52356#52485#0#PHP" />
+            <element signature="e#52702#52798#0#PHP" />
+            <element signature="e#53161#53433#1#PHP" />
+            <element signature="e#53196#53249#0#PHP" />
+            <element signature="e#53253#53330#0#PHP" />
+            <element signature="e#53614#54160#0#PHP" />
+            <element signature="e#53777#54156#0#PHP" />
+            <element signature="e#54011#54096#0#PHP" />
+            <element signature="e#54209#54557#0#PHP" />
+            <element signature="e#54602#54989#0#PHP" />
+            <element signature="e#54769#54985#0#PHP" />
+            <element signature="e#54992#55169#0#PHP" />
+            <element signature="e#55116#55169#0#PHP" />
+            <element signature="e#55815#55912#0#PHP" />
+            <element signature="e#56178#56274#0#PHP" />
+            <element signature="e#56366#56900#0#PHP" />
+            <element signature="e#56409#56836#0#PHP" />
+            <element signature="e#56456#56621#0#PHP" />
+            <element signature="e#56551#56621#0#PHP" />
+            <element signature="e#56635#56836#0#PHP" />
+            <element signature="e#56657#56822#0#PHP" />
+            <element signature="e#56752#56822#0#PHP" />
+            <element signature="e#56846#56900#0#PHP" />
+            <element signature="n#doPageAllcode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#56984#57031#0#PHP" />
+            <element signature="e#57095#57141#0#PHP" />
+            <element signature="n#doPagePrizeWins#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#57300#57347#0#PHP" />
+            <element signature="e#57411#57528#0#PHP" />
+            <element signature="e#57633#57864#0#PHP" />
+            <element signature="n#doPageAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#doPageGetAddress#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#58353#58537#0#PHP" />
+            <element signature="n#doPageAll#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#59112#60074#0#PHP" />
+            <element signature="e#59259#59390#0#PHP" />
+            <element signature="e#59359#59390#0#PHP" />
+            <element signature="e#59443#59848#0#PHP" />
+            <element signature="e#59657#59848#0#PHP" />
+            <element signature="e#59945#59987#0#PHP" />
+            <element signature="e#60108#60235#0#PHP" />
+            <element signature="e#60601#60887#0#PHP" />
+            <element signature="e#60684#60883#0#PHP" />
+            <element signature="n#doPageApply#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#60943#61027#0#PHP" />
+            <element signature="e#61107#61197#0#PHP" />
+            <element signature="e#61261#61307#0#PHP" />
+            <element signature="e#61413#61460#0#PHP" />
+            <element signature="e#61478#63898#0#PHP" />
+            <element signature="e#61505#62355#0#PHP" />
+            <element signature="e#61600#62082#0#PHP" />
+            <element signature="e#61715#62076#0#PHP" />
+            <element signature="e#62087#62350#0#PHP" />
+            <element signature="e#62359#62541#0#PHP" />
+            <element signature="e#62396#62467#0#PHP" />
+            <element signature="e#62472#62536#0#PHP" />
+            <element signature="e#62747#62837#0#PHP" />
+            <element signature="e#62966#63027#0#PHP" />
+            <element signature="e#63106#63160#0#PHP" />
+            <element signature="e#63164#63256#0#PHP" />
+            <element signature="e#63277#63377#0#PHP" />
+            <element signature="e#63478#63786#0#PHP" />
+            <element signature="e#63594#63786#0#PHP" />
+            <element signature="e#63707#63786#0#PHP" />
+            <element signature="e#63823#63898#0#PHP" />
+            <element signature="n#doPageCode#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#64131#64199#0#PHP" />
+            <element signature="e#64272#64515#0#PHP" />
+            <element signature="e#64412#64511#0#PHP" />
+            <element signature="e#64579#64882#0#PHP" />
+            <element signature="e#64730#64882#0#PHP" />
+            <element signature="e#64915#65128#0#PHP" />
+            <element signature="e#64939#65124#0#PHP" />
+            <element signature="n#doPageOpenPrize#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#65213#65257#0#PHP" />
+            <element signature="e#65321#65464#0#PHP" />
+            <element signature="e#65487#65528#0#PHP" />
+            <element signature="n#doPageOpen#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#65851#65945#0#PHP" />
+            <element signature="e#65875#65941#0#PHP" />
+            <element signature="e#66130#66219#0#PHP" />
+            <element signature="e#66146#66215#0#PHP" />
+            <element signature="n#sendTpl#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#66549#69630#0#PHP" />
+            <element signature="e#66817#67331#0#PHP" />
+            <element signature="e#67098#67331#0#PHP" />
+            <element signature="e#67374#69626#0#PHP" />
+            <element signature="e#67688#69621#0#PHP" />
+            <element signature="e#67709#69371#0#PHP" />
+            <element signature="e#69492#69621#0#PHP" />
+            <element signature="e#69713#69754#0#PHP" />
+            <element signature="e#69989#70032#0#PHP" />
+            <element signature="e#70035#72335#0#PHP" />
+            <element signature="e#70190#70388#0#PHP" />
+            <element signature="e#70392#70584#0#PHP" />
+            <element signature="e#70461#70584#0#PHP" />
+            <element signature="e#70472#70579#0#PHP" />
+            <element signature="e#70532#70579#0#PHP" />
+            <element signature="e#70890#71541#0#PHP" />
+            <element signature="e#71002#71536#0#PHP" />
+            <element signature="e#71221#71495#0#PHP" />
+            <element signature="e#71502#71536#0#PHP" />
+            <element signature="e#71545#72331#0#PHP" />
+            <element signature="e#72082#72326#0#PHP" />
+            <element signature="n#doPageConfigarr#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#72422#72464#0#PHP" />
+            <element signature="e#72511#74388#0#PHP" />
+            <element signature="e#72540#74384#0#PHP" />
+            <element signature="e#72645#73093#0#PHP" />
+            <element signature="e#72685#72893#0#PHP" />
+            <element signature="e#72900#73093#0#PHP" />
+            <element signature="e#73135#74384#0#PHP" />
+            <element signature="e#73518#74334#0#PHP" />
+            <element signature="n#doPageConfig#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#74472#74514#0#PHP" />
+            <element signature="e#74582#74631#0#PHP" />
+            <element signature="e#74634#75309#0#PHP" />
+            <element signature="e#75310#75320#0#PHP" />
+            <element signature="n#doPageAdvertisement#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#75976#76396#0#PHP" />
+            <element signature="e#76096#76396#0#PHP" />
+            <element signature="e#76106#76392#0#PHP" />
+            <element signature="e#76478#76517#0#PHP" />
+            <element signature="e#76603#76651#0#PHP" />
+            <element signature="e#76654#76846#0#PHP" />
+            <element signature="n#doPagePopupadv#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#77055#77093#0#PHP" />
+            <element signature="e#77139#77210#0#PHP" />
+            <element signature="n#doPageJump#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#get#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#getImage#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#77577#77868#0#PHP" />
+            <element signature="e#77693#77789#0#PHP" />
+            <element signature="e#77871#77997#0#PHP" />
+            <element signature="e#78000#78042#0#PHP" />
+            <element signature="e#78045#78114#0#PHP" />
+            <element signature="n#doPagePay#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#78262#78329#0#PHP" />
+            <element signature="e#78446#78533#0#PHP" />
+            <element signature="n#hasOrder#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="n#_is_oss#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#78731#78807#0#PHP" />
+            <element signature="e#78781#78807#0#PHP" />
+            <element signature="e#78888#78912#0#PHP" />
+            <element signature="n#doPageLuck#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#79232#79257#0#PHP" />
+            <element signature="n#doPageGood#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#79489#79512#0#PHP" />
+            <element signature="n#doPageChange#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#79964#82462#0#PHP" />
+            <element signature="e#80126#82462#0#PHP" />
+            <element signature="e#80144#82452#0#PHP" />
+            <element signature="e#80227#82452#0#PHP" />
+            <element signature="e#80448#80643#0#PHP" />
+            <element signature="e#80660#80859#0#PHP" />
+            <element signature="e#80899#82365#0#PHP" />
+            <element signature="e#82494#82517#0#PHP" />
+            <element signature="n#doPageProgram#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#82781#83074#0#PHP" />
+            <element signature="e#82808#83021#0#PHP" />
+            <element signature="e#82858#83007#0#PHP" />
+            <element signature="e#82934#83007#0#PHP" />
+            <element signature="e#83031#83074#0#PHP" />
+            <element signature="e#83290#83313#0#PHP" />
+            <element signature="n#doPageLuckhistory#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#83588#83695#0#PHP" />
+            <element signature="e#83704#83807#0#PHP" />
+            <element signature="e#83759#83807#0#PHP" />
+            <element signature="e#83876#83905#0#PHP" />
+            <element signature="n#doPageWechat#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#84361#84453#0#PHP" />
+            <element signature="e#84462#84552#0#PHP" />
+            <element signature="e#84566#84813#0#PHP" />
+            <element signature="e#84612#84812#0#PHP" />
+            <element signature="e#84561#84891#0#PHP" />
+            <element signature="e#84900#85061#0#PHP" />
+            <element signature="e#85070#85251#0#PHP" />
+            <element signature="e#85473#85766#0#PHP" />
+            <element signature="e#85500#85713#0#PHP" />
+            <element signature="e#85550#85699#0#PHP" />
+            <element signature="e#85626#85699#0#PHP" />
+            <element signature="e#85723#85766#0#PHP" />
+            <element signature="e#86102#86125#0#PHP" />
+            <element signature="n#doPageHelp#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#86225#86248#0#PHP" />
+            <element signature="n#doPageMe#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#86344#86368#0#PHP" />
+            <element signature="n#doPageHeight#0;n#hu_coudaModuleWxapp#0;n#!!top" />
+            <element signature="e#86622#87653#0#PHP" />
+            <element signature="e#86654#87643#0#PHP" />
+            <element signature="e#86707#87107#0#PHP" />
+            <element signature="e#87463#87629#0#PHP" />
+            <element signature="e#87559#87629#0#PHP" />
+            <element signature="n#json#0;n#!!top" />
+            <element signature="n#yuan_img#0;n#!!top" />
+            <element signature="e#87991#88159#0#PHP" />
+            <element signature="e#88022#88088#0#PHP" />
+            <element signature="e#88091#88156#0#PHP" />
+            <element signature="e#88456#88689#0#PHP" />
+            <element signature="e#88486#88678#0#PHP" />
+            <element signature="e#88554#88665#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
